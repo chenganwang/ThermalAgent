@@ -1,0 +1,13 @@
+{
+  "case_id": "case_simulation_readiness_check",
+  "title": "Liquid-cooling simulation readiness check",
+  "category": "simulation",
+  "query": "我有机柜冷板模型文件，想做液冷仿真准备检查，帮我检查还缺哪些参数。",
+  "expected_task_type": "calculation",
+  "expected_tools": [],
+  "expected_metadata_paths": ["metadata.simulation.status", "metadata.simulation.missing_inputs", "metadata.simulation.model_file", "metadata.simulation.cfd_executed"],
+  "expected_cards": ["simulation_card", "self_critique_card", "multi_agent_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["Mentioning a model in text does not register or upload it.", "Without a registered model, readiness is blocked and no CFD task/result is fabricated."],
+  "should_not_include": ["CFD completed", "simulation completed", "真实温度云图", "求解器已收敛"]
+}

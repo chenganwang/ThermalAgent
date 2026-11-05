@@ -1,0 +1,95 @@
+{
+  "registry_version": "7D.1",
+  "models": [
+    {
+      "model_id": "plane_wall_steady_v1", "scenario_id": "plane_wall_steady_conduction",
+      "name_zh": "MATLAB 一维平壁解析模型", "display_name": "平壁稳态导热",
+      "domain": "heat_transfer", "scenario_types": ["plane_wall_steady_conduction"],
+      "description": "受控 MATLAB 一维平壁稳态导热模型。", "backend": "matlab",
+      "matlab_entrypoint": "thermalagent_dispatch", "dispatcher_model_id": "plane_wall_steady_v1",
+      "version": "1.0.0", "solver": "matlab", "experimental": false,
+      "adapter_id": "matlab_controlled_adapter", "entrypoint_id": "heat_conduction_1d",
+      "execution_mode": "controlled_function", "status": "available", "human_validated": false,
+      "allowed_inputs": ["length_m", "area_m2", "thermal_conductivity_w_mk", "t_hot_c", "t_cold_c"],
+      "outputs": ["temperature_difference_k", "heat_rate_w", "heat_flux_w_m2"],
+      "required_inputs": ["thickness_m", "thermal_conductivity_w_mk", "area_m2"],
+      "alternative_input_groups": [{"group_id": "temperature_boundary", "any_of": [["delta_temperature_k"], ["hot_temperature_c", "cold_temperature_c"]]}],
+      "optional_inputs": ["delta_temperature_k", "hot_temperature_c", "cold_temperature_c"], "expected_outputs": ["temperature_difference_k", "heat_rate_w", "heat_flux_w_m2"],
+      "supports_execution": true, "requires_model_file": false, "cfd": false,
+      "selection_keywords": ["平壁", "壁厚", "稳态导热", "热流", "plane wall"],
+      "assumptions": ["一维稳态导热", "材料均匀且导热系数恒定"],
+      "limitations": ["不含接触热阻、辐射、对流和瞬态储热"],
+      "source": {"type": "controlled_builtin_demo", "provenance_status": "verified"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    },
+    {
+      "model_id": "cylindrical_wall_python_v1", "scenario_id": "cylindrical_wall_steady_conduction",
+      "name_zh": "Python 圆筒壁解析模型", "version": "1.0.0", "solver": "python",
+      "adapter_id": "python_controlled_executor", "entrypoint_id": "cylindrical_wall_v1",
+      "execution_mode": "controlled_function", "status": "available", "human_validated": false,
+      "allowed_inputs": ["inner_radius_m", "outer_radius_m", "length_m", "thermal_conductivity_w_mk", "t_inner_c", "t_outer_c"],
+      "outputs": ["temperature_difference_k", "heat_rate_w", "thermal_resistance_k_w"],
+      "assumptions": ["一维径向稳态导热", "导热系数恒定"],
+      "limitations": ["不含轴向和周向温差及边界对流"],
+      "source": {"type": "controlled_builtin_formula", "provenance_status": "pending"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    },
+    {
+      "model_id": "multilayer_wall_python_v1", "scenario_id": "multilayer_wall_conduction",
+      "name_zh": "Python 多层平壁热阻模型", "version": "1.0.0", "solver": "python",
+      "adapter_id": "python_controlled_executor", "entrypoint_id": "multilayer_wall_v1",
+      "execution_mode": "controlled_function", "status": "available", "human_validated": false,
+      "allowed_inputs": ["area_m2", "layers", "t_hot_c", "t_cold_c"],
+      "outputs": ["total_thermal_resistance_k_w", "heat_rate_w", "layer_temperature_drops"],
+      "assumptions": ["串联一维稳态导热", "每层导热系数恒定"],
+      "limitations": ["不含层间接触热阻"],
+      "source": {"type": "controlled_builtin_formula", "provenance_status": "pending"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    },
+    {
+      "model_id": "liquid_loop_energy_balance_python_v1", "scenario_id": "liquid_loop_energy_balance",
+      "name_zh": "Python 液冷回路能量平衡模型", "version": "1.0.0", "solver": "python",
+      "adapter_id": "python_controlled_executor", "entrypoint_id": "liquid_loop_energy_balance_v1",
+      "execution_mode": "controlled_function", "status": "available", "human_validated": false,
+      "allowed_inputs": ["heat_load_w", "specific_heat_j_kgk", "inlet_temperature_c", "mass_flow_kg_s", "outlet_temperature_c", "allowed_temperature_rise_k"],
+      "outputs": ["mass_flow_kg_s", "temperature_rise_k", "outlet_temperature_c", "heat_load_w"],
+      "assumptions": ["稳态且比热容恒定", "无环境热损失"],
+      "limitations": ["不含压力损失、相变、泵功和流量分配"],
+      "source": {"type": "controlled_builtin_formula", "provenance_status": "pending"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    },
+    {
+      "model_id": "junction_temperature_network_python_v1", "scenario_id": "junction_temperature_network",
+      "name_zh": "Python 芯片结温串联热阻网络", "version": "1.0.0", "solver": "python",
+      "adapter_id": "python_controlled_executor", "entrypoint_id": "junction_temperature_network_v1",
+      "execution_mode": "controlled_function", "status": "available", "human_validated": false,
+      "allowed_inputs": ["ambient_temperature_c", "power_w", "thermal_resistances_k_w"],
+      "outputs": ["total_thermal_resistance_k_w", "junction_temperature_c", "node_temperatures_c"],
+      "assumptions": ["所有热阻串联且稳态"],
+      "limitations": ["不处理并联路径、瞬态热容和温变参数"],
+      "source": {"type": "controlled_builtin_formula", "provenance_status": "pending"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    },
+    {
+      "model_id": "lumped_transient_preparation_v1", "scenario_id": "lumped_transient_heating",
+      "name_zh": "集总热容瞬态准备模型", "version": "0.1.0", "solver": "matlab",
+      "adapter_id": null, "entrypoint_id": null, "execution_mode": "preparation_only",
+      "status": "experimental", "human_validated": false,
+      "allowed_inputs": ["initial_temperature_c", "ambient_temperature_c", "density_kg_m3", "volume_m3", "specific_heat_j_kgk", "convection_coefficient_w_m2k", "surface_area_m2", "duration_s", "time_step_s"],
+      "outputs": ["time_series", "final_temperature_c", "time_constant_s", "biot_assumption_note"],
+      "assumptions": ["集总热容假设尚待校核"], "limitations": ["本阶段不执行"],
+      "source": {"type": "catalog_registration", "provenance_status": "pending"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    },
+    {
+      "model_id": "cfd_registered_model_preparation_v1", "scenario_id": "cfd_model_preparation",
+      "name_zh": "CFD 模型任务准备模板", "version": "1.0.0", "solver": "openfoam",
+      "adapter_id": null, "entrypoint_id": null, "execution_mode": "preparation_only",
+      "status": "preparation_only", "human_validated": false,
+      "allowed_inputs": ["model_file_id"], "outputs": [], "assumptions": [],
+      "limitations": ["本阶段不执行 CFD"],
+      "source": {"type": "catalog_registration", "provenance_status": "pending"},
+      "file": null, "hash": null, "registration_type": "built_in"
+    }
+  ]
+}

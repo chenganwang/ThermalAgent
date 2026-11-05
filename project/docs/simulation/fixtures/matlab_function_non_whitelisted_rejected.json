@@ -1,0 +1,13 @@
+{
+  "fixture_type": "matlab_guard",
+  "diagnostic": true,
+  "fake": true,
+  "status": "failed",
+  "function_name": "eval",
+  "is_real": false,
+  "is_fake": true,
+  "error": {
+    "code": "matlab_function_not_allowed",
+    "message": "MATLAB function is not allowed by MATLAB_ALLOWED_FUNCTIONS: eval"
+  }
+}

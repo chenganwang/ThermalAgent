@@ -1,0 +1,19 @@
+{
+  "fixture_type": "database_history",
+  "mocked": true,
+  "records": [
+    {
+      "history_id": "sim-history-fixture",
+      "run_id": "sim-run-fixture",
+      "task_id": "sim-task-fixture",
+      "status": "success",
+      "trace_id": "trace-fixture",
+      "metadata": {
+        "tool_name": "matlab_function_eval",
+        "adapter_name": "mock"
+      }
+    }
+  ],
+  "limit": 50,
+  "offset": 0
+}

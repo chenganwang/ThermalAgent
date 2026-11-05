@@ -1,0 +1,720 @@
+{
+  "answer": "结论：目前不能给出具体唯一数值，因为缺少必要参数：L_m, k_W_mK, A_m2。\n\n公式：R_cond = L_m / (k_W_mK * A_m2)\n\n需要补充的参数：\n- L_m\n- k_W_mK\n- A_m2\n\n单位校验：failed\n- Missing required input: L_m\n- Missing required input: k_W_mK\n- Missing required input: A_m2\n\n工程边界与警告：\n- The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate.\n- One-dimensional steady conduction approximation only.\n\nRAG 与计算关系：\n- 当前计算基于通用传热/能量守恒公式，未从当前知识库检索到强匹配来源。",
+  "query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图。",
+  "task_type": "visualization",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "visualization",
+    "domain": "thermal_management",
+    "entities": [
+      "冷板",
+      "CDU",
+      "冷却液",
+      "芯片",
+      "TIM"
+    ],
+    "intent": "识别冷板、CDU、冷却液、芯片、TIM所需的工程图结构或散热路径表达",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": true,
+    "confidence": 0.76,
+    "original_query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图。",
+    "normalized_query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图.",
+    "warnings": [
+      "检测到图结构或可视化表达意图；本阶段仅标记结构化需求，不生成 CFD 云图。"
+    ],
+    "candidate_tools": [],
+    "properties": [],
+    "needs_report": false,
+    "needs_comparison": false,
+    "needs_simulation": false,
+    "is_property_lookup": false,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [
+        "coolant_context"
+      ],
+      "visualization": [
+        "visualization_keyword",
+        "thermal_path_sequence",
+        "thermal_loop_entities"
+      ],
+      "analysis": []
+    }
+  },
+  "rewrite": {
+    "original_query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图。",
+    "rewritten_query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图. 冷板 CDU 冷却液 芯片 TIM",
+    "expanded_queries": [
+      "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图. 冷板 CDU 冷却液 芯片 TIM",
+      "冷板 CDU 冷却液 芯片 TIM 散热 热管理",
+      "冷板 cold plate microchannel cold plate 流道 均温 CDU coolant distribution unit 冷量分配单元 二次侧 冷却液 coolant water glycol"
+    ],
+    "keywords": [
+      "冷板",
+      "CDU",
+      "冷却液",
+      "芯片",
+      "TIM",
+      "请画一个芯片到",
+      "冷却液和",
+      "的散热路径图",
+      "cold plate",
+      "microchannel cold plate",
+      "流道",
+      "均温",
+      "coolant distribution unit",
+      "冷量分配单元",
+      "二次侧",
+      "coolant",
+      "water glycol",
+      "乙二醇水溶液",
+      "thermal interface material",
+      "导热界面材料",
+      "导热硅脂"
+    ],
+    "entities": [
+      "冷板",
+      "CDU",
+      "冷却液",
+      "芯片",
+      "TIM"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-visualization",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": "conduction_resistance",
+    "tool_status": "error",
+    "tool_inputs": {
+      "L_m": null,
+      "k_W_mK": null,
+      "A_m2": null,
+      "material_name": null,
+      "heat_load_W": null
+    },
+    "tool_result": {},
+    "tool_formula": "R_cond = L_m / (k_W_mK * A_m2)",
+    "tool_steps": [],
+    "tool_warnings": [
+      "The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate."
+    ],
+    "missing_parameters": [
+      "L_m",
+      "k_W_mK",
+      "A_m2"
+    ],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": "conduction_resistance",
+      "tool_status": "error",
+      "tool_inputs": {
+        "L_m": null,
+        "k_W_mK": null,
+        "A_m2": null,
+        "material_name": null,
+        "heat_load_W": null
+      },
+      "tool_result": {},
+      "tool_formula": "R_cond = L_m / (k_W_mK * A_m2)",
+      "tool_steps": [],
+      "tool_warnings": [
+        "The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate."
+      ],
+      "missing_parameters": [
+        "L_m",
+        "k_W_mK",
+        "A_m2"
+      ],
+      "assumptions": [],
+      "unit_check": {
+        "status": "failed",
+        "messages": [
+          "Missing required input: L_m",
+          "Missing required input: k_W_mK",
+          "Missing required input: A_m2"
+        ]
+      },
+      "error": "Missing required inputs: L_m, k_W_mK, A_m2",
+      "raw": {
+        "tool_name": "conduction_resistance",
+        "status": "error",
+        "inputs": {
+          "L_m": null,
+          "k_W_mK": null,
+          "A_m2": null,
+          "material_name": null,
+          "heat_load_W": null
+        },
+        "formula": "R_cond = L_m / (k_W_mK * A_m2)",
+        "calculation_steps": [],
+        "result": {},
+        "unit_check": {
+          "status": "failed",
+          "messages": [
+            "Missing required input: L_m",
+            "Missing required input: k_W_mK",
+            "Missing required input: A_m2"
+          ]
+        },
+        "warnings": [
+          "The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate."
+        ],
+        "assumptions": [],
+        "engineering_note": "One-dimensional steady conduction approximation only.",
+        "error": "Missing required inputs: L_m, k_W_mK, A_m2",
+        "missing_parameters": [
+          "L_m",
+          "k_W_mK",
+          "A_m2"
+        ],
+        "parameter_parse": {
+          "tool_name": "conduction_resistance",
+          "inputs": {
+            "L_m": null,
+            "k_W_mK": null,
+            "A_m2": null,
+            "material_name": null,
+            "heat_load_W": null
+          },
+          "missing_parameters": [
+            "L_m",
+            "k_W_mK",
+            "A_m2"
+          ],
+          "fluid_name": null,
+          "normalized_query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图.",
+          "assumptions": [],
+          "warnings": []
+        }
+      }
+    },
+    "calculation_status": "error",
+    "calculation_tool": "conduction_resistance",
+    "calculation_error": null,
+    "calculation_result": {
+      "tool_name": "conduction_resistance",
+      "status": "error",
+      "inputs": {
+        "L_m": null,
+        "k_W_mK": null,
+        "A_m2": null,
+        "material_name": null,
+        "heat_load_W": null
+      },
+      "formula": "R_cond = L_m / (k_W_mK * A_m2)",
+      "calculation_steps": [],
+      "result": {},
+      "unit_check": {
+        "status": "failed",
+        "messages": [
+          "Missing required input: L_m",
+          "Missing required input: k_W_mK",
+          "Missing required input: A_m2"
+        ]
+      },
+      "warnings": [
+        "The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate."
+      ],
+      "assumptions": [],
+      "engineering_note": "One-dimensional steady conduction approximation only.",
+      "error": "Missing required inputs: L_m, k_W_mK, A_m2",
+      "missing_parameters": [
+        "L_m",
+        "k_W_mK",
+        "A_m2"
+      ],
+      "parameter_parse": {
+        "tool_name": "conduction_resistance",
+        "inputs": {
+          "L_m": null,
+          "k_W_mK": null,
+          "A_m2": null,
+          "material_name": null,
+          "heat_load_W": null
+        },
+        "missing_parameters": [
+          "L_m",
+          "k_W_mK",
+          "A_m2"
+        ],
+        "fluid_name": null,
+        "normalized_query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图.",
+        "assumptions": [],
+        "warnings": []
+      }
+    },
+    "property_lookup": {
+      "used_property_lookup": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "property_name": null,
+      "fluid": null,
+      "temperature_c": null,
+      "concentration_percent": null,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": []
+    },
+    "knowledge": {
+      "synthesized": false,
+      "answer_style": null,
+      "source_language": "mixed/en",
+      "template_type": null
+    },
+    "analysis_mode": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "reason": "explicit_request_option",
+      "requested_outputs": [
+        "visualization"
+      ]
+    },
+    "analysis_workflow": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "requested_outputs": [
+        "visualization"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": true,
+      "graph_type": "thermal_path",
+      "graph": {
+        "graph_type": "thermal_path",
+        "title": "芯片液冷散热路径",
+        "nodes": [
+          {
+            "id": "chip",
+            "label": "芯片",
+            "type": "heat_source",
+            "role": "产生热量",
+            "description": "主要热源。",
+            "engineering_parameters": [
+              {
+                "name": "功耗",
+                "symbol": "P",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "功耗过高导致结温超过限制。",
+              "热流密度过高导致局部热点。"
+            ],
+            "frontend_hint": {
+              "display_group": "热源",
+              "icon": "chip",
+              "emphasis": "high"
+            }
+          },
+          {
+            "id": "tim",
+            "label": "TIM",
+            "type": "thermal_interface",
+            "role": "降低芯片与冷板之间的界面热阻",
+            "description": "芯片与冷板之间的导热界面材料。",
+            "engineering_parameters": [
+              {
+                "name": "界面热阻",
+                "symbol": "R_TIM",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "TIM 厚度过大。",
+              "接触压力不足导致接触热阻偏高。"
+            ],
+            "frontend_hint": {
+              "display_group": "导热界面",
+              "icon": "layers",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cold_plate",
+            "label": "冷板",
+            "type": "heat_spreader",
+            "role": "扩散热量并传递给冷却侧",
+            "description": "把热量传递给内部冷却液的换热部件。",
+            "engineering_parameters": [
+              {
+                "name": "等效热阻",
+                "symbol": "R",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "扩散热阻偏高。",
+              "冷板接触面积不足。"
+            ],
+            "frontend_hint": {
+              "display_group": "换热部件",
+              "icon": "panel-top",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "coolant",
+            "label": "冷却液",
+            "type": "fluid",
+            "role": "吸收并输运热量",
+            "description": "带走冷板吸收热量的流体。",
+            "engineering_parameters": [
+              {
+                "name": "体积流量",
+                "symbol": "V_dot",
+                "unit": "L/min",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "流量不足导致温升过大。",
+              "冷却液物性未确认。"
+            ],
+            "frontend_hint": {
+              "display_group": "冷却液",
+              "icon": "droplet",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cdu",
+            "label": "CDU",
+            "type": "distribution_unit",
+            "role": "分配、监测并连接设施侧换热",
+            "description": "冷却液分配和换热接口。",
+            "engineering_parameters": [
+              {
+                "name": "供液能力",
+                "symbol": "Q_cdu",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "CDU 能力不足。",
+              "监测或控制策略未确认。"
+            ],
+            "frontend_hint": {
+              "display_group": "CDU",
+              "icon": "server",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "facility_cooling",
+            "label": "外部冷源",
+            "type": "heat_rejection",
+            "role": "把系统热量排向设施侧或环境",
+            "description": "设施侧或外部换热系统。",
+            "engineering_parameters": [
+              {
+                "name": "排热能力",
+                "symbol": "Q_reject",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "设施侧换热能力不足。",
+              "外部冷源边界条件未确认。"
+            ],
+            "frontend_hint": {
+              "display_group": "排热",
+              "icon": "wind",
+              "emphasis": "medium"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "chip_to_tim",
+            "source": "chip",
+            "target": "tim",
+            "mechanism": "conduction",
+            "type": "conduction",
+            "direction": "heat_flow",
+            "label": "导热",
+            "description": "热量从芯片传到 TIM。",
+            "engineering_parameters": [
+              {
+                "name": "热阻",
+                "symbol": "R",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "接触热阻偏高。",
+              "导热路径过长或材料导热系数不足。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "tim_to_cold_plate",
+            "source": "tim",
+            "target": "cold_plate",
+            "mechanism": "contact_conduction",
+            "type": "conduction",
+            "direction": "heat_flow",
+            "label": "接触导热",
+            "description": "热量通过界面进入冷板。",
+            "engineering_parameters": [
+              {
+                "name": "热阻",
+                "symbol": "R",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "接触热阻偏高。",
+              "导热路径过长或材料导热系数不足。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cold_plate_to_coolant",
+            "source": "cold_plate",
+            "target": "coolant",
+            "mechanism": "convection",
+            "type": "convection",
+            "direction": "heat_flow",
+            "label": "对流换热",
+            "description": "冷板把热量传给流道内冷却液。",
+            "engineering_parameters": [
+              {
+                "name": "对流换热系数",
+                "symbol": "h",
+                "unit": "W/(m2*K)",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "局部流速不足。",
+              "换热面积或流道分配未确认。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "coolant_to_cdu",
+            "source": "coolant",
+            "target": "cdu",
+            "mechanism": "fluid_transport",
+            "type": "fluid_transport",
+            "direction": "coolant_flow",
+            "label": "流体输运",
+            "description": "冷却液把热量带回 CDU。",
+            "engineering_parameters": [
+              {
+                "name": "流量",
+                "symbol": "V_dot",
+                "unit": "L/min",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "流量不足。",
+              "支路不均流或管路阻力未校核。"
+            ],
+            "frontend_hint": {
+              "line_style": "dashed",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cdu_to_facility_cooling",
+            "source": "cdu",
+            "target": "facility_cooling",
+            "mechanism": "heat_rejection",
+            "type": "heat_rejection",
+            "direction": "heat_flow",
+            "label": "排热",
+            "description": "CDU 将热量排向外部冷源。",
+            "engineering_parameters": [
+              {
+                "name": "排热量",
+                "symbol": "Q",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "设施侧冷源能力不足。",
+              "换热器运行边界未确认。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          }
+        ],
+        "warnings": [
+          "该图为一级示意图。",
+          "该图为工程解释图，不是 CFD 仿真云图。",
+          "该图不替代 CFD。",
+          "该图不包含详细流道、压降或泵曲线。",
+          "该图不能作为工业级设计图。"
+        ],
+        "limitations": [
+          "该图为工程解释图，不是 CFD 仿真云图。",
+          "节点参数为空时表示当前问题未提供或知识库未检索到。",
+          "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+          "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+        ],
+        "source_based": false,
+        "generic_template": true,
+        "simulation_based": false,
+        "graph_quality": {
+          "has_nodes": true,
+          "has_edges": true,
+          "has_engineering_parameters": true,
+          "has_risks": true,
+          "frontend_ready": true
+        }
+      },
+      "generic_template": true,
+      "source_based": false,
+      "simulation_based": false,
+      "graph_quality": {
+        "has_nodes": true,
+        "has_edges": true,
+        "has_engineering_parameters": true,
+        "has_risks": true,
+        "frontend_ready": true
+      },
+      "limitations": [
+        "该图为工程解释图，不是 CFD 仿真云图。",
+        "节点参数为空时表示当前问题未提供或知识库未检索到。",
+        "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+        "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+      ]
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "none",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 461,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": false,
+          "final_answer_unchanged": true
+        }
+      ],
+      "repair_attempts": 0,
+      "repaired": false,
+      "original_answer": "结论：目前不能给出具体唯一数值，因为缺少必要参数：L_m, k_W_mK, A_m2。\n\n公式：R_cond = L_m / (k_W_mK * A_m2)\n\n需要补充的参数：\n- L_m\n- k_W_mK\n- A_m2\n\n单位校验：failed\n- Missing required input: L_m\n- Missing required input: k_W_mK\n- Missing required input: A_m2\n\n工程边界与警告：\n- The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate.\n- One-dimensional steady conduction approximation only.\n\nRAG 与计算关系：\n- 当前计算基于通用传热/能量守恒公式，未从当前知识库检索到强匹配来源。",
+      "final_answer": "结论：目前不能给出具体唯一数值，因为缺少必要参数：L_m, k_W_mK, A_m2。\n\n公式：R_cond = L_m / (k_W_mK * A_m2)\n\n需要补充的参数：\n- L_m\n- k_W_mK\n- A_m2\n\n单位校验：failed\n- Missing required input: L_m\n- Missing required input: k_W_mK\n- Missing required input: A_m2\n\n工程边界与警告：\n- The agent did not infer all required inputs from the query; provide explicit engineering parameters before using the estimate.\n- One-dimensional steady conduction approximation only.\n\nRAG 与计算关系：\n- 当前计算基于通用传热/能量守恒公式，未从当前知识库检索到强匹配来源。",
+      "original_route": "finalize",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_visualization.json",
+    "description": "Generic visualization graph response.",
+    "mock_only": false,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": []
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "answer": "当前后端 mock 场景用于展示 self_critique warning：40% EGW 在 25℃ 的 cp 需要物性表或来源，不能直接按水的 cp 代入。",
+  "query": "40% EGW 在 25℃ 下 cp 是多少？",
+  "task_type": "property_lookup",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "property_lookup",
+    "domain": "thermal_management",
+    "entities": [
+      "乙二醇水溶液"
+    ],
+    "intent": "查找乙二醇水溶液在指定温度、浓度和物性名下的可靠物性表数值",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": false,
+    "confidence": 0.93,
+    "original_query": "40% EGW 在 25℃ 下 cp 是多少？",
+    "normalized_query": "40% EGW 在 25℃ 下 cp 是多少?",
+    "warnings": [
+      "检测到冷却液物性查表意图；若来源未同时覆盖流体类型、浓度、温度、物性名、数值和单位，则不能给出确定物性值。"
+    ],
+    "candidate_tools": [],
+    "properties": [
+      "cp"
+    ],
+    "needs_report": false,
+    "needs_comparison": false,
+    "needs_simulation": false,
+    "is_property_lookup": true,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [
+        "coolant_context",
+        "concentration",
+        "temperature",
+        "property_name"
+      ],
+      "visualization": [],
+      "analysis": []
+    }
+  },
+  "rewrite": {
+    "original_query": "40% EGW 在 25℃ 下 cp 是多少？",
+    "rewritten_query": "40% EGW 在 25℃ 下 cp 是多少? 乙二醇水溶液 物性参数 比热容 specific heat cp density viscosity thermal conductivity ethylene glycol water propylene glycol water",
+    "expanded_queries": [
+      "40% EGW 在 25℃ 下 cp 是多少? 乙二醇水溶液 物性参数 比热容 specific heat cp density viscosity thermal conductivity ethylene glycol water propylene glycol water",
+      "物性参数 比热容 specific heat cp density viscosity thermal conductivity",
+      "乙二醇水溶液 ethylene glycol water propylene glycol water EGW PGW",
+      "property table datasheet engineering handbook temperature concentration"
+    ],
+    "keywords": [
+      "乙二醇水溶液",
+      "EGW",
+      "cp",
+      "是多少",
+      "物性参数",
+      "比热容",
+      "specific heat",
+      "density",
+      "viscosity",
+      "thermal conductivity",
+      "ethylene glycol water",
+      "propylene glycol water",
+      "PGW",
+      "property table",
+      "datasheet",
+      "engineering handbook",
+      "temperature",
+      "concentration"
+    ],
+    "entities": [
+      "乙二醇水溶液"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-self-critique-warning",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": null,
+    "tool_status": "skipped",
+    "tool_inputs": {},
+    "tool_result": {},
+    "tool_formula": null,
+    "tool_steps": [],
+    "tool_warnings": [],
+    "missing_parameters": [],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "tool_formula": null,
+      "tool_steps": [],
+      "tool_warnings": [],
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "calculation_status": null,
+    "calculation_tool": null,
+    "calculation_error": null,
+    "calculation_result": null,
+    "property_lookup": {
+      "used_property_lookup": true,
+      "tool_name": "coolant_property_lookup",
+      "tool_status": "missing_data",
+      "tool_inputs": {
+        "fluid": "EGW",
+        "property_name": "cp",
+        "temperature_c": 25.0,
+        "concentration_percent": 40.0,
+        "allow_interpolation": true
+      },
+      "tool_result": {
+        "status": "missing_data",
+        "fluid": "EGW",
+        "normalized_fluid": "EGW",
+        "property_name": "cp",
+        "normalized_property_name": "cp",
+        "temperature_c": 25.0,
+        "concentration_percent": 40.0,
+        "value": null,
+        "unit": null,
+        "source": null,
+        "interpolation": null,
+        "warnings": [],
+        "missing_fields": [],
+        "supported_range": null,
+        "error": "No validated data for this coolant/property combination.",
+        "tool_name": "coolant_property_lookup",
+        "inputs": {
+          "fluid": "EGW",
+          "property_name": "cp",
+          "temperature_c": 25.0,
+          "concentration_percent": 40.0,
+          "allow_interpolation": true
+        }
+      },
+      "property_name": "cp",
+      "fluid": "EGW",
+      "temperature_c": 25.0,
+      "concentration_percent": 40.0,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": [],
+      "missing_fields": [],
+      "supported_range": null,
+      "error": "No validated data for this coolant/property combination."
+    },
+    "knowledge": {
+      "synthesized": true,
+      "answer_style": "structured_zh",
+      "source_language": "mixed/en",
+      "template_type": "property_lookup"
+    },
+    "analysis_mode": {
+      "enabled": false,
+      "mode": "default_chat",
+      "reason": "ordinary_chat",
+      "requested_outputs": []
+    },
+    "analysis_workflow": {
+      "enabled": false,
+      "mode": "default_chat",
+      "requested_outputs": [],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": false
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": false,
+      "severity": "warning",
+      "issues": [
+        {
+          "code": "insufficient_property_source",
+          "message": "40% EGW cp needs a property table or cited source; do not substitute water cp.",
+          "repair_action": "ask_for_source_or_property_table"
+        }
+      ],
+      "route": "warn_only",
+      "repair_action": "ask_for_source_or_property_table"
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_self_critique_warning.json",
+    "description": "Mock-only warning fixture for rendering critique issues.",
+    "mock_only": true,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": [
+      "Self-critique warning is mock-only for frontend rendering."
+    ]
+  }
+}

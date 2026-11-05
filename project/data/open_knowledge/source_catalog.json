@@ -1,0 +1,349 @@
+{
+  "schema_version": "open-knowledge-catalog-v1",
+  "research_date": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "nist_tn1297_uncertainty_1994",
+      "url": "https://nvlpubs.nist.gov/nistpubs/legacy/tn/nbstechnicalnote1297.pdf",
+      "landing_url": "https://www.nist.gov/publications/guidelines-evaluating-and-expressing-uncertainty-nist-measurement-results-1994-edition",
+      "title": "Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results, 1994 Edition",
+      "publisher": "National Institute of Standards and Technology",
+      "authors": [
+        "Barry N. Taylor",
+        "Chris E. Kuyatt"
+      ],
+      "published_at": "1994-09-01",
+      "version": "NIST Technical Note 1297, 1994 Edition",
+      "category": "A",
+      "domain_tags": [
+        "measurement_uncertainty",
+        "thermal_validation",
+        "sensor_error"
+      ],
+      "scope_boundary": "Measurement uncertainty methods; not a device-specific thermal design limit.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "nvlpubs.nist.gov",
+        "www.nist.gov"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-NIST-Public-Information",
+        "allow_fulltext": true,
+        "url": "https://www.nist.gov/copyrights-disclaimers",
+        "basis": "NIST permits copying unmarked public information with attribution; official NIST-authored Technical Note. Preserve notices, check third-party material separately; no endorsement."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://www.nist.gov/copyrights-disclaimers",
+        "basis": "Official copyright/disclaimer page verified 2026-10-09; local educational research with NIST author/title attribution, no copyrighted third-party assets redistributed."
+      }
+    },
+    {
+      "source_id": "nist_ir5078_water_1998",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir5078.pdf",
+      "landing_url": "https://www.nist.gov/publications/thermodynamic-properties-water-tabulation-iapws-formulation-1995-thermodynamic",
+      "title": "Thermodynamic Properties of Water: Tabulation From the IAPWS Formulation 1995 for the Thermodynamic Properties of Ordinary Water Substance for General and Scientific Use",
+      "publisher": "National Institute of Standards and Technology",
+      "authors": [
+        "Allan H. Harvey"
+      ],
+      "published_at": "1998-10-01",
+      "version": "NISTIR 5078 (1998)",
+      "category": "A",
+      "domain_tags": [
+        "coolant_properties",
+        "water_density",
+        "enthalpy",
+        "phase_boundaries"
+      ],
+      "scope_boundary": "Ordinary pure water in specified pressure/temperature domains; not glycol mixtures and not a current commercial SRD software license.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "nvlpubs.nist.gov",
+        "www.nist.gov"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-NIST-Public-Information",
+        "allow_fulltext": true,
+        "url": "https://www.nist.gov/copyrights-disclaimers",
+        "basis": "Official NIST-authored Technical Series report, NIST public-information copying permission. Preserve original report attribution and any third-party notices; acquisition is the public PDF, not licensed SRD software."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://www.nist.gov/copyrights-disclaimers",
+        "basis": "Official copyright/disclaimer policy verified 2026-10-09; use limited to local educational knowledge candidates with source attribution."
+      }
+    },
+    {
+      "source_id": "nasa_amps_thermal_testing_2020",
+      "url": "https://ntrs.nasa.gov/api/citations/20205000060/downloads/TM-20205000060.pdf",
+      "landing_url": "https://ntrs.nasa.gov/citations/20205000060",
+      "title": "Advanced Modular Power System Fully Populated Electronics Enclosure Thermal Testing",
+      "publisher": "NASA Glenn Research Center",
+      "authors": [
+        "Anthony Colozza",
+        "Brian Burson",
+        "Karin Bozak",
+        "Brent Gardner"
+      ],
+      "published_at": "2020-08-01",
+      "version": "NASA/TM-20205000060; E-19818",
+      "category": "A",
+      "domain_tags": [
+        "cold_plate",
+        "thermal_resistance",
+        "model_validation",
+        "flow_temperature",
+        "electronics_cooling"
+      ],
+      "scope_boundary": "Specific AMPS enclosure with simulated card heat, 0/1.4/1.8 L/min and specified boundaries; cannot generalize measured card limits to server CPUs. Third-party imagery/marks retain their own rights; no separate redistribution of images.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "ntrs.nasa.gov",
+        "sti.nasa.gov",
+        "www.nasa.gov"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-NASA-Public-Use-Permitted",
+        "allow_fulltext": true,
+        "url": "https://ntrs.nasa.gov/citations/20205000060",
+        "basis": "The specific official NTRS record explicitly states Distribution Public and Copyright Public Use Permitted. This is not inferred solely from NASA hosting. Preserve report credits and marked third-party rights."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://sti.nasa.gov/disclaimers/",
+        "basis": "Official NASA STI document terms inspected 2026-10-09. Document metadata explicitly Public Use Permitted; preserve attribution and any marked third-party portions, no endorsement. ntrs robots 403 remains a collection blocker, no alternative mirror or user-agent bypass."
+      }
+    },
+    {
+      "source_id": "iapws_viscosity_2008",
+      "url": "https://iapws.org/technical-guidance/release/viscosity.download",
+      "landing_url": "https://iapws.org/technical-guidance/release/viscosity.download",
+      "title": "Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance",
+      "publisher": "International Association for the Properties of Water and Steam",
+      "authors": [
+        "International Association for the Properties of Water and Steam TPWS Working Group"
+      ],
+      "published_at": "2008-09",
+      "version": "R12-08; editorial references updated 2012",
+      "category": "A",
+      "domain_tags": [
+        "coolant_properties",
+        "viscosity",
+        "pressure_drop"
+      ],
+      "scope_boundary": "Pure ordinary water only; use the release-specific temperature/density/pressure validity and critical-region caveats. No measured data or glycol-mixture claim.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "iapws.org"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-Attribution-Permission",
+        "allow_fulltext": true,
+        "url": "https://iapws.org/technical-guidance/release/viscosity.download",
+        "basis": "The document cover explicitly permits publication in whole or in part in all countries with IAPWS attribution. Cover and original notices are retained. Official current download was verified via the release page."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://iapws.org/technical-guidance/release/viscosity.download",
+        "basis": "The document cover explicitly permits publication in whole or in part in all countries with IAPWS attribution. Cover and original notices are retained. Official current download was verified via the release page."
+      }
+    },
+    {
+      "source_id": "iapws_thermal_conductivity_2011",
+      "url": "https://iapws.org/technical-guidance/release/ThCond.download",
+      "landing_url": "https://iapws.org/technical-guidance/release/ThCond.download",
+      "title": "Release on the IAPWS Formulation 2011 for the Thermal Conductivity of Ordinary Water Substance",
+      "publisher": "International Association for the Properties of Water and Steam",
+      "authors": [
+        "International Association for the Properties of Water and Steam TPWS Working Group"
+      ],
+      "published_at": "2011-09",
+      "version": "R15-11",
+      "category": "A",
+      "domain_tags": [
+        "coolant_properties",
+        "thermal_conductivity",
+        "heat_transfer"
+      ],
+      "scope_boundary": "Pure ordinary water only; use the release-specific temperature/density/pressure validity and critical-region caveats. No measured data or glycol-mixture claim.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "iapws.org"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-Attribution-Permission",
+        "allow_fulltext": true,
+        "url": "https://iapws.org/technical-guidance/release/ThCond.download",
+        "basis": "The document cover explicitly permits publication in whole or in part in all countries with IAPWS attribution. Cover and original notices are retained. Official current download was verified via the release page."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://iapws.org/technical-guidance/release/ThCond.download",
+        "basis": "The document cover explicitly permits publication in whole or in part in all countries with IAPWS attribution. Cover and original notices are retained. Official current download was verified via the release page."
+      }
+    },
+    {
+      "source_id": "doe_data_center_cooling_water_2019",
+      "url": "https://www.energy.gov/cmei/femp/cooling-water-efficiency-opportunities-federal-data-centers",
+      "landing_url": "https://www.energy.gov/cmei/femp/cooling-water-efficiency-opportunities-federal-data-centers",
+      "title": "Cooling Water Efficiency Opportunities for Federal Data Centers",
+      "publisher": "U.S. Department of Energy, Federal Energy Management Program",
+      "authors": [
+        "Federal Energy Management Program"
+      ],
+      "published_at": null,
+      "version": "Official FEMP web article, accessed 2026-10-09",
+      "category": "A",
+      "domain_tags": [
+        "liquid_cooling",
+        "cdu",
+        "heat_rejection",
+        "system_boundaries"
+      ],
+      "scope_boundary": "Facility-scale cooling and water/energy metrics; distinguish IT loop, CDU and facility loops; not a universal chip design limit.",
+      "expected_mime": "text/html",
+      "allowed_hosts": [
+        "www.energy.gov"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-Attribution-Permission",
+        "allow_fulltext": true,
+        "url": "https://www.energy.gov/web-policies",
+        "basis": "DOE web policy permits copying government information with acknowledgement. This FEMP-authored article is collected as HTML; linked third-party figures/assets and reports are not downloaded, no agency endorsement is implied."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://www.energy.gov/web-policies",
+        "basis": "DOE web policy permits copying government information with acknowledgement. This FEMP-authored article is collected as HTML; linked third-party figures/assets and reports are not downloaded, no agency endorsement is implied."
+      },
+      "published_at_status": "unknown",
+      "figure_date": "2019-01-09",
+      "metadata_corrections": [
+        {
+          "at": "2026-10-09T06:32:04.496716+00:00",
+          "field": "published_at",
+          "original_value": "2019-01-09",
+          "corrected_value": null,
+          "reason": "2019-01-09 appears as Figure 1 date in acquired HTML; not a verified publication date for the entire mutable page. Source ID remains stable.",
+          "evidence": "First article, Figure 1 / January 9, 2019; same source file SHA256",
+          "raw_file_sha256": "efaa1982d9a8f0746e38fd4034108d5d5acc389768d012239da0f6a29da0a8bb"
+        }
+      ]
+    },
+    {
+      "source_id": "doe_sandia_liquid_cooling_2021",
+      "url": "https://www.energy.gov/cmei/femp/articles/sandias-liquid-cooled-data-center-boosts-efficiency-and-resiliency",
+      "landing_url": "https://www.energy.gov/cmei/femp/articles/sandias-liquid-cooled-data-center-boosts-efficiency-and-resiliency",
+      "title": "Sandia's Liquid-Cooled Data Center Boosts Efficiency and Resiliency",
+      "publisher": "U.S. Department of Energy, Federal Energy Management Program",
+      "authors": [
+        "Federal Energy Management Program"
+      ],
+      "published_at": "2021-07-23",
+      "version": "Official FEMP case-study article",
+      "category": "A",
+      "domain_tags": [
+        "liquid_cooling",
+        "server_topology",
+        "resilience"
+      ],
+      "scope_boundary": "Specific Sandia HPC installation; case-specific reliability/performance cannot be generalized to all liquid cooling systems.",
+      "expected_mime": "text/html",
+      "allowed_hosts": [
+        "www.energy.gov"
+      ],
+      "license": {
+        "status": "confirmed",
+        "spdx": "LicenseRef-Attribution-Permission",
+        "allow_fulltext": true,
+        "url": "https://www.energy.gov/web-policies",
+        "basis": "DOE web policy permits copying government information with acknowledgement. Only this official FEMP article HTML is stored; linked external studies and third-party images remain outside copying scope."
+      },
+      "terms": {
+        "review_status": "compatible",
+        "url": "https://www.energy.gov/web-policies",
+        "basis": "DOE web policy permits copying government information with acknowledgement. Only this official FEMP article HTML is stored; linked external studies and third-party images remain outside copying scope."
+      }
+    },
+    {
+      "source_id": "ti_package_thermal_metrics_2024",
+      "url": "https://www.ti.com/lit/an/spra953d/spra953d.pdf",
+      "landing_url": "https://www.ti.com/lit/an/spra953d/spra953d.pdf",
+      "title": "Semiconductor and IC Package Thermal Metrics",
+      "publisher": "Texas Instruments",
+      "authors": [
+        "Darvin Edwards",
+        "Hiep Nguyen"
+      ],
+      "published_at": "2024-03",
+      "version": "SPRA953D, revised March 2024",
+      "category": "C",
+      "domain_tags": [
+        "junction_temperature",
+        "thermal_resistance",
+        "package_metrics"
+      ],
+      "scope_boundary": "JEDEC/package metrics including Rtheta and psi; metrics are not interchangeable. No TI body, diagram or answer text is copied.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "www.ti.com"
+      ],
+      "license": {
+        "status": "unconfirmed",
+        "spdx": null,
+        "allow_fulltext": false,
+        "url": "https://www.ti.com/legal/terms-conditions.html",
+        "basis": "Official application note and version verified, copyright TI 2024. Full-copy/reuse permission for local RAG not confirmed; retain metadata and link only."
+      },
+      "terms": {
+        "review_status": "unconfirmed",
+        "url": "https://www.ti.com/legal/terms-conditions.html",
+        "basis": "Official application note and version verified, copyright TI 2024. Full-copy/reuse permission for local RAG not confirmed; retain metadata and link only."
+      }
+    },
+    {
+      "source_id": "doe_data_center_design_2024",
+      "url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf",
+      "landing_url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf",
+      "title": "Best Practices Guide for Energy-Efficient Data Center Design",
+      "publisher": "DOE FEMP / National Renewable Energy Laboratory",
+      "authors": [
+        "Otto Van Geet",
+        "David Sickinger"
+      ],
+      "published_at": "2024-07",
+      "version": "July 2024 revised guide",
+      "category": "A",
+      "domain_tags": [
+        "liquid_cooling",
+        "cdu",
+        "operating_envelope"
+      ],
+      "scope_boundary": "Direct liquid cooling section and design boundaries are relevant; mixed third-party graphics and wider facility scope require selective review.",
+      "expected_mime": "application/pdf",
+      "allowed_hosts": [
+        "www.energy.gov"
+      ],
+      "license": {
+        "status": "unconfirmed",
+        "spdx": null,
+        "allow_fulltext": false,
+        "url": "https://www.energy.gov/web-policies",
+        "basis": "Official publicly downloadable guide verified, but contractor authorship and cover/photo rights mean agency public-domain policy alone does not establish unrestricted RAG/full-copy reuse. Metadata only pending document-specific permission assessment."
+      },
+      "terms": {
+        "review_status": "unconfirmed",
+        "url": "https://www.energy.gov/web-policies",
+        "basis": "Official publicly downloadable guide verified, but contractor authorship and cover/photo rights mean agency public-domain policy alone does not establish unrestricted RAG/full-copy reuse. Metadata only pending document-specific permission assessment."
+      }
+    }
+  ],
+  "updated_at": "2026-10-09T06:32:04.496716+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "fixture_type": "matlab_lifecycle",
+  "mocked": true,
+  "adapter_name": "matlab",
+  "available": false,
+  "backend_type": "matlab",
+  "reason": "matlab_engine_not_available",
+  "requires_external_software": true,
+  "external_software_name": "MATLAB Engine for Python",
+  "external_software_available": false
+}

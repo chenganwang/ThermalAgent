@@ -1,0 +1,197 @@
+{
+  "catalog_version": "7D.1",
+  "scenarios": [
+    {
+      "scenario_id": "plane_wall_steady_conduction",
+      "name_zh": "一维平壁稳态导热",
+      "name_en": "Steady one-dimensional plane-wall conduction",
+      "domain": "heat_transfer",
+      "description": "计算均匀平壁在一维稳态条件下的导热热流率和热流密度。",
+      "supported_models": ["plane_wall_steady_v1"],
+      "default_model_id": "plane_wall_steady_v1",
+      "input_schema": [
+        {"name": "length_m", "label_zh": "平壁厚度", "type": "number", "unit": "m", "required": true, "minimum_exclusive": 0},
+        {"name": "area_m2", "label_zh": "传热面积", "type": "number", "unit": "m2", "required": true, "minimum_exclusive": 0},
+        {"name": "thermal_conductivity_w_mk", "label_zh": "导热系数", "type": "number", "unit": "W/(m*K)", "required": true, "minimum_exclusive": 0},
+        {"name": "t_hot_c", "label_zh": "热侧温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "t_cold_c", "label_zh": "冷侧温度", "type": "number", "unit": "degC", "required": true}
+      ],
+      "output_schema": [
+        {"name": "temperature_difference_k", "label_zh": "温差", "type": "number", "unit": "K"},
+        {"name": "heat_rate_w", "label_zh": "热流率", "type": "number", "unit": "W"},
+        {"name": "heat_flux_w_m2", "label_zh": "热流密度", "type": "number", "unit": "W/m2"}
+      ],
+      "assumptions": ["一维稳态导热", "材料均匀且导热系数恒定"],
+      "applicability": ["均匀平壁且横向温度梯度可忽略"],
+      "limitations": ["不含接触热阻、辐射、对流和瞬态储热"],
+      "status": "available",
+      "provenance_status": "verified"
+    },
+    {
+      "scenario_id": "cylindrical_wall_steady_conduction",
+      "name_zh": "圆筒壁稳态导热",
+      "name_en": "Steady cylindrical-wall conduction",
+      "domain": "heat_transfer",
+      "description": "计算单层圆筒壁径向稳态导热热流率和热阻。",
+      "supported_models": ["cylindrical_wall_python_v1"],
+      "default_model_id": "cylindrical_wall_python_v1",
+      "input_schema": [
+        {"name": "inner_radius_m", "label_zh": "内半径", "type": "number", "unit": "m", "required": true, "minimum_exclusive": 0},
+        {"name": "outer_radius_m", "label_zh": "外半径", "type": "number", "unit": "m", "required": true, "minimum_exclusive": 0},
+        {"name": "length_m", "label_zh": "圆筒长度", "type": "number", "unit": "m", "required": true, "minimum_exclusive": 0},
+        {"name": "thermal_conductivity_w_mk", "label_zh": "导热系数", "type": "number", "unit": "W/(m*K)", "required": true, "minimum_exclusive": 0},
+        {"name": "t_inner_c", "label_zh": "内壁温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "t_outer_c", "label_zh": "外壁温度", "type": "number", "unit": "degC", "required": true}
+      ],
+      "output_schema": [
+        {"name": "temperature_difference_k", "label_zh": "温差", "type": "number", "unit": "K"},
+        {"name": "heat_rate_w", "label_zh": "热流率", "type": "number", "unit": "W"},
+        {"name": "thermal_resistance_k_w", "label_zh": "导热热阻", "type": "number", "unit": "K/W"}
+      ],
+      "assumptions": ["一维径向稳态导热", "导热系数恒定"],
+      "applicability": ["单层同心圆筒壁"],
+      "limitations": ["不含轴向和周向温差、接触热阻及边界对流"],
+      "status": "available",
+      "provenance_status": "pending"
+    },
+    {
+      "scenario_id": "multilayer_wall_conduction",
+      "name_zh": "多层平壁导热",
+      "name_en": "Multilayer plane-wall conduction",
+      "domain": "heat_transfer",
+      "description": "计算串联多层平壁总热阻、稳态导热量和各层温降。",
+      "supported_models": ["multilayer_wall_python_v1"],
+      "default_model_id": "multilayer_wall_python_v1",
+      "input_schema": [
+        {"name": "area_m2", "label_zh": "传热面积", "type": "number", "unit": "m2", "required": true, "minimum_exclusive": 0},
+        {
+          "name": "layers", "label_zh": "材料层", "type": "array", "required": true, "minimum_items": 1,
+          "items": {"type": "object", "properties": [
+            {"name": "name", "label_zh": "层名称", "type": "string", "required": true},
+            {"name": "thickness_m", "label_zh": "厚度", "type": "number", "unit": "m", "required": true, "minimum_exclusive": 0},
+            {"name": "thermal_conductivity_w_mk", "label_zh": "导热系数", "type": "number", "unit": "W/(m*K)", "required": true, "minimum_exclusive": 0}
+          ]}
+        },
+        {"name": "t_hot_c", "label_zh": "热侧温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "t_cold_c", "label_zh": "冷侧温度", "type": "number", "unit": "degC", "required": true}
+      ],
+      "output_schema": [
+        {"name": "total_thermal_resistance_k_w", "label_zh": "总热阻", "type": "number", "unit": "K/W"},
+        {"name": "heat_rate_w", "label_zh": "热流率", "type": "number", "unit": "W"},
+        {"name": "layer_temperature_drops", "label_zh": "各层温降", "type": "array", "unit": "K"}
+      ],
+      "assumptions": ["各层一维稳态导热", "各层导热系数恒定"],
+      "applicability": ["等面积串联多层平壁"],
+      "limitations": ["不含层间接触热阻和横向热扩散"],
+      "status": "available",
+      "provenance_status": "pending"
+    },
+    {
+      "scenario_id": "liquid_loop_energy_balance",
+      "name_zh": "液冷回路能量平衡",
+      "name_en": "Liquid-loop energy balance",
+      "domain": "liquid_cooling",
+      "description": "利用 Q=m_dot*cp*DeltaT 计算出口温度或所需质量流量。",
+      "supported_models": ["liquid_loop_energy_balance_python_v1"],
+      "default_model_id": "liquid_loop_energy_balance_python_v1",
+      "input_schema": [
+        {"name": "heat_load_w", "label_zh": "热负荷", "type": "number", "unit": "W", "required": true, "minimum": 0},
+        {"name": "specific_heat_j_kgk", "label_zh": "比热容", "type": "number", "unit": "J/(kg*K)", "required": true, "minimum_exclusive": 0},
+        {"name": "inlet_temperature_c", "label_zh": "入口温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "mass_flow_kg_s", "label_zh": "质量流量", "type": "number", "unit": "kg/s", "required": false, "minimum_exclusive": 0},
+        {"name": "outlet_temperature_c", "label_zh": "出口温度", "type": "number", "unit": "degC", "required": false},
+        {"name": "allowed_temperature_rise_k", "label_zh": "允许温升", "type": "number", "unit": "K", "required": false, "minimum_exclusive": 0}
+      ],
+      "output_schema": [
+        {"name": "mass_flow_kg_s", "label_zh": "质量流量", "type": "number", "unit": "kg/s"},
+        {"name": "temperature_rise_k", "label_zh": "温升", "type": "number", "unit": "K"},
+        {"name": "outlet_temperature_c", "label_zh": "出口温度", "type": "number", "unit": "degC"},
+        {"name": "heat_load_w", "label_zh": "热负荷", "type": "number", "unit": "W"}
+      ],
+      "assumptions": ["稳态能量平衡", "比热容恒定且无环境热损失"],
+      "applicability": ["已知质量流量求出口温度，或已知允许温升求所需质量流量"],
+      "limitations": ["不计算压力损失、相变、泵功和流量分配"],
+      "status": "available",
+      "provenance_status": "pending"
+    },
+    {
+      "scenario_id": "junction_temperature_network",
+      "name_zh": "芯片结温热阻网络",
+      "name_en": "Junction-temperature resistance network",
+      "domain": "thermal_resistance_network",
+      "description": "通过串联热阻网络估算结温和各节点温度。",
+      "supported_models": ["junction_temperature_network_python_v1"],
+      "default_model_id": "junction_temperature_network_python_v1",
+      "input_schema": [
+        {"name": "ambient_temperature_c", "label_zh": "环境参考温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "power_w", "label_zh": "发热功率", "type": "number", "unit": "W", "required": true, "minimum": 0},
+        {
+          "name": "thermal_resistances_k_w", "label_zh": "串联热阻", "type": "array", "required": true, "minimum_items": 1,
+          "items": {"type": "object", "properties": [
+            {"name": "name", "label_zh": "热阻名称", "type": "string", "required": true},
+            {"name": "value", "label_zh": "热阻值", "type": "number", "unit": "K/W", "required": true, "minimum": 0}
+          ]}
+        }
+      ],
+      "output_schema": [
+        {"name": "total_thermal_resistance_k_w", "label_zh": "总热阻", "type": "number", "unit": "K/W"},
+        {"name": "junction_temperature_c", "label_zh": "结温", "type": "number", "unit": "degC"},
+        {"name": "node_temperatures_c", "label_zh": "节点温度", "type": "array", "unit": "degC"}
+      ],
+      "assumptions": ["所有热阻串联且稳态", "所有输入功率沿该单一路径传递"],
+      "applicability": ["一维串联结到环境热阻网络的一级估算"],
+      "limitations": ["不处理并联路径、温变材料参数或瞬态热容"],
+      "status": "available",
+      "provenance_status": "pending"
+    },
+    {
+      "scenario_id": "lumped_transient_heating",
+      "name_zh": "集总参数瞬态升温",
+      "name_en": "Lumped-capacitance transient heating",
+      "domain": "transient_heat_transfer",
+      "description": "实验性集总热容瞬态场景，本阶段仅登记和准备参数。",
+      "supported_models": ["lumped_transient_preparation_v1"],
+      "default_model_id": "lumped_transient_preparation_v1",
+      "input_schema": [
+        {"name": "initial_temperature_c", "label_zh": "初始温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "ambient_temperature_c", "label_zh": "环境温度", "type": "number", "unit": "degC", "required": true},
+        {"name": "density_kg_m3", "label_zh": "密度", "type": "number", "unit": "kg/m3", "required": true, "minimum_exclusive": 0},
+        {"name": "volume_m3", "label_zh": "体积", "type": "number", "unit": "m3", "required": true, "minimum_exclusive": 0},
+        {"name": "specific_heat_j_kgk", "label_zh": "比热容", "type": "number", "unit": "J/(kg*K)", "required": true, "minimum_exclusive": 0},
+        {"name": "convection_coefficient_w_m2k", "label_zh": "对流换热系数", "type": "number", "unit": "W/(m2*K)", "required": true, "minimum_exclusive": 0},
+        {"name": "surface_area_m2", "label_zh": "表面积", "type": "number", "unit": "m2", "required": true, "minimum_exclusive": 0},
+        {"name": "duration_s", "label_zh": "持续时间", "type": "number", "unit": "s", "required": true, "minimum_exclusive": 0},
+        {"name": "time_step_s", "label_zh": "时间步长", "type": "number", "unit": "s", "required": true, "minimum_exclusive": 0}
+      ],
+      "output_schema": [
+        {"name": "time_series", "label_zh": "时间序列", "type": "array"},
+        {"name": "final_temperature_c", "label_zh": "最终温度", "type": "number", "unit": "degC"},
+        {"name": "time_constant_s", "label_zh": "时间常数", "type": "number", "unit": "s"},
+        {"name": "biot_assumption_note", "label_zh": "Biot 假设说明", "type": "string"}
+      ],
+      "assumptions": ["物体内部温度均匀的集总热容假设尚待校核"],
+      "applicability": ["本阶段仅用于参数准备和未来模型登记"],
+      "limitations": ["本阶段不执行，不能声称瞬态结果可用"],
+      "status": "experimental",
+      "provenance_status": "pending"
+    },
+    {
+      "scenario_id": "cfd_model_preparation",
+      "name_zh": "CFD 模型任务准备",
+      "name_en": "CFD model task preparation",
+      "domain": "cfd",
+      "description": "仅准备已登记 CFD 模型任务，本阶段不执行 CFD。",
+      "supported_models": ["cfd_registered_model_preparation_v1"],
+      "default_model_id": "cfd_registered_model_preparation_v1",
+      "input_schema": [
+        {"name": "model_file_id", "label_zh": "已登记模型文件 ID", "type": "string", "required": true, "minimum_length": 1}
+      ],
+      "output_schema": [],
+      "assumptions": [],
+      "applicability": ["已由 operator 登记的模型元数据准备"],
+      "limitations": ["不执行 CFD，不接受普通用户上传后直接运行"],
+      "status": "preparation_only",
+      "provenance_status": "pending"
+    }
+  ]
+}

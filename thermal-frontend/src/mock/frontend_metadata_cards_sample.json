@@ -1,0 +1,38 @@
+{
+  "sample_response": {
+    "answer": "Sample response omitted from card summaries.",
+    "query": "sample",
+    "task_type": "calculation",
+    "retrieval_count": 2,
+    "task": {"task_type": "calculation", "candidate_tools": ["thermal_resistance_network_solve"]},
+    "rewrite": {},
+    "sources": [
+      {"title": "Engineering note A", "content": "Short fixture excerpt."},
+      {"title": "Engineering note B", "content": "Short fixture excerpt."}
+    ],
+    "session_id": "frontend-card-sample",
+    "metadata": {
+      "thermal_network": {"generated": true, "status": "success", "topology": "series", "junction_temperature_c": 83.0, "bottlenecks": [{"element_id": "cold_plate"}], "warnings": []},
+      "pump_selection": {"generated": true, "status": "missing_params", "pump_model_selected": false, "pump_curve_used": false, "missing_inputs": ["vendor_pump_curve"], "warnings": ["No pump model selected."]},
+      "self_critique": {"enabled": true, "passed": true, "severity": "none", "route": "pass", "issues": [], "warnings": []},
+      "multi_agent": {"enabled": true, "mode": "shadow", "uses_llm": false, "worker_trace": [{"role_id": "thermal_network_agent"}], "warnings": []}
+    }
+  },
+  "cards": [
+    {"card_id": "task_card", "title": "Task", "status": "calculation", "visible": true, "summary": {}, "data_path": "task", "priority": 10, "warnings": [], "frontend_hint": "status"},
+    {"card_id": "calculation_card", "title": "Calculation", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.calculation", "priority": 20, "warnings": [], "frontend_hint": "calculation"},
+    {"card_id": "property_lookup_card", "title": "Property lookup", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.property_lookup", "priority": 20, "warnings": [], "frontend_hint": "property"},
+    {"card_id": "hydraulics_card", "title": "Hydraulics", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.hydraulics", "priority": 20, "warnings": [], "frontend_hint": "engineering_estimate"},
+    {"card_id": "pump_selection_card", "title": "Pump selection preparation", "status": "missing_params", "visible": true, "summary": {"pump_model_selected": false, "pump_curve_used": false}, "data_path": "metadata.pump_selection", "priority": 30, "warnings": ["No pump model selected."], "frontend_hint": "checklist"},
+    {"card_id": "flow_distribution_card", "title": "Flow distribution", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.flow_distribution", "priority": 30, "warnings": [], "frontend_hint": "network"},
+    {"card_id": "hydraulic_network_card", "title": "Hydraulic network", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.hydraulic_network", "priority": 35, "warnings": [], "frontend_hint": "network"},
+    {"card_id": "thermal_network_card", "title": "Thermal network", "status": "success", "visible": true, "summary": {"junction_temperature_c": 83.0, "bottleneck_count": 1}, "data_path": "metadata.thermal_network", "priority": 30, "warnings": [], "frontend_hint": "thermal_network"},
+    {"card_id": "thermal_path_card", "title": "Thermal path", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.thermal_path", "priority": 35, "warnings": [], "frontend_hint": "graph"},
+    {"card_id": "sensitivity_card", "title": "Sensitivity", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.sensitivity", "priority": 35, "warnings": [], "frontend_hint": "sensitivity"},
+    {"card_id": "report_card", "title": "Report", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.report", "priority": 40, "warnings": [], "frontend_hint": "report"},
+    {"card_id": "simulation_card", "title": "Simulation readiness", "status": "skipped", "visible": false, "summary": {}, "data_path": "metadata.simulation", "priority": 40, "warnings": [], "frontend_hint": "checklist"},
+    {"card_id": "self_critique_card", "title": "Self critique", "status": "pass", "visible": true, "summary": {"passed": true, "issue_count": 0}, "data_path": "metadata.self_critique", "priority": 80, "warnings": [], "frontend_hint": "quality_gate"},
+    {"card_id": "multi_agent_card", "title": "Multi-agent shadow", "status": "shadow", "visible": true, "summary": {"uses_llm": false, "worker_count": 1}, "data_path": "metadata.multi_agent", "priority": 90, "warnings": [], "frontend_hint": "trace"},
+    {"card_id": "sources_card", "title": "Sources", "status": "available", "visible": true, "summary": {"count": 2, "titles": ["Engineering note A", "Engineering note B"]}, "data_path": "sources", "priority": 100, "warnings": [], "frontend_hint": "source_summary"}
+  ]
+}

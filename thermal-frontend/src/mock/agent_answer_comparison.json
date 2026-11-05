@@ -1,0 +1,347 @@
+{
+  "answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。",
+  "query": "比较风冷和冷板液冷在 AI 服务器中的适用场景。",
+  "task_type": "comparison",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "comparison",
+    "domain": "thermal_management",
+    "entities": [
+      "服务器",
+      "液冷",
+      "风冷",
+      "冷板"
+    ],
+    "intent": "对比服务器、液冷、风冷、冷板的差异、优势和适用场景",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": false,
+    "confidence": 0.76,
+    "original_query": "比较风冷和冷板液冷在 AI 服务器中的适用场景。",
+    "normalized_query": "比较风冷和冷板液冷在 AI 服务器中的适用场景.",
+    "warnings": [],
+    "candidate_tools": [],
+    "properties": [],
+    "needs_report": false,
+    "needs_comparison": true,
+    "needs_simulation": false,
+    "is_property_lookup": false,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [],
+      "visualization": [],
+      "analysis": [
+        "comparison"
+      ]
+    }
+  },
+  "rewrite": {
+    "original_query": "比较风冷和冷板液冷在 AI 服务器中的适用场景。",
+    "rewritten_query": "比较风冷和冷板液冷在 AI 服务器中的适用场景. 服务器 液冷 风冷 冷板 对比 优缺点 适用场景 数据中心",
+    "expanded_queries": [
+      "比较风冷和冷板液冷在 AI 服务器中的适用场景. 服务器 液冷 风冷 冷板 对比 优缺点 适用场景 数据中心",
+      "服务器 液冷 风冷 冷板 对比 优缺点 适用场景 数据中心 散热 热管理",
+      "服务器 server rack 机柜 数据中心 液冷 liquid cooling cold plate 冷板 CDU 冷却液 风冷",
+      "GPU liquid cooling high power server thermal management",
+      "液冷 冷板 CDU 冷却液 热阻 PUE",
+      "风冷 液冷 对比 数据中心 高功率服务器",
+      "air cooling vs liquid cooling server thermal design"
+    ],
+    "keywords": [
+      "服务器",
+      "液冷",
+      "风冷",
+      "冷板",
+      "AI",
+      "比较风冷和冷板液冷在",
+      "服务器中的适用场景",
+      "对比",
+      "优缺点",
+      "适用场景",
+      "数据中心",
+      "server",
+      "rack",
+      "机柜",
+      "liquid cooling",
+      "cold plate",
+      "CDU",
+      "冷却液",
+      "air cooling",
+      "空气冷却",
+      "heat sink",
+      "fan",
+      "风道",
+      "microchannel cold plate",
+      "流道",
+      "均温"
+    ],
+    "entities": [
+      "服务器",
+      "液冷",
+      "风冷",
+      "冷板"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-comparison",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": null,
+    "tool_status": "skipped",
+    "tool_inputs": {},
+    "tool_result": {},
+    "tool_formula": null,
+    "tool_steps": [],
+    "tool_warnings": [],
+    "missing_parameters": [],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "tool_formula": null,
+      "tool_steps": [],
+      "tool_warnings": [],
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "calculation_status": null,
+    "calculation_tool": null,
+    "calculation_error": null,
+    "calculation_result": null,
+    "property_lookup": {
+      "used_property_lookup": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "property_name": null,
+      "fluid": null,
+      "temperature_c": null,
+      "concentration_percent": null,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": []
+    },
+    "knowledge": {
+      "synthesized": false,
+      "answer_style": null,
+      "source_language": "mixed/en",
+      "template_type": "concept"
+    },
+    "analysis_mode": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "reason": "explicit_request_option",
+      "requested_outputs": [
+        "comparison"
+      ]
+    },
+    "analysis_workflow": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "requested_outputs": [
+        "comparison"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": false
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": true,
+      "comparison_type": "cooling_method_comparison",
+      "title": "风冷与液冷方案对比建议",
+      "options": [
+        {
+          "name": "风冷",
+          "summary": "系统简单、维护成熟，但高热流密度场景能力有限。",
+          "advantages": [
+            "系统结构相对简单。",
+            "运维经验成熟。",
+            "泄漏风险低。"
+          ],
+          "disadvantages": [
+            "高功率 GPU 或高密度机柜中温度裕度可能不足。",
+            "风道和噪声/风量约束更突出。"
+          ],
+          "risks": [
+            "热通道管理不足时可能出现回流和局部热点。"
+          ],
+          "required_checks": [
+            "机柜热负荷",
+            "风量",
+            "进出风温度",
+            "场地气流组织"
+          ]
+        },
+        {
+          "name": "液冷",
+          "summary": "高热负荷带热能力更强，但系统集成和运维风险更高。",
+          "advantages": [
+            "更适合高功率密度和高热流密度场景。",
+            "有利于降低对大风量的依赖。"
+          ],
+          "disadvantages": [
+            "需要 CDU、管路、接头和冷板集成。",
+            "存在泄漏、维护和监测要求。"
+          ],
+          "risks": [
+            "泄漏、CDU 运维、管路接头可靠性和冷板压降需要单独验证。"
+          ],
+          "required_checks": [
+            "CDU 能力",
+            "冷板压降",
+            "泄漏监测",
+            "运维能力",
+            "PUE/能耗目标"
+          ]
+        }
+      ],
+      "criteria": [
+        {
+          "name": "散热能力",
+          "description": "比较对高功率 GPU 或高密度机柜的适应性。",
+          "weight_hint": "high"
+        },
+        {
+          "name": "系统复杂度",
+          "description": "比较 CDU、管路、风道和监测系统复杂度。",
+          "weight_hint": "high"
+        },
+        {
+          "name": "可靠性",
+          "description": "比较泄漏、维护、部件失效和冗余要求。",
+          "weight_hint": "high"
+        },
+        {
+          "name": "场地条件",
+          "description": "比较数据中心冷源、机柜功率密度和运维能力。",
+          "weight_hint": "medium"
+        }
+      ],
+      "recommendation": "若热负荷较高且机柜功率密度较大，液冷通常更适合作为进一步方案，但仍需校核泄漏、CDU、压降和运维条件。",
+      "required_additional_data": [
+        "功耗密度",
+        "机柜热负荷",
+        "场地条件",
+        "运维能力",
+        "PUE/能耗目标"
+      ],
+      "risks": [
+        "液冷泄漏风险未评估。",
+        "CDU 和管路运维条件未确认。",
+        "风冷气流组织和热回流未验证。"
+      ],
+      "limitations": [
+        "当前为一级工程判断。",
+        "不替代 CFD。",
+        "不替代工业级冷板设计。",
+        "不包含压降计算、泵曲线选型或现场验证。",
+        "没有来源或计算支持时不输出确定性工业设计结论。"
+      ],
+      "confidence": 0.45,
+      "notes": [
+        "comparison_engine 仅整理规则化一级工程对比。",
+        "未重新计算工具结果，未生成压降、泵曲线、冷板性能或仿真数值。"
+      ]
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "none",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 31,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": false,
+          "final_answer_unchanged": true
+        }
+      ],
+      "repair_attempts": 0,
+      "repaired": false,
+      "original_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。",
+      "final_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。",
+      "original_route": "finalize",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_comparison.json",
+    "description": "Comparison metadata for front-end rendering.",
+    "mock_only": false,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": []
+  }
+}

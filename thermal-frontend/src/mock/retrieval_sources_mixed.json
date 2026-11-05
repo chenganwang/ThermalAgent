@@ -1,0 +1,31 @@
+{
+  "fixture": {
+    "mock_only": true,
+    "scenario": "mixed optional and legacy-compatible source fields"
+  },
+  "sources": [
+    {
+      "title": "Minimal Source Card",
+      "score": "0.67",
+      "snippet": "Short optional snippet for contract validation.",
+      "metadata": {
+        "fixture_only": true,
+        "language": "en"
+      },
+      "custom_field": "preserved"
+    },
+    {
+      "doc_id": 201,
+      "chunk_id": 2001,
+      "page_start": 8,
+      "page_end": 9,
+      "text_preview": "Short current-project preview without optional title or source fields.",
+      "score": 1
+    },
+    {
+      "source": "fixture://legacy-source",
+      "content": "Brief fixture-only content; this is not copied from a real PDF.",
+      "metadata": {}
+    }
+  ]
+}

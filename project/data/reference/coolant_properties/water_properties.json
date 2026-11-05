@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "dataset_id": "water_engineering_defaults_v1",
+    "description": "Project-approved approximate defaults for liquid water near room temperature. These are engineering assumptions, not a full property table.",
+    "pending_source_data": false,
+    "test_only": false
+  },
+  "data_points": [
+    {
+      "fluid": "water",
+      "property_name": "cp",
+      "temperature_c": 25.0,
+      "concentration_percent": null,
+      "value": 4180.0,
+      "unit": "J/(kg*K)",
+      "source_id": "default_water_engineering_assumption",
+      "source_title": "Engineering default for liquid water near room temperature",
+      "source_type": "engineering_assumption",
+      "source_quality": "approximate_default",
+      "validated": true,
+      "notes": [
+        "Only use when user explicitly states water / 冷却水 / water.",
+        "default_water_assumption"
+      ]
+    },
+    {
+      "fluid": "water",
+      "property_name": "density",
+      "temperature_c": 25.0,
+      "concentration_percent": null,
+      "value": 1000.0,
+      "unit": "kg/m3",
+      "source_id": "default_water_engineering_assumption",
+      "source_title": "Engineering default for liquid water near room temperature",
+      "source_type": "engineering_assumption",
+      "source_quality": "approximate_default",
+      "validated": true,
+      "notes": [
+        "Only use when user explicitly states water / 冷却水 / water.",
+        "default_water_assumption"
+      ]
+    }
+  ]
+}

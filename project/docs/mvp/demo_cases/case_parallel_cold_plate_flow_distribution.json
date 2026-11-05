@@ -1,0 +1,13 @@
+{
+  "case_id": "case_parallel_cold_plate_flow_distribution",
+  "title": "Identical parallel cold-plate flow distribution",
+  "category": "hydraulic_network",
+  "query": "4 个完全相同并联冷板，总流量 8 L/min，每个支路多少？",
+  "expected_task_type": "calculation",
+  "expected_tools": ["liquid_network_flow_distribution"],
+  "expected_metadata_paths": ["metadata.flow_distribution", "metadata.hydraulic_network", "metadata.flow_distribution.cfd_executed"],
+  "expected_cards": ["flow_distribution_card", "hydraulic_network_card", "self_critique_card", "multi_agent_card"],
+  "expected_warnings": ["equal_split_assumption"],
+  "boundary_notes": ["Equal split is allowed only because branches are explicitly identical.", "No branch resistance is fabricated."],
+  "should_not_include": ["CFD completed", "实验已经完成", "已推断支路阻力"]
+}

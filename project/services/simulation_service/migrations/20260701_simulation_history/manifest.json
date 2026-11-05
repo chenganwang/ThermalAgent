@@ -1,0 +1,53 @@
+{
+  "migration_id": "20260701_simulation_history",
+  "version": "phase4.20260701",
+  "created_at": "2026-07-01T00:00:00Z",
+  "description": "Reviewed additive Simulation History migration package for ThermalAgent Simulation Module.",
+  "applies_to": {
+    "module": "services/simulation_service",
+    "database": "simulation runtime history",
+    "production_dialect": "mysql8_reviewed",
+    "dry_run_dialect": "sqlite_translation"
+  },
+  "creates_tables": [
+    "simulation_runs",
+    "simulation_logs",
+    "simulation_models",
+    "simulation_tools"
+  ],
+  "creates_indexes": [
+    "simulation_runs.run_id_unique",
+    "idx_sim_runs_tool",
+    "idx_sim_runs_adapter",
+    "idx_sim_runs_status",
+    "idx_sim_runs_created",
+    "idx_sim_runs_trace",
+    "idx_sim_logs_run_id",
+    "idx_sim_logs_level",
+    "idx_sim_logs_created",
+    "idx_sim_models_adapter",
+    "idx_sim_models_enabled",
+    "uq_simulation_tools_tool_adapter",
+    "idx_sim_tools_category",
+    "idx_sim_tools_enabled"
+  ],
+  "modifies_existing_tables": false,
+  "destructive": false,
+  "auto_apply": false,
+  "requires_human_review": true,
+  "migration_sql_sha256": "470263bcef039b27a81e60f828ffe5fe5a319744e072d37ced6dd6dfde7cca45",
+  "rollback_sql_sha256": "2726784698cf75de6facd022bf178c03481800d83df7f46ea9b4ce41bcea46a6",
+  "tested_with": [
+    "temporary sqlite dry-run",
+    "manifest hash validation",
+    "destructive SQL scanner",
+    "insert/select smoke",
+    "rollback smoke"
+  ],
+  "notes": [
+    "This package is not auto-applied.",
+    "Tests do not write production DB.",
+    "Production MySQL execution requires human operator review.",
+    "SQLite dry-run uses a translated validation form because MySQL AUTO_INCREMENT, JSON, KEY, and ENGINE clauses are dialect-specific."
+  ]
+}

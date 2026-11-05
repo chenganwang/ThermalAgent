@@ -1,0 +1,464 @@
+[
+  {
+    "id": "tu_concept_001",
+    "category": "concept",
+    "query": "什么是冷板液冷？",
+    "expected": {"task_type": ["concept", "concept_explanation", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "冷板液冷概念解释"
+  },
+  {
+    "id": "tu_concept_002",
+    "category": "concept",
+    "query": "CDU 在液冷系统里是什么设备？",
+    "expected": {"task_type": ["concept", "concept_explanation", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "CDU 概念"
+  },
+  {
+    "id": "tu_concept_003",
+    "category": "concept",
+    "query": "TIM 导热界面材料的作用是什么？",
+    "expected": {"task_type": ["concept", "concept_explanation", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "TIM 作用"
+  },
+  {
+    "id": "tu_concept_004",
+    "category": "concept",
+    "query": "服务器液冷里的冷却液通常承担什么功能？",
+    "expected": {"task_type": ["concept", "concept_explanation", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "冷却液功能"
+  },
+  {
+    "id": "tu_concept_005",
+    "category": "concept",
+    "query": "热阻在芯片散热里表示什么意思？",
+    "expected": {"task_type": ["concept", "concept_explanation", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "热阻概念"
+  },
+  {
+    "id": "tu_concept_006",
+    "category": "concept",
+    "query": "GPU 冷板和普通散热器的基本区别是什么？",
+    "expected": {"task_type": ["concept", "concept_explanation", "comparison", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "概念型区别问题"
+  },
+  {
+    "id": "tu_concept_007",
+    "category": "concept",
+    "query": "液冷管路在机柜里主要连接哪些部件？",
+    "expected": {"task_type": ["concept", "concept_explanation", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "液冷管路部件"
+  },
+  {
+    "id": "tu_concept_008",
+    "category": "concept",
+    "query": "为什么高功率 AI 服务器会考虑冷板液冷？",
+    "expected": {"task_type": ["concept", "concept_explanation", "mechanism_analysis", "retrieval", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "液冷动因"
+  },
+  {
+    "id": "tu_formula_001",
+    "category": "formula",
+    "query": "液冷流量公式的物理意义是什么？",
+    "expected": {"task_type": ["formula", "concept_explanation", "general_qa", "design_advice"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "流量公式解释"
+  },
+  {
+    "id": "tu_formula_002",
+    "category": "formula",
+    "query": "冷却液温升和热负荷之间是什么公式关系？",
+    "expected": {"task_type": ["formula", "concept_explanation", "general_qa", "mechanism_analysis"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "温升公式解释"
+  },
+  {
+    "id": "tu_formula_003",
+    "category": "formula",
+    "query": "一维导热热阻公式 R=L/(kA) 怎么理解？",
+    "expected": {"task_type": ["formula", "concept_explanation", "general_qa", "mechanism_analysis"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "导热热阻公式"
+  },
+  {
+    "id": "tu_formula_004",
+    "category": "formula",
+    "query": "结温估算为什么常用 Tj=Tin+P*Rtotal？",
+    "expected": {"task_type": ["formula", "concept_explanation", "general_qa", "mechanism_analysis"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "结温公式解释"
+  },
+  {
+    "id": "tu_formula_005",
+    "category": "formula",
+    "query": "总热阻模型里各段热阻为什么可以相加？",
+    "expected": {"task_type": ["formula", "concept_explanation", "general_qa", "mechanism_analysis"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "热阻网络公式解释"
+  },
+  {
+    "id": "tu_formula_006",
+    "category": "formula",
+    "query": "液冷系统能量守恒估算流量时有哪些假设？",
+    "expected": {"task_type": ["formula", "concept_explanation", "general_qa", "mechanism_analysis"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "公式假设"
+  },
+  {
+    "id": "tu_calc_001",
+    "category": "calculation",
+    "query": "800W 热负荷，水，允许温升 5K，需要多少 L/min 流量？",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice", "concept_explanation"], "needs_calculation": true, "candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "液冷流量计算"
+  },
+  {
+    "id": "tu_calc_002",
+    "category": "calculation",
+    "query": "芯片功耗 800W，环境温度 30℃，总热阻 0.08 K/W，结温是多少？",
+    "expected": {"task_type": ["calculation", "general_qa", "concept_explanation"], "needs_calculation": true, "candidate_tools": ["junction_temperature_estimate"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "结温计算"
+  },
+  {
+    "id": "tu_calc_003",
+    "category": "calculation",
+    "query": "500W 芯片，入口水温 30℃，最高允许 80℃，需要多低的总热阻？",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice"], "needs_calculation": true, "candidate_tools": ["required_thermal_resistance"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "所需热阻计算"
+  },
+  {
+    "id": "tu_calc_004",
+    "category": "calculation",
+    "query": "导热垫厚度 1mm，导热系数 6 W/(m·K)，面积 40mm×40mm，导热热阻是多少？",
+    "expected": {"task_type": ["calculation", "general_qa", "concept_explanation"], "needs_calculation": true, "candidate_tools": ["conduction_resistance"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "一维导热热阻"
+  },
+  {
+    "id": "tu_calc_005",
+    "category": "calculation",
+    "query": "流量 0.05 kg/s，带走 800W 热量，水 cp=4180，冷却液温升多少？",
+    "expected": {"task_type": ["calculation", "general_qa", "concept_explanation"], "needs_calculation": true, "candidate_tools": ["coolant_temperature_rise"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "冷却液温升计算"
+  },
+  {
+    "id": "tu_calc_006",
+    "category": "calculation",
+    "query": "0.5kW 热负荷，水温升不超过 4K，需要多大流量？",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice"], "needs_calculation": true, "candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "kW 流量计算"
+  },
+  {
+    "id": "tu_calc_007",
+    "category": "calculation",
+    "query": "600W GPU，总热阻 0.06 K/W，入口水温 28℃，估算芯片温度。",
+    "expected": {"task_type": ["calculation", "general_qa"], "needs_calculation": true, "candidate_tools": ["junction_temperature_estimate"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "芯片温度估算"
+  },
+  {
+    "id": "tu_calc_008",
+    "category": "calculation",
+    "query": "已知 900W 发热量和允许温升 6K，求水冷需要多少 L/min。",
+    "expected": {"task_type": ["calculation", "general_qa"], "needs_calculation": true, "candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "求流量"
+  },
+  {
+    "id": "tu_calc_009",
+    "category": "calculation",
+    "query": "TIM 厚度 0.2mm，k=8 W/mK，接触面积 30mm x 30mm，帮我算导热热阻。",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice"], "needs_calculation": true, "candidate_tools": ["conduction_resistance"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "TIM 导热热阻"
+  },
+  {
+    "id": "tu_calc_010",
+    "category": "calculation",
+    "query": "质量流量 0.08 kg/s，吸收 1200W 热负荷，冷却液出口会升温多少？",
+    "expected": {"task_type": ["calculation", "general_qa"], "needs_calculation": true, "candidate_tools": ["coolant_temperature_rise"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "出口温升"
+  },
+  {
+    "id": "tu_missing_001",
+    "category": "missing_params",
+    "query": "只知道这块冷板要带走热量，需要多少 L/min 流量？",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice"], "needs_calculation": true, "candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "缺热负荷和温升"
+  },
+  {
+    "id": "tu_missing_002",
+    "category": "missing_params",
+    "query": "芯片结温是多少？我还没给功耗和热阻。",
+    "expected": {"task_type": ["calculation", "general_qa", "concept_explanation"], "needs_calculation": true, "candidate_tools": ["junction_temperature_estimate"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "结温缺参"
+  },
+  {
+    "id": "tu_missing_003",
+    "category": "missing_params",
+    "query": "这个 TIM 的导热热阻帮我计算一下，但厚度和面积还没确定。",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice"], "needs_calculation": true, "candidate_tools": ["conduction_resistance"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "导热热阻缺参"
+  },
+  {
+    "id": "tu_missing_004",
+    "category": "missing_params",
+    "query": "我想估算冷却液温升多少，但目前只有流量，没有热负荷。",
+    "expected": {"task_type": ["calculation", "general_qa"], "needs_calculation": true, "candidate_tools": ["coolant_temperature_rise"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "温升缺参"
+  },
+  {
+    "id": "tu_missing_005",
+    "category": "missing_params",
+    "query": "需要多低的热阻才能安全？功耗和温度限制还没有。",
+    "expected": {"task_type": ["calculation", "general_qa", "design_advice"], "needs_calculation": true, "candidate_tools": ["required_thermal_resistance"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "所需热阻缺参"
+  },
+  {
+    "id": "tu_property_001",
+    "category": "property_lookup",
+    "query": "40% EGW 在 25℃ 下 cp 是多少？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "EGW 比热查表"
+  },
+  {
+    "id": "tu_property_002",
+    "category": "property_lookup",
+    "query": "30% PGW 20 摄氏度的密度 rho 有资料吗？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "PGW 密度查表"
+  },
+  {
+    "id": "tu_property_003",
+    "category": "property_lookup",
+    "query": "乙二醇水溶液 50% 在 40℃ 时黏度是多少？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "乙二醇黏度"
+  },
+  {
+    "id": "tu_property_004",
+    "category": "property_lookup",
+    "query": "丙二醇水溶液 45% 的导热系数 k 在 30℃ 下是多少？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "PGW 导热系数"
+  },
+  {
+    "id": "tu_property_005",
+    "category": "property_lookup",
+    "query": "冷却液物性参数里 cp 和 density 应该查哪张表？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "物性表来源"
+  },
+  {
+    "id": "tu_property_006",
+    "category": "property_lookup",
+    "query": "water glycol 35% at 25C specific heat property value?",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "英文水乙二醇物性"
+  },
+  {
+    "id": "tu_property_007",
+    "category": "property_lookup",
+    "query": "25℃ 水的比热容 cp 可以直接用多少？有没有来源？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "水 cp 物性查表"
+  },
+  {
+    "id": "tu_property_008",
+    "category": "property_lookup",
+    "query": "EGW 浓度变化会怎样影响 viscosity 和 thermal conductivity？",
+    "expected": {"task_type": "property_lookup", "needs_calculation": false, "candidate_tools": [], "forbidden_candidate_tools": ["liquid_flow_rate_required"], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": true, "is_irrelevant_or_analogy": false},
+    "notes": "物性趋势查表"
+  },
+  {
+    "id": "tu_vis_001",
+    "category": "visualization",
+    "query": "请画一个芯片到 TIM、冷板、冷却液和 CDU 的散热路径图。",
+    "expected": {"task_type": ["visualization", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": true, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "散热路径图"
+  },
+  {
+    "id": "tu_vis_002",
+    "category": "visualization",
+    "query": "给我一个冷板液冷回路的图结构，包含泵和 CDU。",
+    "expected": {"task_type": ["visualization", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": true, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "液冷回路图"
+  },
+  {
+    "id": "tu_vis_003",
+    "category": "visualization",
+    "query": "生成一个热阻网络示意图，展示芯片、TIM 和冷板。",
+    "expected": {"task_type": ["visualization", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": true, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "热阻网络"
+  },
+  {
+    "id": "tu_vis_004",
+    "category": "visualization",
+    "query": "Can you provide a graph of the cold plate coolant loop?",
+    "expected": {"task_type": ["visualization", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": true, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "英文 graph 请求"
+  },
+  {
+    "id": "tu_vis_005",
+    "category": "visualization",
+    "query": "把芯片—TIM—冷板—冷却液—CDU 的路径整理成节点和边。",
+    "expected": {"task_type": ["visualization", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": true, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "节点边表达"
+  },
+  {
+    "id": "tu_vis_006",
+    "category": "visualization",
+    "query": "液冷系统从冷板到 CDU 的流动流程图怎么画？",
+    "expected": {"task_type": ["visualization", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": true, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "流程图"
+  },
+  {
+    "id": "tu_report_001",
+    "category": "report",
+    "query": "请生成 800W 芯片冷板液冷分析报告。",
+    "expected": {"task_type": ["report", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": true, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "中文分析报告"
+  },
+  {
+    "id": "tu_report_002",
+    "category": "report",
+    "query": "整理一份 GPU 冷板液冷方案的 Markdown report。",
+    "expected": {"task_type": ["report", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": true, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "Markdown report"
+  },
+  {
+    "id": "tu_report_003",
+    "category": "report",
+    "query": "基于 1200W AI 服务器液冷方案输出工程分析报告。",
+    "expected": {"task_type": ["report", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": true, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "工程报告"
+  },
+  {
+    "id": "tu_report_004",
+    "category": "report",
+    "query": "请给冷板液冷项目写一个包含风险和下一步的报告。",
+    "expected": {"task_type": ["report", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": true, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "风险报告"
+  },
+  {
+    "id": "tu_report_005",
+    "category": "report",
+    "query": "Generate an engineering report for a 500W GPU cold plate liquid cooling solution.",
+    "expected": {"task_type": ["report", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": true, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "英文报告"
+  },
+  {
+    "id": "tu_report_006",
+    "category": "report",
+    "query": "比较 5K 和 10K 温升方案，并生成分析报告。",
+    "expected": {"task_type": ["report", "analysis", "comparison", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": true, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "多意图报告+对比"
+  },
+  {
+    "id": "tu_cmp_001",
+    "category": "comparison",
+    "query": "比较风冷和冷板液冷在 AI 服务器中的适用场景。",
+    "expected": {"task_type": ["comparison", "analysis", "design_advice"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "风冷液冷对比"
+  },
+  {
+    "id": "tu_cmp_002",
+    "category": "comparison",
+    "query": "5K 温升和 10K 温升方案哪个好？",
+    "expected": {"task_type": ["comparison", "analysis", "design_advice"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "温升方案对比"
+  },
+  {
+    "id": "tu_cmp_003",
+    "category": "comparison",
+    "query": "水和 40% EGW 作为冷却液有什么优缺点？",
+    "expected": {"task_type": ["comparison", "analysis", "design_advice"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "冷却液对比"
+  },
+  {
+    "id": "tu_cmp_004",
+    "category": "comparison",
+    "query": "单冷板和多冷板液冷方案怎么选？",
+    "expected": {"task_type": ["comparison", "analysis", "design_advice"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "架构对比"
+  },
+  {
+    "id": "tu_cmp_005",
+    "category": "comparison",
+    "query": "Compare direct-to-chip liquid cooling versus rear-door heat exchanger.",
+    "expected": {"task_type": ["comparison", "analysis", "design_advice"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": true, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "英文对比"
+  },
+  {
+    "id": "tu_sim_001",
+    "category": "simulation_readiness",
+    "query": "我上传了 cabinet_model.step，请做机柜液冷仿真准备。",
+    "expected": {"task_type": ["simulation", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": true, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "STEP 仿真准备"
+  },
+  {
+    "id": "tu_sim_002",
+    "category": "simulation_readiness",
+    "query": "cabinet_model.stp 已经有了，帮我检查 CFD 前还缺哪些边界条件。",
+    "expected": {"task_type": ["simulation", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": true, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "STP 边界条件"
+  },
+  {
+    "id": "tu_sim_003",
+    "category": "simulation_readiness",
+    "query": "做液冷机柜 simulation readiness，需要准备哪些材料参数和入口条件？",
+    "expected": {"task_type": ["simulation", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": true, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "英文 readiness"
+  },
+  {
+    "id": "tu_sim_004",
+    "category": "simulation_readiness",
+    "query": "请检查机柜液冷仿真准备清单，包括网格、材料和热源边界。",
+    "expected": {"task_type": ["simulation", "analysis", "design_advice", "general_qa"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": true, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "仿真准备清单"
+  },
+  {
+    "id": "tu_irrel_001",
+    "category": "irrelevant_or_analogy",
+    "query": "冷板液冷系统和食堂排队有什么关系？",
+    "expected": {"task_type": "irrelevant_or_analogy", "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": true},
+    "notes": "食堂排队类比"
+  },
+  {
+    "id": "tu_irrel_002",
+    "category": "irrelevant_or_analogy",
+    "query": "TIM 和奶茶排队能类比吗？",
+    "expected": {"task_type": "irrelevant_or_analogy", "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": true},
+    "notes": "奶茶类比"
+  },
+  {
+    "id": "tu_irrel_003",
+    "category": "irrelevant_or_analogy",
+    "query": "液冷管路和公交交通拥堵有什么相似？",
+    "expected": {"task_type": "irrelevant_or_analogy", "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": true},
+    "notes": "交通类比"
+  },
+  {
+    "id": "tu_irrel_004",
+    "category": "irrelevant_or_analogy",
+    "query": "冷却液循环和电影院散场有什么关系？",
+    "expected": {"task_type": "irrelevant_or_analogy", "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": true},
+    "notes": "电影院类比"
+  },
+  {
+    "id": "tu_std_001",
+    "category": "standard_range_lookup",
+    "query": "ASHRAE A1 推荐干球温度范围是多少？",
+    "expected": {"task_type": ["literature_lookup", "retrieval", "general_qa", "concept_explanation"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "ASHRAE 推荐范围"
+  },
+  {
+    "id": "tu_std_002",
+    "category": "standard_range_lookup",
+    "query": "ASHRAE A2 到 A4 允许干球温度范围有哪些？",
+    "expected": {"task_type": ["literature_lookup", "retrieval", "general_qa", "concept_explanation"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "ASHRAE 允许范围"
+  },
+  {
+    "id": "tu_std_003",
+    "category": "standard_range_lookup",
+    "query": "OCP W27 供水温度范围是多少？",
+    "expected": {"task_type": ["literature_lookup", "retrieval", "general_qa", "concept_explanation"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "OCP W27 范围"
+  },
+  {
+    "id": "tu_std_004",
+    "category": "standard_range_lookup",
+    "query": "ASHRAE W17 W32 W45 液冷等级对应的 facility water supply temperature 是多少？",
+    "expected": {"task_type": ["literature_lookup", "retrieval", "general_qa", "concept_explanation"], "needs_calculation": false, "candidate_tools": [], "needs_visualization": false, "needs_report": false, "needs_comparison": false, "needs_simulation": false, "is_property_lookup": false, "is_irrelevant_or_analogy": false},
+    "notes": "液冷等级供水温度"
+  }
+]

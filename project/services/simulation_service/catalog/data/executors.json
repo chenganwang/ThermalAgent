@@ -1,0 +1,10 @@
+{
+  "registry_version": "7D.1",
+  "executors": [
+    {"executor_id": "matlab_controlled_adapter:heat_conduction_1d", "name_zh": "受控 MATLAB 一维导热 Demo", "version": "1.0.0", "solver": "matlab", "adapter_id": "matlab_controlled_adapter", "entrypoint_id": "heat_conduction_1d", "status": "available"},
+    {"executor_id": "python_controlled_executor:cylindrical_wall_v1", "name_zh": "Python 圆筒壁解析执行器", "version": "1.0.0", "solver": "python", "adapter_id": "python_controlled_executor", "entrypoint_id": "cylindrical_wall_v1", "status": "available"},
+    {"executor_id": "python_controlled_executor:multilayer_wall_v1", "name_zh": "Python 多层平壁执行器", "version": "1.0.0", "solver": "python", "adapter_id": "python_controlled_executor", "entrypoint_id": "multilayer_wall_v1", "status": "available"},
+    {"executor_id": "python_controlled_executor:liquid_loop_energy_balance_v1", "name_zh": "Python 液冷能量平衡执行器", "version": "1.0.0", "solver": "python", "adapter_id": "python_controlled_executor", "entrypoint_id": "liquid_loop_energy_balance_v1", "status": "available"},
+    {"executor_id": "python_controlled_executor:junction_temperature_network_v1", "name_zh": "Python 结温网络执行器", "version": "1.0.0", "solver": "python", "adapter_id": "python_controlled_executor", "entrypoint_id": "junction_temperature_network_v1", "status": "available"}
+  ]
+}

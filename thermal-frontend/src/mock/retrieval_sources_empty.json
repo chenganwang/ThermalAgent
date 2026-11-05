@@ -1,0 +1,7 @@
+{
+  "fixture": {
+    "mock_only": true,
+    "scenario": "empty retrieval"
+  },
+  "sources": []
+}

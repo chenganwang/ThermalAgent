@@ -1,0 +1,13 @@
+{
+  "case_id": "case_sensitivity_tim_improvement",
+  "title": "TIM conductivity sensitivity preparation",
+  "category": "sensitivity",
+  "query": "芯片 800W，冷却液 35℃，TIM 厚度 0.2mm，面积 400mm2，导热率从 3 提高到 8 W/mK，对结温影响怎么分析？",
+  "expected_task_type": "calculation",
+  "expected_tools": ["thermal_resistance_network_solve"],
+  "expected_metadata_paths": ["metadata.sensitivity", "metadata.thermal_network", "metadata.self_critique"],
+  "expected_cards": ["sensitivity_card", "thermal_network_card", "self_critique_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["Missing inputs remain explicit.", "No TIM or package parameter is fabricated."],
+  "should_not_include": ["CFD completed", "实验已经完成", "真实温度云图"]
+}

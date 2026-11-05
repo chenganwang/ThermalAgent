@@ -1,0 +1,13 @@
+{
+  "case_id": "case_800w_single_chip_thermal_network",
+  "title": "800 W single-chip thermal network",
+  "category": "thermal_network",
+  "query": "芯片 800W，冷却液 35℃，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，结温多少？",
+  "expected_task_type": "calculation",
+  "expected_tools": ["thermal_resistance_network_solve"],
+  "expected_metadata_paths": ["metadata.thermal_network", "metadata.thermal_path", "metadata.multi_agent", "metadata.self_critique"],
+  "expected_cards": ["thermal_network_card", "thermal_path_card", "multi_agent_card", "self_critique_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["One-dimensional steady thermal-resistance estimate only.", "No missing resistance is inferred."],
+  "should_not_include": ["CFD completed", "实验已经完成", "真实温度云图"]
+}

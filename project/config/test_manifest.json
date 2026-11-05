@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "classification_policy": "conservative_static_v1_with_local_layers",
+  "quick_suite": [
+    {
+      "id": "compileall",
+      "command": "python -m compileall -q services scripts cli.py"
+    },
+    {
+      "id": "agent_answer_contract",
+      "path": "scripts/test_agent_answer_contract.py"
+    },
+    {
+      "id": "agent_smoke",
+      "command": "python scripts\\smoke_test_agent.py"
+    },
+    {
+      "id": "task_service",
+      "path": "scripts/test_task_understanding_service.py"
+    },
+    {
+      "id": "task_regression",
+      "path": "scripts/test_task_understanding_regression.py"
+    },
+    {
+      "id": "demoqa_smoke",
+      "path": "scripts/test_demoqa_evaluation_smoke.py"
+    },
+    {
+      "id": "thermal_calculators",
+      "path": "scripts/test_thermal_calculators.py"
+    }
+  ],
+  "tests": [
+    {
+      "path": "scripts/test_agent_answer_contract.py",
+      "category": "contract",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": true,
+      "enabled": true,
+      "description": "Validates agent answer contract.",
+      "layers": [
+        "module",
+        "agent",
+        "regression"
+      ]
+    },
+    {
+      "path": "scripts/test_bm25_tokenizer_contract.py",
+      "category": "contract",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates bm25 tokenizer contract.",
+      "local_fixture_reason": "Real BM25/FAISS in temporary files with patched SELECT-only synthetic stores and deterministic embeddings; no database or model connection.",
+      "layers": [
+        "module",
+        "rag",
+        "regression"
+      ]
+    },
+    {
+      "path": "scripts/test_coolant_numeric_precision.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates coolant numeric precision.",
+      "layers": [
+        "module"
+      ]
+    },
+    {
+      "path": "scripts/test_demoqa_evaluation_smoke.py",
+      "category": "evaluation",
+      "resource_level": "none",
+      "estimated_speed": "medium",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": true,
+      "enabled": true,
+      "description": "Validates demoqa evaluation smoke.",
+      "layers": [
+        "rag",
+        "regression"
+      ]
+    },
+    {
+      "path": "scripts/test_domain_formula_registry_phase7a.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates domain formula registry phase7a.",
+      "layers": [
+        "module"
+      ]
+    },
+    {
+      "path": "scripts/test_ocr_cache_contract.py",
+      "category": "contract",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates ocr cache contract.",
+      "layers": [
+        "module",
+        "regression"
+      ]
+    },
+    {
+      "path": "scripts/test_pem_core.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates pem core.",
+      "layers": [
+        "module"
+      ]
+    },
+    {
+      "path": "scripts/test_pem_results.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates pem results.",
+      "layers": [
+        "module"
+      ]
+    },
+    {
+      "path": "scripts/test_task_understanding_regression.py",
+      "category": "regression",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": true,
+      "enabled": true,
+      "description": "Validates task understanding regression.",
+      "layers": [
+        "agent",
+        "regression"
+      ]
+    },
+    {
+      "path": "scripts/test_task_understanding_service.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": true,
+      "enabled": true,
+      "description": "Validates task understanding service.",
+      "layers": [
+        "module",
+        "agent"
+      ]
+    },
+    {
+      "path": "scripts/test_thermal_calculators.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": true,
+      "enabled": true,
+      "description": "Validates thermal calculators.",
+      "layers": [
+        "module",
+        "tools"
+      ]
+    },
+    {
+      "path": "scripts/test_vnext_retrieval.py",
+      "category": "unit",
+      "resource_level": "none",
+      "estimated_speed": "fast",
+      "requires_database": false,
+      "requires_matlab": false,
+      "requires_network": false,
+      "requires_frontend": false,
+      "requires_real_resource": false,
+      "default_quick": false,
+      "enabled": true,
+      "description": "Validates vnext retrieval.",
+      "layers": [
+        "module",
+        "rag"
+      ]
+    }
+  ]
+}

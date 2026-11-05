@@ -1,0 +1,19 @@
+{
+  "fixture_type": "migration",
+  "migration_review": true,
+  "status": "success",
+  "database": {
+    "kind": "temporary_sqlite",
+    "external_db_used": false,
+    "production_db_written": false
+  },
+  "checks": {
+    "manifest_valid": true,
+    "hashes_match": true,
+    "migration_applied": true,
+    "insert_select": true,
+    "rollback_applied": true,
+    "rollback_removed_tables": true
+  },
+  "note": "Dry-run fixture only; no production migration was applied."
+}

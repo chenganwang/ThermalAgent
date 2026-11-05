@@ -1,0 +1,13 @@
+{
+  "case_id": "case_pressure_drop_pump_preparation",
+  "title": "Pressure-drop and pump-selection preparation",
+  "category": "hydraulics",
+  "query": "水冷回路 3 L/min，管径 6 mm，长度 1.5 m，水，估算压降，并准备泵选型参数。",
+  "expected_task_type": "calculation",
+  "expected_tools": ["liquid_pressure_drop_estimate"],
+  "expected_metadata_paths": ["metadata.hydraulics", "metadata.pump_selection", "metadata.pump_selection.pump_model_selected", "metadata.pump_selection.pump_curve_used"],
+  "expected_cards": ["pump_selection_card", "self_critique_card", "multi_agent_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["The pressure-drop tool remains traceable in task candidates when pump preparation is the executed branch.", "No pump model or pump curve is selected."],
+  "should_not_include": ["CFD completed", "已选择具体泵型号", "已使用泵曲线", "实验已经完成"]
+}

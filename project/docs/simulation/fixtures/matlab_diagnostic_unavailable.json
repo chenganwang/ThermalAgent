@@ -1,0 +1,14 @@
+{
+  "fixture_type": "matlab_diagnostic",
+  "diagnostic": true,
+  "fake": false,
+  "status": "unavailable",
+  "reason": "matlab_engine_not_available",
+  "real_execution_attempted": false,
+  "checks": {
+    "start_engine": false,
+    "call_function": false,
+    "stop_engine": false
+  },
+  "note": "No raw ImportError is exposed in the public diagnostic report."
+}

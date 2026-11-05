@@ -1,0 +1,10 @@
+{
+  "fixture_type": "migration",
+  "migration_review": true,
+  "status": "rejected",
+  "error": {
+    "code": "destructive_sql_rejected",
+    "message": "Destructive SQL was rejected before dry-run execution."
+  },
+  "production_db_written": false
+}

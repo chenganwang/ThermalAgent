@@ -1,0 +1,392 @@
+{
+  "answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。\n\n提示：检测到仿真准备需求；当前只做准备状态识别，不执行 CFD 求解。",
+  "query": "我上传了 cabinet_model.step，请做机柜液冷仿真准备。",
+  "task_type": "simulation",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "simulation",
+    "domain": "thermal_management",
+    "entities": [
+      "液冷"
+    ],
+    "intent": "检查液冷的仿真准备条件，不执行 CFD 求解",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": false,
+    "confidence": 0.92,
+    "original_query": "我上传了 cabinet_model.step，请做机柜液冷仿真准备。",
+    "normalized_query": "我上传了 cabinet_model.step,请做机柜液冷仿真准备.",
+    "warnings": [
+      "检测到仿真准备需求；当前只做准备状态识别，不执行 CFD 求解。"
+    ],
+    "candidate_tools": [],
+    "properties": [],
+    "needs_report": false,
+    "needs_comparison": false,
+    "needs_simulation": true,
+    "is_property_lookup": false,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [],
+      "visualization": [],
+      "analysis": [
+        "simulation_preparation"
+      ]
+    }
+  },
+  "rewrite": {
+    "original_query": "我上传了 cabinet_model.step，请做机柜液冷仿真准备。",
+    "rewritten_query": "我上传了 cabinet_model.step,请做机柜液冷仿真准备. 液冷",
+    "expanded_queries": [
+      "我上传了 cabinet_model.step,请做机柜液冷仿真准备. 液冷",
+      "液冷 散热 热管理",
+      "液冷 liquid cooling cold plate 冷板 CDU 冷却液"
+    ],
+    "keywords": [
+      "液冷",
+      "cabinet_model.step",
+      "我上传了",
+      "请做机柜液冷仿真准备",
+      "liquid cooling",
+      "cold plate",
+      "冷板",
+      "CDU",
+      "冷却液"
+    ],
+    "entities": [
+      "液冷"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-simulation-readiness",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": null,
+    "tool_status": "skipped",
+    "tool_inputs": {},
+    "tool_result": {},
+    "tool_formula": null,
+    "tool_steps": [],
+    "tool_warnings": [],
+    "missing_parameters": [],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "tool_formula": null,
+      "tool_steps": [],
+      "tool_warnings": [],
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "calculation_status": null,
+    "calculation_tool": null,
+    "calculation_error": null,
+    "calculation_result": null,
+    "property_lookup": {
+      "used_property_lookup": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "property_name": null,
+      "fluid": null,
+      "temperature_c": null,
+      "concentration_percent": null,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": []
+    },
+    "knowledge": {
+      "synthesized": false,
+      "answer_style": null,
+      "source_language": "mixed/en",
+      "template_type": "concept"
+    },
+    "analysis_mode": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "reason": "explicit_request_option",
+      "requested_outputs": [
+        "simulation"
+      ]
+    },
+    "analysis_workflow": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "requested_outputs": [
+        "simulation"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": false
+    },
+    "simulation": {
+      "enabled": true,
+      "simulation_ready": false,
+      "model_file": {
+        "file_id": "model-001",
+        "filename": "cabinet_model.step",
+        "file_type": "STEP",
+        "object_type": "rack_cabinet",
+        "description": null,
+        "usable_for": [
+          "结构展示",
+          "散热路径标注",
+          "仿真准备"
+        ],
+        "not_yet_supported": [
+          "自动网格划分",
+          "CFD 求解",
+          "压降计算",
+          "泵曲线匹配"
+        ],
+        "warnings": [
+          "当前仅登记模型文件元数据，不读取或修改模型文件。",
+          "当前不运行 CFD，不输出仿真数值结果。"
+        ]
+      },
+      "readiness": {
+        "simulation_ready": false,
+        "model_file": {
+          "file_id": "model-001",
+          "filename": "cabinet_model.step",
+          "file_type": "STEP",
+          "object_type": "rack_cabinet",
+          "description": null,
+          "usable_for": [
+            "结构展示",
+            "散热路径标注",
+            "仿真准备"
+          ],
+          "not_yet_supported": [
+            "自动网格划分",
+            "CFD 求解",
+            "压降计算",
+            "泵曲线匹配"
+          ],
+          "warnings": [
+            "当前仅登记模型文件元数据，不读取或修改模型文件。",
+            "当前不运行 CFD，不输出仿真数值结果。"
+          ]
+        },
+        "available_conditions": [
+          "机柜几何模型"
+        ],
+        "required_conditions": [
+          "热源分布",
+          "进风/进水温度",
+          "冷却方式",
+          "风量或液冷流量",
+          "材料参数",
+          "边界条件"
+        ],
+        "missing_conditions": [
+          "热源分布",
+          "进风/进水温度",
+          "冷却方式",
+          "风量或液冷流量",
+          "材料参数",
+          "边界条件"
+        ],
+        "next_action": "补充边界条件后生成仿真任务文件",
+        "stage": "simulation_preparation_stub",
+        "warnings": [
+          "simulation_ready=false 是当前阶段的正常结果。",
+          "当前不运行 CFD。",
+          "当前不输出仿真数值结果。",
+          "当前只做仿真任务准备和缺参检查。"
+        ]
+      },
+      "task": {
+        "task_type": "simulation_preparation",
+        "status": "stub_only",
+        "simulation_ready": false,
+        "model_file": {
+          "file_id": "model-001",
+          "filename": "cabinet_model.step",
+          "file_type": "STEP",
+          "object_type": "rack_cabinet",
+          "description": null,
+          "usable_for": [
+            "结构展示",
+            "散热路径标注",
+            "仿真准备"
+          ],
+          "not_yet_supported": [
+            "自动网格划分",
+            "CFD 求解",
+            "压降计算",
+            "泵曲线匹配"
+          ],
+          "warnings": [
+            "当前仅登记模型文件元数据，不读取或修改模型文件。",
+            "当前不运行 CFD，不输出仿真数值结果。"
+          ]
+        },
+        "conditions": {},
+        "readiness": {
+          "simulation_ready": false,
+          "model_file": {
+            "file_id": "model-001",
+            "filename": "cabinet_model.step",
+            "file_type": "STEP",
+            "object_type": "rack_cabinet",
+            "description": null,
+            "usable_for": [
+              "结构展示",
+              "散热路径标注",
+              "仿真准备"
+            ],
+            "not_yet_supported": [
+              "自动网格划分",
+              "CFD 求解",
+              "压降计算",
+              "泵曲线匹配"
+            ],
+            "warnings": [
+              "当前仅登记模型文件元数据，不读取或修改模型文件。",
+              "当前不运行 CFD，不输出仿真数值结果。"
+            ]
+          },
+          "available_conditions": [
+            "机柜几何模型"
+          ],
+          "required_conditions": [
+            "热源分布",
+            "进风/进水温度",
+            "冷却方式",
+            "风量或液冷流量",
+            "材料参数",
+            "边界条件"
+          ],
+          "missing_conditions": [
+            "热源分布",
+            "进风/进水温度",
+            "冷却方式",
+            "风量或液冷流量",
+            "材料参数",
+            "边界条件"
+          ],
+          "next_action": "补充边界条件后生成仿真任务文件",
+          "stage": "simulation_preparation_stub",
+          "warnings": [
+            "simulation_ready=false 是当前阶段的正常结果。",
+            "当前不运行 CFD。",
+            "当前不输出仿真数值结果。",
+            "当前只做仿真任务准备和缺参检查。"
+          ]
+        },
+        "execution": {
+          "will_run_cfd": false,
+          "solver": null,
+          "cfd_results": null
+        },
+        "warnings": [
+          "当前只生成仿真准备任务 JSON。",
+          "当前不调用 ANSYS、Fluent、COMSOL 或其他 CFD 求解器。",
+          "当前不生成压降、温度场、速度场或泵曲线结果。"
+        ]
+      }
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "none",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 68,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": false,
+          "final_answer_unchanged": true
+        }
+      ],
+      "repair_attempts": 0,
+      "repaired": false,
+      "original_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。\n\n提示：检测到仿真准备需求；当前只做准备状态识别，不执行 CFD 求解。",
+      "final_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。\n\n提示：检测到仿真准备需求；当前只做准备状态识别，不执行 CFD 求解。",
+      "original_route": "finalize",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_simulation_readiness.json",
+    "description": "Simulation readiness only; no CFD solver execution or result.",
+    "mock_only": false,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": []
+  }
+}

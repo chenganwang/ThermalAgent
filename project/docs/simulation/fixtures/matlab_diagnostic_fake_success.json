@@ -1,0 +1,17 @@
+{
+  "fixture_type": "matlab_diagnostic",
+  "diagnostic": true,
+  "fake": true,
+  "status": "success",
+  "real_execution_attempted": false,
+  "function_name": "plus",
+  "result": {
+    "value": 3
+  },
+  "checks": {
+    "start_engine": true,
+    "call_function": true,
+    "stop_engine": true
+  },
+  "note": "Fake engine diagnostic fixture for control-flow tests only; not real MATLAB output."
+}

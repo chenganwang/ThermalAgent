@@ -1,0 +1,26 @@
+{
+  "fixture_type": "database_history",
+  "mocked": true,
+  "history_id": "sim-history-fixture",
+  "run_id": "sim-run-fixture",
+  "task_id": "sim-task-fixture",
+  "request": {
+    "tool_name": "matlab_function_eval",
+    "adapter_name": "mock",
+    "inputs": {
+      "function_name": "estimate_temperature",
+      "parameters": {}
+    }
+  },
+  "result": {
+    "run_id": "sim-run-fixture",
+    "tool_name": "matlab_function_eval",
+    "adapter_name": "mock",
+    "status": "success",
+    "is_mock": true,
+    "warnings": ["mock_result_not_real_solver_output"],
+    "result": {"values": {}}
+  },
+  "status": "success",
+  "trace_id": "trace-fixture"
+}

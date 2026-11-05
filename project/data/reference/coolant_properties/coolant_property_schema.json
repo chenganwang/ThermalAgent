@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ThermalAgent Coolant Property Data",
+  "type": "object",
+  "required": ["metadata", "data_points"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "dataset_id": { "type": "string" },
+        "description": { "type": "string" },
+        "pending_source_data": { "type": "boolean" },
+        "test_only": { "type": "boolean" }
+      }
+    },
+    "data_points": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fluid",
+          "property_name",
+          "temperature_c",
+          "value",
+          "unit",
+          "source_id",
+          "source_title",
+          "source_type",
+          "source_quality",
+          "validated"
+        ],
+        "properties": {
+          "fluid": { "type": "string" },
+          "property_name": { "type": "string" },
+          "temperature_c": { "type": "number" },
+          "concentration_percent": { "type": ["number", "null"] },
+          "value": { "type": "number" },
+          "unit": { "type": "string" },
+          "source_id": { "type": "string" },
+          "source_title": { "type": "string" },
+          "source_type": { "type": "string" },
+          "source_quality": { "type": "string" },
+          "validated": { "type": "boolean" },
+          "notes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

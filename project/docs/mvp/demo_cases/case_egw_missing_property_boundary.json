@@ -1,0 +1,13 @@
+{
+  "case_id": "case_egw_missing_property_boundary",
+  "title": "EGW missing-property boundary",
+  "category": "property_boundary",
+  "query": "40% EGW，25℃，计算压降；目前没有密度和粘度，请按缺参处理，不要使用其他冷却液默认值。",
+  "expected_task_type": "calculation",
+  "expected_tools": ["liquid_pressure_drop_estimate", "coolant_property_lookup"],
+  "expected_metadata_paths": ["metadata.property_lookup", "metadata.property_lookup.tool_status", "metadata.hydraulics"],
+  "expected_cards": ["property_lookup_card", "self_critique_card", "multi_agent_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["EGW density and viscosity are not replaced with water defaults.", "A missing-data result is acceptable and expected."],
+  "should_not_include": ["已按水物性计算 EGW", "CFD completed", "实验已经完成"]
+}

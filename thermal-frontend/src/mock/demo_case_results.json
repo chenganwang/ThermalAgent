@@ -1,0 +1,710 @@
+[
+  {
+    "case_id": "case_800w_bottleneck_analysis",
+    "passed": true,
+    "query": "芯片 800W，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，哪个环节是热瓶颈？",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [
+      "thermal_resistance_network_solve"
+    ],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.thermal_network.bottlenecks",
+      "metadata.thermal_path"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "thermal_network_card",
+      "thermal_path_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": false,
+          "status": "skipped",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": true,
+          "status": "success",
+          "tool_name": "thermal_resistance_network_solve",
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": true,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_800w_single_chip_thermal_network",
+    "passed": true,
+    "query": "芯片 800W，冷却液 35℃，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，结温多少？",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [
+      "thermal_resistance_network_solve"
+    ],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.thermal_network",
+      "metadata.thermal_path",
+      "metadata.multi_agent",
+      "metadata.self_critique"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "thermal_network_card",
+      "thermal_path_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": false,
+          "status": "skipped",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": true,
+          "status": "success",
+          "tool_name": "thermal_resistance_network_solve",
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": true,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_egw_missing_property_boundary",
+    "passed": true,
+    "query": "40% EGW，25℃，计算压降；目前没有密度和粘度，请按缺参处理，不要使用其他冷却液默认值。",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [
+      "liquid_pressure_drop_estimate",
+      "coolant_property_lookup"
+    ],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.property_lookup",
+      "metadata.property_lookup.tool_status",
+      "metadata.hydraulics"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "property_lookup_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": true,
+          "tool_status": "missing_data",
+          "tool_name": "coolant_property_lookup"
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": false,
+          "status": "skipped",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": false,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_missing_params_engineering_checklist",
+    "passed": true,
+    "query": "我要设计一个 800W 芯片液冷方案，帮我做仿真准备检查，现在还缺哪些关键参数？",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.analysis_workflow",
+      "metadata.simulation.task_builder.checklist",
+      "metadata.simulation.task_builder.missing_inputs"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "simulation_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "simulation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": false,
+          "status": "skipped",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": false,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": true
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_parallel_cold_plate_flow_distribution",
+    "passed": true,
+    "query": "4 个完全相同并联冷板，总流量 8 L/min，每个支路多少？",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [
+      "liquid_network_flow_distribution"
+    ],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network",
+      "metadata.flow_distribution.cfd_executed"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "flow_distribution_card",
+      "hydraulic_network_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": false,
+          "status": "skipped",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": true,
+          "status": "success",
+          "tool_name": "liquid_network_flow_distribution",
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": true
+        },
+        "thermal_network": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": false,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_pressure_drop_pump_preparation",
+    "passed": true,
+    "query": "水冷回路 3 L/min，管径 6 mm，长度 1.5 m，水，估算压降，并准备泵选型参数。",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [
+      "liquid_pressure_drop_estimate"
+    ],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.hydraulics",
+      "metadata.pump_selection",
+      "metadata.pump_selection.pump_model_selected",
+      "metadata.pump_selection.pump_curve_used"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "pump_selection_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": true,
+          "status": "missing_params",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": false,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_sensitivity_tim_improvement",
+    "passed": true,
+    "query": "芯片 800W，冷却液 35℃，TIM 厚度 0.2mm，面积 400mm2，导热率从 3 提高到 8 W/mK，对结温影响怎么分析？",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [
+      "thermal_resistance_network_solve"
+    ],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.sensitivity",
+      "metadata.thermal_network",
+      "metadata.self_critique"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "thermal_network_card",
+      "sensitivity_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": false,
+          "status": "skipped",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": true,
+          "status": "missing_params",
+          "tool_name": "thermal_resistance_network_solve",
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": false,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": true,
+          "status": "ready",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  {
+    "case_id": "case_simulation_readiness_check",
+    "passed": true,
+    "query": "我有机柜冷板模型文件，想做液冷仿真准备检查，帮我检查还缺哪些参数。",
+    "top_level_contract_ok": true,
+    "expected_tools_found": [],
+    "missing_tools": [],
+    "metadata_paths_found": [
+      "metadata.simulation.task_builder",
+      "metadata.simulation.task_builder.checklist",
+      "metadata.simulation.task_builder.missing_inputs",
+      "metadata.simulation.task_builder.cfd_executed"
+    ],
+    "missing_metadata_paths": [],
+    "cards_generated": [
+      "task_card",
+      "pump_selection_card",
+      "simulation_card",
+      "self_critique_card",
+      "multi_agent_card"
+    ],
+    "warnings": [],
+    "failures": [],
+    "response_summary": {
+      "task_type": "calculation",
+      "retrieval_count": 0,
+      "source_count": 0,
+      "metadata_status": {
+        "calculation": {
+          "used_calculation": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "property_lookup": {
+          "used_property_lookup": false,
+          "tool_status": "skipped",
+          "tool_name": null
+        },
+        "hydraulics": {
+          "used_hydraulic_calculation": false,
+          "status": "skipped",
+          "tool_name": null
+        },
+        "pump_selection": {
+          "generated": true,
+          "status": "missing_params",
+          "pump_model_selected": false,
+          "pump_curve_used": false
+        },
+        "flow_distribution": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "hydraulic_network": {
+          "enabled": false
+        },
+        "thermal_network": {
+          "generated": false,
+          "status": "skipped",
+          "tool_name": null,
+          "cfd_executed": false
+        },
+        "thermal_path": {
+          "generated": false,
+          "cfd_executed": false
+        },
+        "sensitivity": {
+          "generated": false,
+          "status": "skipped",
+          "cfd_executed": false
+        },
+        "report": {
+          "generated": false
+        },
+        "simulation": {
+          "enabled": true
+        },
+        "self_critique": {
+          "enabled": true
+        },
+        "multi_agent": {
+          "enabled": true
+        }
+      }
+    }
+  }
+]

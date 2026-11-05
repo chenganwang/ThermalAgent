@@ -1,0 +1,238 @@
+{
+  "answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。",
+  "query": "什么是冷板液冷？",
+  "task_type": "concept_explanation",
+  "retrieval_count": 1,
+  "task": {
+    "task_type": "concept_explanation",
+    "domain": "thermal_management",
+    "entities": [
+      "液冷",
+      "冷板"
+    ],
+    "intent": "解释液冷、冷板的概念、范围或作用",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": false,
+    "confidence": 0.71,
+    "original_query": "什么是冷板液冷？",
+    "normalized_query": "什么是冷板液冷?",
+    "warnings": [],
+    "candidate_tools": [],
+    "properties": [],
+    "needs_report": false,
+    "needs_comparison": false,
+    "needs_simulation": false,
+    "is_property_lookup": false,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [],
+      "visualization": [],
+      "analysis": []
+    }
+  },
+  "rewrite": {
+    "original_query": "什么是冷板液冷？",
+    "rewritten_query": "什么是冷板液冷? 液冷 冷板 定义 作用 关键机制 热管理",
+    "expanded_queries": [
+      "什么是冷板液冷? 液冷 冷板 定义 作用 关键机制 热管理",
+      "液冷 冷板 定义 作用 关键机制 热管理 散热",
+      "液冷 liquid cooling cold plate 冷板 CDU 冷却液 microchannel cold plate 流道 均温"
+    ],
+    "keywords": [
+      "液冷",
+      "冷板",
+      "什么是冷板液冷",
+      "定义",
+      "作用",
+      "关键机制",
+      "热管理",
+      "liquid cooling",
+      "cold plate",
+      "CDU",
+      "冷却液",
+      "microchannel cold plate",
+      "流道",
+      "均温"
+    ],
+    "entities": [
+      "液冷",
+      "冷板"
+    ]
+  },
+  "sources": [
+    {
+      "doc_id": "mock-cold-plate-overview",
+      "title": "Cold plate liquid cooling overview",
+      "page_start": null,
+      "page_end": null,
+      "score": null,
+      "text_preview": "Cold plates transfer heat from chips through TIM and coolant channels to a facility loop or CDU.",
+      "mock_only": true
+    }
+  ],
+  "session_id": "fixture-concept",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": null,
+    "tool_status": "skipped",
+    "tool_inputs": {},
+    "tool_result": {},
+    "tool_formula": null,
+    "tool_steps": [],
+    "tool_warnings": [],
+    "missing_parameters": [],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "tool_formula": null,
+      "tool_steps": [],
+      "tool_warnings": [],
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "calculation_status": null,
+    "calculation_tool": null,
+    "calculation_error": null,
+    "calculation_result": null,
+    "property_lookup": {
+      "used_property_lookup": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "property_name": null,
+      "fluid": null,
+      "temperature_c": null,
+      "concentration_percent": null,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": []
+    },
+    "knowledge": {
+      "synthesized": false,
+      "answer_style": null,
+      "source_language": "mixed/en",
+      "template_type": "concept"
+    },
+    "analysis_mode": {
+      "enabled": false,
+      "mode": "default_chat",
+      "reason": "ordinary_chat",
+      "requested_outputs": []
+    },
+    "analysis_workflow": {
+      "enabled": false,
+      "mode": "default_chat",
+      "requested_outputs": [],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": false
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "none",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 31,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": false,
+          "final_answer_unchanged": true
+        }
+      ],
+      "repair_attempts": 0,
+      "repaired": false,
+      "original_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。",
+      "final_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。",
+      "original_route": "finalize",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_concept.json",
+    "description": "Conceptual answer with calculation disabled.",
+    "mock_only": true,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": [
+      "Concept fixture includes one short mock source preview for UI rendering."
+    ]
+  }
+}

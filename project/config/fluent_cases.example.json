@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "case_id": "reviewed_cooling_case",
+      "title": "人工审核的稳态冷却算例（需提供真实文件）",
+      "case_file": "reviewed_cooling_case.cas.h5",
+      "data_file": null,
+      "dimension": "3ddp",
+      "initialize": true,
+      "reports": [
+        {"name": "outlet_temperature", "filename": "outlet_temperature.out", "unit": "K", "quantity_type": "absolute_temperature", "value_column": 1, "minimum": 273.15, "maximum": 373.15}
+      ],
+      "residual_targets": {"continuity": 0.0001, "energy": 0.000001}
+    }
+  ]
+}

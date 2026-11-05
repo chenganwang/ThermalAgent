@@ -1,0 +1,393 @@
+{
+  "result": {
+    "schema_version": "1.0",
+    "model": "layered_wall_steady",
+    "solver_version": "layered-wall-reference-v1",
+    "backend": "reference",
+    "is_mock": false,
+    "cfd_executed": false,
+    "reference_executed": true,
+    "status": "completed",
+    "input_fingerprint": "b27c1bc111eb5b89b93e830420d5ebf04409ece879367ae45cc8cc1f2648b4e8",
+    "inputs": {
+      "schema_version": "1.0",
+      "model": "layered_wall_steady",
+      "area_m2": 0.002,
+      "left_temperature_k": 350,
+      "right_temperature_k": 290,
+      "layers": [
+        {
+          "thickness_m": 0.005,
+          "conductivity_w_mk": 16
+        }
+      ],
+      "cells_per_layer": 2
+    },
+    "units": {
+      "area_m2": "m2",
+      "left_temperature_k": "K",
+      "right_temperature_k": "K",
+      "layers.thickness_m": "m",
+      "layers.conductivity_w_mk": "W/(m*K)"
+    },
+    "metrics": [
+      {
+        "name": "heat_rate",
+        "value": 384.0,
+        "unit": "W"
+      },
+      {
+        "name": "equivalent_resistance",
+        "value": 0.15625,
+        "unit": "K/W"
+      }
+    ],
+    "histories": [
+      {
+        "name": "temperature_profile",
+        "axis": "position_m",
+        "axis_unit": "m",
+        "unit": "K",
+        "points": [
+          [
+            0.0,
+            350.0
+          ],
+          [
+            0.0025,
+            320.0
+          ],
+          [
+            0.005,
+            290.0
+          ]
+        ]
+      }
+    ],
+    "layer_resistances_k_w": [
+      0.15625
+    ],
+    "formulas": {
+      "layer_resistance": "R_i = L_i / (k_i * A)",
+      "analytic_heat_rate": "Q = (T_left - T_right) / sum(R_i)",
+      "nodal_equation": "sum_j ((T_i - T_j) / R_ij) = 0",
+      "direction": "Positive Q flows from the left boundary to the right boundary."
+    },
+    "verification": {
+      "method": "independent_nodal_vs_series_resistance",
+      "nodal_solver_version": "thermal-network-reference-v1",
+      "passed": true,
+      "cell_count": 2,
+      "analytic_heat_rate_w": 384.0,
+      "heat_absolute_error_w": 0.0,
+      "heat_relative_error": 0.0,
+      "max_internal_energy_imbalance_w": 0.0,
+      "max_internal_energy_relative_error": 0.0,
+      "absolute_tolerance_w": 1e-08,
+      "relative_tolerance": 1e-08
+    },
+    "validation": {
+      "schema_version": "1.0",
+      "validator_version": "physics-v1",
+      "validation_method": "deterministic_constraints",
+      "passed": true,
+      "status": "passed",
+      "checked_quantity_count": 4,
+      "energy_balance_checked": true,
+      "energy_relative_error": 0.0,
+      "issues": [],
+      "limitations": [
+        "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+        "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+        "Units are explicit canonical units; no inference or unit conversion is performed."
+      ]
+    },
+    "errors": [],
+    "limitations": [
+      "Steady one-dimensional conduction, constant conductivity per layer, uniform area, perfect interfaces, and no volumetric heat generation.",
+      "Does not solve fluid flow, radiation, contact resistance, phase change, transient response, or temperature-dependent properties.",
+      "Closed-form comparison and conservation check this idealized numerical model, not an actual manufactured design or a CFD solution.",
+      "Absolute boundary temperatures must be strictly above 0 K; all parameters use the stated SI units without conversion."
+    ]
+  },
+  "engineering_run": {
+    "schema_version": "1.1",
+    "run_id": "engineering_56f5e4707a0f4224b837bb36426f858e",
+    "scope": "reference_calculation",
+    "status": "completed",
+    "created_at": "2026-09-09T13:10:35.960888+00:00",
+    "tool_name": "reference_layered_wall_solve",
+    "tool_version": "layered-wall-reference-v1",
+    "model_version": "steady-1d-constant-k-v1",
+    "input_snapshot": {
+      "schema_version": "1.0",
+      "model": "layered_wall_steady",
+      "area_m2": 0.002,
+      "left_temperature_k": 350,
+      "right_temperature_k": 290,
+      "layers": [
+        {
+          "thickness_m": 0.005,
+          "conductivity_w_mk": 16
+        }
+      ],
+      "cells_per_layer": 2
+    },
+    "input_fingerprint": "b27c1bc111eb5b89b93e830420d5ebf04409ece879367ae45cc8cc1f2648b4e8",
+    "problem": {
+      "description": "稳态一维多层壁参考计算",
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "formula": "R_i=L_i/(k_i*A); Q=(T_left-T_right)/sum(R_i); sum_j((T_i-T_j)/R_ij)=0",
+    "steps": [
+      {
+        "step_id": "structure_inputs",
+        "title": "验证显式 SI 输入",
+        "depends_on": [],
+        "status": "completed",
+        "finished_at": "2026-09-09T13:10:36.835643+00:00"
+      },
+      {
+        "step_id": "calculation",
+        "title": "执行参考求解器",
+        "depends_on": [
+          "structure_inputs"
+        ],
+        "status": "completed",
+        "started_at": "2026-09-09T13:10:36.835643+00:00",
+        "finished_at": "2026-09-09T13:10:36.847100+00:00"
+      },
+      {
+        "step_id": "validation",
+        "title": "解析对照与物理守恒",
+        "depends_on": [
+          "calculation"
+        ],
+        "status": "completed",
+        "finished_at": "2026-09-09T13:10:36.847100+00:00"
+      },
+      {
+        "step_id": "evidence",
+        "title": "记录公式与来源",
+        "depends_on": [],
+        "status": "completed",
+        "started_at": "2026-09-09T13:10:36.861047+00:00",
+        "finished_at": "2026-09-09T13:10:36.861047+00:00"
+      },
+      {
+        "step_id": "report",
+        "title": "保存参考工程报告",
+        "depends_on": [
+          "validation"
+        ],
+        "status": "completed",
+        "started_at": "2026-09-09T13:10:36.861047+00:00",
+        "finished_at": "2026-09-09T13:10:36.861047+00:00"
+      }
+    ],
+    "variables": [
+      {
+        "name": "schema_version",
+        "value": "1.0",
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": null
+      },
+      {
+        "name": "model",
+        "value": "layered_wall_steady",
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": null
+      },
+      {
+        "name": "area_m2",
+        "value": 0.002,
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": "m2"
+      },
+      {
+        "name": "left_temperature_k",
+        "value": 350,
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": "K"
+      },
+      {
+        "name": "right_temperature_k",
+        "value": 290,
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": "K"
+      },
+      {
+        "name": "layers",
+        "value": [
+          {
+            "thickness_m": 0.005,
+            "conductivity_w_mk": 16
+          }
+        ],
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": "thickness_m:m;conductivity_w_mk:W/(m*K)"
+      },
+      {
+        "name": "cells_per_layer",
+        "value": 2,
+        "role": "input",
+        "source": "explicit_structured_input",
+        "step_id": "structure_inputs",
+        "unit": "1"
+      },
+      {
+        "name": "heat_rate",
+        "value": 384.0,
+        "unit": "W",
+        "role": "output",
+        "source": "reference_layered_wall_solve",
+        "step_id": "calculation"
+      },
+      {
+        "name": "equivalent_resistance",
+        "value": 0.15625,
+        "unit": "K/W",
+        "role": "output",
+        "source": "reference_layered_wall_solve",
+        "step_id": "calculation"
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "step_id": "structure_inputs",
+        "status": "completed",
+        "at": "2026-09-09T13:10:36.835643+00:00"
+      },
+      {
+        "sequence": 2,
+        "step_id": "calculation",
+        "status": "running",
+        "at": "2026-09-09T13:10:36.835643+00:00"
+      },
+      {
+        "sequence": 3,
+        "step_id": "calculation",
+        "status": "completed",
+        "at": "2026-09-09T13:10:36.847100+00:00"
+      },
+      {
+        "sequence": 4,
+        "step_id": "validation",
+        "status": "completed",
+        "at": "2026-09-09T13:10:36.847100+00:00"
+      },
+      {
+        "sequence": 5,
+        "step_id": "evidence",
+        "status": "running",
+        "at": "2026-09-09T13:10:36.861047+00:00"
+      },
+      {
+        "sequence": 6,
+        "step_id": "evidence",
+        "status": "completed",
+        "at": "2026-09-09T13:10:36.861047+00:00"
+      },
+      {
+        "sequence": 7,
+        "step_id": "report",
+        "status": "running",
+        "at": "2026-09-09T13:10:36.861047+00:00"
+      },
+      {
+        "sequence": 8,
+        "step_id": "report",
+        "status": "completed",
+        "at": "2026-09-09T13:10:36.861047+00:00"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "formula",
+        "formula": "R_i = L_i / (k_i * A)",
+        "source": "steady conduction conservation"
+      },
+      {
+        "type": "formula",
+        "formula": "Q = (T_left - T_right) / sum(R_i)",
+        "source": "steady conduction conservation"
+      },
+      {
+        "type": "formula",
+        "formula": "sum_j ((T_i - T_j) / R_ij) = 0",
+        "source": "steady conduction conservation"
+      },
+      {
+        "type": "formula",
+        "formula": "Positive Q flows from the left boundary to the right boundary.",
+        "source": "steady conduction conservation"
+      }
+    ],
+    "report": {
+      "generated": true,
+      "content_sha256": "003c12d71bbc94a937c43100e5bb1847accd4d602d85ea4faea97a48c4a37991"
+    },
+    "validation": {
+      "schema_version": "1.0",
+      "validator_version": "physics-v1",
+      "validation_method": "deterministic_constraints",
+      "passed": true,
+      "status": "passed",
+      "checked_quantity_count": 4,
+      "energy_balance_checked": true,
+      "energy_relative_error": 0.0,
+      "issues": [],
+      "limitations": [
+        "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+        "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+        "Units are explicit canonical units; no inference or unit conversion is performed."
+      ]
+    },
+    "limitations": [
+      "固定的一维稳态模型；不执行 CFD，不自动推断边界温度。",
+      "Steady one-dimensional conduction, constant conductivity per layer, uniform area, perfect interfaces, and no volumetric heat generation.",
+      "Does not solve fluid flow, radiation, contact resistance, phase change, transient response, or temperature-dependent properties.",
+      "Closed-form comparison and conservation check this idealized numerical model, not an actual manufactured design or a CFD solution.",
+      "Absolute boundary temperatures must be strictly above 0 K; all parameters use the stated SI units without conversion.",
+      "本次没有知识来源；计算公式与用户输入是现有证据，不伪造文献支持。"
+    ],
+    "project_id": "local",
+    "verification": {
+      "method": "independent_nodal_vs_series_resistance",
+      "nodal_solver_version": "thermal-network-reference-v1",
+      "passed": true,
+      "cell_count": 2,
+      "analytic_heat_rate_w": 384.0,
+      "heat_absolute_error_w": 0.0,
+      "heat_relative_error": 0.0,
+      "max_internal_energy_imbalance_w": 0.0,
+      "max_internal_energy_relative_error": 0.0,
+      "absolute_tolerance_w": 1e-08,
+      "relative_tolerance": 1e-08
+    },
+    "finished_at": "2026-09-09T13:10:36.861047+00:00",
+    "persistence": {
+      "enabled": true,
+      "saved": true,
+      "run_id": "engineering_56f5e4707a0f4224b837bb36426f858e",
+      "project_id": "local",
+      "revision": 4,
+      "report_sha256": "003c12d71bbc94a937c43100e5bb1847accd4d602d85ea4faea97a48c4a37991"
+    }
+  },
+  "report": "# 工程执行报告\n\n工具：reference_layered_wall_solve（layered-wall-reference-v1）\n\n物理模型版本：steady-1d-constant-k-v1\n\n公式：R_i=L_i/(k_i*A); Q=(T_left-T_right)/sum(R_i); sum_j((T_i-T_j)/R_ij)=0\n\n## 输入与输出\n\n| 角色 | 参数 | 数值 | 单位 |\n|---|---|---|---|\n| 输入 | area_m2 | 0.002 | m2 |\n| 输入 | left_temperature_k | 350 | K |\n| 输入 | right_temperature_k | 290 | K |\n| 输入 | layers | [{\"thickness_m\": 0.005, \"conductivity_w_mk\": 16}] | thickness_m:m;conductivity_w_mk:W/(m*K) |\n| 输入 | cells_per_layer | 2 | 1 |\n| 输出 | heat_rate | 384.0 | W |\n| 输出 | equivalent_resistance | 0.15625 | K/W |\n\n## 验证结果\n\n物理约束：passed；能量相对偏差：0.0。\n\n| 独立数值检查 | 结果 |\n|---|---|\n| 解析热流 (W) | 384.0 |\n| 热流绝对误差 (W) | 0.0 |\n| 热流相对误差 | 0.0 |\n| 最大内部能量不平衡 (W) | 0.0 |\n| 离散单元数 | 2 |\n| 绝对容差 (W) | 1e-08 |\n| 相对容差 | 1e-08 |\n\n解析/节点解交叉验证：通过。\n\n## 适用范围\n\n- 固定的一维稳态模型；不执行 CFD，不自动推断边界温度。\n- Steady one-dimensional conduction, constant conductivity per layer, uniform area, perfect interfaces, and no volumetric heat generation.\n- Does not solve fluid flow, radiation, contact resistance, phase change, transient response, or temperature-dependent properties.\n- Closed-form comparison and conservation check this idealized numerical model, not an actual manufactured design or a CFD solution.\n- Absolute boundary temperatures must be strictly above 0 K; all parameters use the stated SI units without conversion.\n\n报告由确定性模板生成；完整输入、来源和计算产物随执行记录保存。\n\n本接口使用保存或显式提交的输入，未重新检索知识来源。\n\n\n## 工程执行记录\n\n- 运行编号：`engineering_56f5e4707a0f4224b837bb36426f858e`\n- 工具：`reference_layered_wall_solve`（layered-wall-reference-v1）\n- 输入指纹：`b27c1bc111eb5b89b93e830420d5ebf04409ece879367ae45cc8cc1f2648b4e8`\n- 执行记录状态：completed；物理检查：passed\n- 范围：确定性计算、物理检查与报告关联；真实 CFD 是否执行以求解器记录为准，保存状态以 persistence 字段为准。\n"
+}

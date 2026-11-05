@@ -1,0 +1,26 @@
+{
+  "request": {
+    "tool_name": "liquid_cooling_temp_rise_mock",
+    "adapter_name": "mock",
+    "mode": "mock",
+    "inputs": {
+      "heat_load_w": 1000,
+      "mass_flow_kg_s": 0.1,
+      "cp_j_kgk": 4000,
+      "inlet_temperature_c": 25
+    }
+  },
+  "expected_subset": {
+    "tool_name": "liquid_cooling_temp_rise_mock",
+    "adapter_name": "mock",
+    "status": "success",
+    "mocked": true,
+    "result.values.coolant_temperature_rise_k.value": 2.5,
+    "result.values.coolant_outlet_temperature_c.value": 27.5,
+    "metadata.cfd_executed": false,
+    "metadata.solver_executed": false
+  },
+  "required_warnings": [
+    "mock_result_not_real_solver_output"
+  ]
+}

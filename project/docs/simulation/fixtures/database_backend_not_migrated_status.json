@@ -1,0 +1,24 @@
+{
+  "fixture_type": "database_status",
+  "diagnostic": true,
+  "backend": "database",
+  "available": false,
+  "reason": "database_schema_not_ready",
+  "migration": {
+    "ready": false,
+    "reason": "database_schema_not_ready",
+    "missing_tables": [
+      "simulation_runs",
+      "simulation_logs",
+      "simulation_models",
+      "simulation_tools"
+    ],
+    "missing_indexes": [
+      "idx_sim_runs_tool",
+      "idx_sim_runs_adapter",
+      "idx_sim_runs_status",
+      "idx_sim_runs_created",
+      "idx_sim_runs_trace"
+    ]
+  }
+}

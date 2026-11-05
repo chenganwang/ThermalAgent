@@ -1,0 +1,31 @@
+:root, :root[data-theme="engineering"] {
+  --ta-bg:#f3f6fa; --ta-surface:#fff; --ta-surface-raised:#fff; --ta-surface-muted:#edf2f7;
+  --ta-text:#182b43; --ta-text-muted:#53667c; --ta-border:#cdd8e5; --ta-primary:#175cce; --ta-primary-soft:#e9f1ff;
+  --ta-success:#217346; --ta-warning:#91520a; --ta-danger:#b42332; --ta-info:#236a89;
+  --ta-shadow:0 8px 28px #263d5b0b; --ta-radius:12px; --ta-line-width:1px;
+  --ta-font:"Segoe UI","Microsoft YaHei",system-ui,sans-serif; --ta-font-display:var(--ta-font);
+}
+:root[data-theme="cel"] {
+  --ta-bg:#e9eef7; --ta-surface:#fffdf8; --ta-surface-raised:#fff; --ta-surface-muted:#e8edf6;
+  --ta-text:#222b48; --ta-text-muted:#576179; --ta-border:#596480; --ta-primary:#5746c4; --ta-primary-soft:#eeebff;
+  --ta-success:#286548; --ta-warning:#985020; --ta-danger:#ac3346; --ta-info:#167b89;
+  --ta-shadow:4px 4px 0 #222b4830; --ta-radius:5px; --ta-line-width:1px;
+  --ta-font-display:"Bahnschrift","Arial Narrow","Microsoft YaHei",sans-serif;
+  --ta-font-mono:"Cascadia Mono","Consolas","Microsoft YaHei",monospace;
+  --ta-v3-ink:#222b48; --ta-v3-violet:#5746c4; --ta-v3-cyan:#167b89;
+  --ta-v3-orange:#b35220; --ta-v3-paper:#fffdf8; --ta-v3-mist:#e9eef7;
+}
+.ta-sr-only { position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.ta-theme-control { display:flex; flex-direction:column; gap:4px; }
+.ta-theme-switch { display:flex; padding:3px; margin:0; border:var(--ta-line-width) solid var(--ta-border); background:var(--ta-surface-muted); border-radius:9px; gap:3px; }
+.ta-theme-switch button { border:1px solid transparent; border-radius:5px; background:transparent; color:var(--ta-text-muted); padding:5px 10px; cursor:pointer; font:inherit; font-size:12px; white-space:nowrap; }
+.ta-theme-switch button[aria-pressed="true"] { color:var(--ta-primary); background:var(--ta-surface); border-color:var(--ta-border); font-weight:700; }
+.ta-theme-storage-warning { max-width:220px; font-size:11px; color:var(--ta-warning); }
+:root[data-theme="cel"] .ta-theme-switch { border-radius:3px 9px 4px 8px; box-shadow:2px 2px 0 var(--ta-border); }
+:root[data-theme="cel"] .ant-drawer-content, :root[data-theme="cel"] .ant-modal-content { border:2px solid var(--ta-border); }
+:root[data-theme="cel"] .ant-card { box-shadow:3px 3px 0 var(--ta-border); border-color:var(--ta-border); border-radius:5px 11px 6px 9px; }
+:root[data-theme="cel"] .ant-btn-primary { box-shadow:2px 2px 0 var(--ta-border); border-color:var(--ta-border); }
+.ant-drawer-body, .ant-modal-body { color:var(--ta-text); }
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important; }
+}

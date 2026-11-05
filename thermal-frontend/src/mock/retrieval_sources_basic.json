@@ -1,0 +1,38 @@
+{
+  "fixture": {
+    "mock_only": true,
+    "scenario": "basic normalized source cards"
+  },
+  "sources": [
+    {
+      "rank": 1,
+      "doc_id": 101,
+      "chunk_id": 1001,
+      "chunk_index": 4,
+      "title": "Liquid Cooling Engineering Guide",
+      "book_title": "Liquid Cooling Engineering Guide",
+      "chapter": "Cold Plates",
+      "section": "Heat transfer path",
+      "section_path": "Cold Plates / Heat transfer path",
+      "page_start": 12,
+      "page_end": 13,
+      "chunk_type": "text",
+      "source": "fixture://liquid-cooling-guide",
+      "score": 0.9123,
+      "text_preview": "A short fixture-only preview describing the chip, TIM, cold plate, and coolant heat path."
+    },
+    {
+      "rank": 2,
+      "doc_id": 102,
+      "chunk_id": 1002,
+      "chunk_index": 7,
+      "title": "Data Center Cooling Notes",
+      "page_start": 31,
+      "page_end": 31,
+      "chunk_type": "table_summary",
+      "source": "fixture://cooling-notes",
+      "score": 0.7841,
+      "text_preview": "A compact fixture-only summary used to exercise a second source card."
+    }
+  ]
+}

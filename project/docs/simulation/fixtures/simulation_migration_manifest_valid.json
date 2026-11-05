@@ -1,0 +1,15 @@
+{
+  "fixture_type": "migration",
+  "migration_review": true,
+  "migration_id": "20260701_simulation_history",
+  "auto_apply": false,
+  "requires_human_review": true,
+  "destructive": false,
+  "modifies_existing_tables": false,
+  "creates_tables": [
+    "simulation_runs",
+    "simulation_logs",
+    "simulation_models",
+    "simulation_tools"
+  ]
+}

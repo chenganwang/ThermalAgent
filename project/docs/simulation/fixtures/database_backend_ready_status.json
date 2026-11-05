@@ -1,0 +1,14 @@
+{
+  "fixture_type": "database_status",
+  "diagnostic": true,
+  "backend": "database",
+  "available": true,
+  "reason": "available",
+  "migration": {
+    "ready": true,
+    "reason": "ready",
+    "missing_tables": [],
+    "missing_columns": [],
+    "missing_indexes": []
+  }
+}

@@ -1,0 +1,756 @@
+{
+  "answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。\n\n提示：检测到分析报告需求；报告应保持规则式工程分析边界，不作为真实仿真报告。",
+  "query": "请生成 800W 芯片冷板液冷分析报告。",
+  "task_type": "report",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "report",
+    "domain": "thermal_management",
+    "entities": [
+      "液冷",
+      "冷板",
+      "芯片"
+    ],
+    "intent": "整理液冷、冷板、芯片的规则式工程分析报告需求",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": false,
+    "confidence": 0.84,
+    "original_query": "请生成 800W 芯片冷板液冷分析报告。",
+    "normalized_query": "请生成 800W 芯片冷板液冷分析报告.",
+    "warnings": [
+      "检测到分析报告需求；报告应保持规则式工程分析边界，不作为真实仿真报告。"
+    ],
+    "candidate_tools": [],
+    "properties": [],
+    "needs_report": true,
+    "needs_comparison": false,
+    "needs_simulation": false,
+    "is_property_lookup": false,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [],
+      "visualization": [],
+      "analysis": [
+        "report"
+      ]
+    }
+  },
+  "rewrite": {
+    "original_query": "请生成 800W 芯片冷板液冷分析报告。",
+    "rewritten_query": "请生成 800W 芯片冷板液冷分析报告. 液冷 冷板 芯片",
+    "expanded_queries": [
+      "请生成 800W 芯片冷板液冷分析报告. 液冷 冷板 芯片",
+      "液冷 冷板 芯片 散热 热管理",
+      "液冷 liquid cooling cold plate 冷板 CDU 冷却液 microchannel cold plate 流道 均温 芯片"
+    ],
+    "keywords": [
+      "液冷",
+      "冷板",
+      "芯片",
+      "W",
+      "请生成",
+      "芯片冷板液冷分析报告",
+      "liquid cooling",
+      "cold plate",
+      "CDU",
+      "冷却液",
+      "microchannel cold plate",
+      "流道",
+      "均温"
+    ],
+    "entities": [
+      "液冷",
+      "冷板",
+      "芯片"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-report",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": null,
+    "tool_status": "skipped",
+    "tool_inputs": {},
+    "tool_result": {},
+    "tool_formula": null,
+    "tool_steps": [],
+    "tool_warnings": [],
+    "missing_parameters": [],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "tool_formula": null,
+      "tool_steps": [],
+      "tool_warnings": [],
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "calculation_status": null,
+    "calculation_tool": null,
+    "calculation_error": null,
+    "calculation_result": null,
+    "property_lookup": {
+      "used_property_lookup": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "property_name": null,
+      "fluid": null,
+      "temperature_c": null,
+      "concentration_percent": null,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": []
+    },
+    "knowledge": {
+      "synthesized": false,
+      "answer_style": null,
+      "source_language": "mixed/en",
+      "template_type": "concept"
+    },
+    "analysis_mode": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "reason": "explicit_request_option",
+      "requested_outputs": [
+        "report"
+      ]
+    },
+    "analysis_workflow": {
+      "enabled": true,
+      "mode": "analysis_report",
+      "requested_outputs": [
+        "visualization",
+        "solution",
+        "report"
+      ],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": true,
+      "graph_type": "thermal_path",
+      "graph": {
+        "graph_type": "thermal_path",
+        "title": "芯片液冷散热路径",
+        "nodes": [
+          {
+            "id": "chip",
+            "label": "芯片",
+            "type": "heat_source",
+            "role": "产生热量",
+            "description": "主要热源。",
+            "engineering_parameters": [
+              {
+                "name": "功耗",
+                "symbol": "P",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "功耗过高导致结温超过限制。",
+              "热流密度过高导致局部热点。"
+            ],
+            "frontend_hint": {
+              "display_group": "热源",
+              "icon": "chip",
+              "emphasis": "high"
+            }
+          },
+          {
+            "id": "tim",
+            "label": "TIM",
+            "type": "thermal_interface",
+            "role": "降低芯片与冷板之间的界面热阻",
+            "description": "芯片与冷板之间的导热界面材料。",
+            "engineering_parameters": [
+              {
+                "name": "界面热阻",
+                "symbol": "R_TIM",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "TIM 厚度过大。",
+              "接触压力不足导致接触热阻偏高。"
+            ],
+            "frontend_hint": {
+              "display_group": "导热界面",
+              "icon": "layers",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cold_plate",
+            "label": "冷板",
+            "type": "heat_spreader",
+            "role": "扩散热量并传递给冷却侧",
+            "description": "把热量传递给内部冷却液的换热部件。",
+            "engineering_parameters": [
+              {
+                "name": "等效热阻",
+                "symbol": "R",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "扩散热阻偏高。",
+              "冷板接触面积不足。"
+            ],
+            "frontend_hint": {
+              "display_group": "换热部件",
+              "icon": "panel-top",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "coolant",
+            "label": "冷却液",
+            "type": "fluid",
+            "role": "吸收并输运热量",
+            "description": "带走冷板吸收热量的流体。",
+            "engineering_parameters": [
+              {
+                "name": "体积流量",
+                "symbol": "V_dot",
+                "unit": "L/min",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "流量不足导致温升过大。",
+              "冷却液物性未确认。"
+            ],
+            "frontend_hint": {
+              "display_group": "冷却液",
+              "icon": "droplet",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cdu",
+            "label": "CDU",
+            "type": "distribution_unit",
+            "role": "分配、监测并连接设施侧换热",
+            "description": "冷却液分配和换热接口。",
+            "engineering_parameters": [
+              {
+                "name": "供液能力",
+                "symbol": "Q_cdu",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "CDU 能力不足。",
+              "监测或控制策略未确认。"
+            ],
+            "frontend_hint": {
+              "display_group": "CDU",
+              "icon": "server",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "facility_cooling",
+            "label": "外部冷源",
+            "type": "heat_rejection",
+            "role": "把系统热量排向设施侧或环境",
+            "description": "设施侧或外部换热系统。",
+            "engineering_parameters": [
+              {
+                "name": "排热能力",
+                "symbol": "Q_reject",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "设施侧换热能力不足。",
+              "外部冷源边界条件未确认。"
+            ],
+            "frontend_hint": {
+              "display_group": "排热",
+              "icon": "wind",
+              "emphasis": "medium"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "chip_to_tim",
+            "source": "chip",
+            "target": "tim",
+            "mechanism": "conduction",
+            "type": "conduction",
+            "direction": "heat_flow",
+            "label": "导热",
+            "description": "热量从芯片传到 TIM。",
+            "engineering_parameters": [
+              {
+                "name": "热阻",
+                "symbol": "R",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "接触热阻偏高。",
+              "导热路径过长或材料导热系数不足。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "tim_to_cold_plate",
+            "source": "tim",
+            "target": "cold_plate",
+            "mechanism": "contact_conduction",
+            "type": "conduction",
+            "direction": "heat_flow",
+            "label": "接触导热",
+            "description": "热量通过界面进入冷板。",
+            "engineering_parameters": [
+              {
+                "name": "热阻",
+                "symbol": "R",
+                "unit": "K/W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "接触热阻偏高。",
+              "导热路径过长或材料导热系数不足。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cold_plate_to_coolant",
+            "source": "cold_plate",
+            "target": "coolant",
+            "mechanism": "convection",
+            "type": "convection",
+            "direction": "heat_flow",
+            "label": "对流换热",
+            "description": "冷板把热量传给流道内冷却液。",
+            "engineering_parameters": [
+              {
+                "name": "对流换热系数",
+                "symbol": "h",
+                "unit": "W/(m2*K)",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "局部流速不足。",
+              "换热面积或流道分配未确认。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "coolant_to_cdu",
+            "source": "coolant",
+            "target": "cdu",
+            "mechanism": "fluid_transport",
+            "type": "fluid_transport",
+            "direction": "coolant_flow",
+            "label": "流体输运",
+            "description": "冷却液把热量带回 CDU。",
+            "engineering_parameters": [
+              {
+                "name": "流量",
+                "symbol": "V_dot",
+                "unit": "L/min",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "流量不足。",
+              "支路不均流或管路阻力未校核。"
+            ],
+            "frontend_hint": {
+              "line_style": "dashed",
+              "emphasis": "medium"
+            }
+          },
+          {
+            "id": "cdu_to_facility_cooling",
+            "source": "cdu",
+            "target": "facility_cooling",
+            "mechanism": "heat_rejection",
+            "type": "heat_rejection",
+            "direction": "heat_flow",
+            "label": "排热",
+            "description": "CDU 将热量排向外部冷源。",
+            "engineering_parameters": [
+              {
+                "name": "排热量",
+                "symbol": "Q",
+                "unit": "W",
+                "value": null,
+                "source": "unknown"
+              }
+            ],
+            "risks": [
+              "设施侧冷源能力不足。",
+              "换热器运行边界未确认。"
+            ],
+            "frontend_hint": {
+              "line_style": "solid",
+              "emphasis": "medium"
+            }
+          }
+        ],
+        "warnings": [
+          "该图为一级示意图。",
+          "该图为工程解释图，不是 CFD 仿真云图。",
+          "该图不替代 CFD。",
+          "该图不包含详细流道、压降或泵曲线。",
+          "该图不能作为工业级设计图。"
+        ],
+        "limitations": [
+          "该图为工程解释图，不是 CFD 仿真云图。",
+          "节点参数为空时表示当前问题未提供或知识库未检索到。",
+          "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+          "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+        ],
+        "source_based": false,
+        "generic_template": true,
+        "simulation_based": false,
+        "graph_quality": {
+          "has_nodes": true,
+          "has_edges": true,
+          "has_engineering_parameters": true,
+          "has_risks": true,
+          "frontend_ready": true
+        }
+      },
+      "generic_template": true,
+      "source_based": false,
+      "simulation_based": false,
+      "graph_quality": {
+        "has_nodes": true,
+        "has_edges": true,
+        "has_engineering_parameters": true,
+        "has_risks": true,
+        "frontend_ready": true
+      },
+      "limitations": [
+        "该图为工程解释图，不是 CFD 仿真云图。",
+        "节点参数为空时表示当前问题未提供或知识库未检索到。",
+        "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+        "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+      ]
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": true,
+      "solution_type": "liquid_cooling_initial_plan",
+      "title": "液冷散热初步方案摘要",
+      "input_conditions": [
+        {
+          "name": "热负荷",
+          "value": "800 W",
+          "source": "query"
+        },
+        {
+          "name": "识别实体",
+          "value": "液冷",
+          "source": "task_result.entities"
+        },
+        {
+          "name": "识别实体",
+          "value": "冷板",
+          "source": "task_result.entities"
+        },
+        {
+          "name": "识别实体",
+          "value": "芯片",
+          "source": "task_result.entities"
+        }
+      ],
+      "calculation_summary": [],
+      "knowledge_basis": [],
+      "recommended_thermal_path": [
+        "芯片",
+        "TIM",
+        "冷板",
+        "冷却液",
+        "CDU",
+        "外部冷源"
+      ],
+      "visualization_refs": [
+        {
+          "graph_type": "thermal_path",
+          "node_count": 6,
+          "edge_count": 5,
+          "generic_template": true,
+          "source_based": false
+        }
+      ],
+      "simulation_readiness_summary": {},
+      "engineering_judgement": [
+        "该方案仍需结合冷板压降、泵曲线和实际边界条件进一步确认。",
+        "当前结果不能替代 CFD 或详细结构设计。"
+      ],
+      "risks": [
+        "冷板压降未校核。",
+        "泵曲线未匹配。",
+        "接头和管路泄漏风险未评估。",
+        "冷却液物性未完整确认。",
+        "TIM 接触热阻未验证。",
+        "机柜级风道或液冷支路分配未验证。"
+      ],
+      "required_additional_data": [
+        "热源功率分布",
+        "进水/进风温度",
+        "冷却液类型和物性",
+        "流量或泵曲线",
+        "冷板压降",
+        "材料导热系数",
+        "服务器/机柜布局",
+        "实测温度或仿真边界条件"
+      ],
+      "next_steps": [
+        "补充边界条件。",
+        "校核流量和温升。",
+        "检查冷板压降和泵匹配。",
+        "进行实验或公开算例验证。"
+      ],
+      "limitations": [
+        "当前为一级工程估算。",
+        "不替代 CFD。",
+        "不替代工业级冷板设计。",
+        "不包含详细流道、压降和泵曲线。",
+        "不编造缺失的物性或仿真数据。",
+        "推荐散热路径为 generic template，不是具体模型仿真结果。"
+      ]
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": true,
+      "format": "markdown",
+      "title": "液冷散热分析报告",
+      "sections": [
+        {
+          "id": "problem_overview",
+          "title": "问题概述",
+          "included": true
+        },
+        {
+          "id": "known_inputs",
+          "title": "已知输入条件",
+          "included": true
+        },
+        {
+          "id": "calculation_results",
+          "title": "工程计算结果",
+          "included": true
+        },
+        {
+          "id": "thermal_path_graph",
+          "title": "散热路径与图结构",
+          "included": true
+        },
+        {
+          "id": "solution_summary",
+          "title": "方案摘要",
+          "included": true
+        },
+        {
+          "id": "comparison",
+          "title": "方案对比",
+          "included": true
+        },
+        {
+          "id": "simulation_readiness",
+          "title": "仿真准备状态",
+          "included": true
+        },
+        {
+          "id": "sources",
+          "title": "来源依据",
+          "included": true
+        },
+        {
+          "id": "boundaries",
+          "title": "风险与边界",
+          "included": true
+        },
+        {
+          "id": "next_steps",
+          "title": "下一步建议",
+          "included": true
+        }
+      ],
+      "content": "# 液冷散热分析报告\n> 报告主题：800W 冷板液冷散热方案分析报告\n## 1. 问题概述（问题描述与目标）\n- 用户问题：请生成 800W 芯片冷板液冷分析报告。\n- 分析目标：整理已知输入、一级计算状态、散热路径、来源依据、方案摘要、风险边界和下一步补充条件。\n- 当前模式：analysis_report / markdown。\n本报告面向已知热负荷和冷板液冷场景，给出一级工程分析、缺失参数、散热路径、主要风险和验证建议。\n报告中的估算只用于方案初筛，不替代 CFD、实验测试或工业级冷板设计。\n\n## 2. 已知输入条件\n| 参数 | 符号 | 数值 | 单位 | 来源 |\n| --- | --- | ---: | --- | --- |\n| 热负荷 | P | 800 | W | query |\n| 冷却方式 | - | 冷板液冷 | - | query |\n\n### 缺失参数\n| 缺失参数 | 为什么需要 | 用于什么判断 |\n| --- | --- | --- |\n| 允许冷却液温升 ΔT | 缺少温升时不能给出唯一最终流量。 | 流量估算和出口温度校核 |\n| 冷却液类型及比热容 cp | 不同冷却液和浓度的物性差异会显著影响流量。 | 能量守恒流量估算 |\n| 入口水温 | 入口温度决定芯片温度裕度和设施侧匹配。 | 结温/壳温校核 |\n| 目标结温或壳温上限 | 缺少温度上限时无法判断方案裕度。 | 可靠性判断 |\n| 冷板热阻 | 冷板热阻决定芯片到冷却液的温差。 | 热阻网络校核 |\n| 压降限制 | 压降决定泵选型和支路分配风险。 | 泵和管路匹配 |\n| 泵曲线 | 没有泵曲线不能确认目标流量是否可实现。 | 系统级流量验证 |\n\n## 3. 工程计算结果\n本次未触发确定性计算工具。\n以下仅为规则化一级估算示例，便于识别所需补充条件；它不是本地确定性工具结果。\n### 一级流量估算示例\n- 公式：m_dot = Q / (cp × ΔT)\n- 估算说明：在仅已知热负荷 800 W 且缺少 ΔT、冷却液物性和压降曲线时，不能给出唯一最终设计流量。若仅作水冷一级示例估算：m_dot ≈ 800 / (4180 × 5) ≈ 0.0383 kg/s，体积流量约 2.30 L/min。\n- 仍需补充：\n  - 允许冷却液温升 ΔT\n  - 冷却液类型及比热容 cp\n  - 冷板压降曲线\n  - 泵曲线\n- 假设：\n  - 示例估算假设冷却液为水，cp≈4180 J/(kg·K)。\n  - 示例估算假设允许冷却液温升 ΔT=5K。\n  - 示例估算假设水密度约 1000 kg/m³。\n  - 该结果仅为一级估算，不替代最终设计、CFD 或实验验证。\n\n## 4. 散热路径与图结构（推荐散热路径）\n- 推荐散热路径：GPU -> TIM -> 冷板底板 -> 冷板内部流道 -> 冷却液 -> CDU / 换热器 -> 设施水系统或环境\n- graph_type：thermal_path\n- node_count：6\n- edge_count：5\n- 推荐散热路径：\n  - 芯片 -> TIM -> 冷板 -> 冷却液 -> CDU -> 外部冷源\n\n| 节点 | 类型 | 作用 | 主要风险 |\n| --- | --- | --- | --- |\n| 芯片 | heat_source | 产生热量 | 功耗过高导致结温超过限制。；热流密度过高导致局部热点。 |\n| TIM | thermal_interface | 降低芯片与冷板之间的界面热阻 | TIM 厚度过大。；接触压力不足导致接触热阻偏高。 |\n| 冷板 | heat_spreader | 扩散热量并传递给冷却侧 | 扩散热阻偏高。；冷板接触面积不足。 |\n| 冷却液 | fluid | 吸收并输运热量 | 流量不足导致温升过大。；冷却液物性未确认。 |\n| CDU | distribution_unit | 分配、监测并连接设施侧换热 | CDU 能力不足。；监测或控制策略未确认。 |\n| 外部冷源 | heat_rejection | 把系统热量排向设施侧或环境 | 设施侧换热能力不足。；外部冷源边界条件未确认。 |\n\n| 边 | 类型 | 方向 | 说明 | 主要风险 |\n| --- | --- | --- | --- | --- |\n| 导热 | conduction | heat_flow | 热量从芯片传到 TIM。 | 接触热阻偏高。；导热路径过长或材料导热系数不足。 |\n| 接触导热 | conduction | heat_flow | 热量通过界面进入冷板。 | 接触热阻偏高。；导热路径过长或材料导热系数不足。 |\n| 对流换热 | convection | heat_flow | 冷板把热量传给流道内冷却液。 | 局部流速不足。；换热面积或流道分配未确认。 |\n| 流体输运 | fluid_transport | coolant_flow | 冷却液把热量带回 CDU。 | 流量不足。；支路不均流或管路阻力未校核。 |\n| 排热 | heat_rejection | heat_flow | CDU 将热量排向外部冷源。 | 设施侧冷源能力不足。；换热器运行边界未确认。 |\n- 图结构边界：\n  - 该图为一级示意图。\n  - 该图为工程解释图，不是 CFD 仿真云图。\n  - 该图不替代 CFD。\n  - 该图不包含详细流道、压降或泵曲线。\n  - 该图不能作为工业级设计图。\n- 图结构限制：\n  - 该图为工程解释图，不是 CFD 仿真云图。\n  - 节点参数为空时表示当前问题未提供或知识库未检索到。\n  - generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。\n  - simulation_based=false 时表示未运行 CFD 或外部仿真求解器。\n- 本报告只引用 Graph JSON，不生成图片。\n\n## 5. 方案摘要\n本节为初步建议，需要进一步验证；不作为最终方案。\n- engineering_judgement：\n  - 该方案仍需结合冷板压降、泵曲线和实际边界条件进一步确认。\n  - 当前结果不能替代 CFD 或详细结构设计。\n- risks：\n  - 冷板压降未校核。\n  - 泵曲线未匹配。\n  - 接头和管路泄漏风险未评估。\n  - 冷却液物性未完整确认。\n  - TIM 接触热阻未验证。\n  - 机柜级风道或液冷支路分配未验证。\n- required_additional_data：\n  - 热源功率分布\n  - 进水/进风温度\n  - 冷却液类型和物性\n  - 流量或泵曲线\n  - 冷板压降\n  - 材料导热系数\n  - 服务器/机柜布局\n  - 实测温度或仿真边界条件\n- next_steps：\n  - 补充边界条件。\n  - 校核流量和温升。\n  - 检查冷板压降和泵匹配。\n  - 进行实验或公开算例验证。\n- limitations：\n  - 当前为一级工程估算。\n  - 不替代 CFD。\n  - 不替代工业级冷板设计。\n  - 不包含详细流道、压降和泵曲线。\n  - 不编造缺失的物性或仿真数据。\n  - 推荐散热路径为 generic template，不是具体模型仿真结果。\n\n## 6. 方案对比\n本次未请求方案对比。\n\n## 7. 仿真准备状态\n当前未请求仿真准备检查。\n\n## 8. 来源依据（检索依据与工程解释）\n本次未返回可用检索来源。本次未返回可用来源，相关结论应视为规则模板或一级估算结果，不能作为强来源结论。\n\n## 9. 风险与边界\n### 主要风险\n- 冷板压降过高，导致泵功耗、噪声或目标流量无法满足。\n- TIM 接触热阻偏大，导致 GPU 结温或壳温裕度不足。\n- 实际流量不足或支路分配不均，导致局部热点。\n- CDU / 换热器能力不足，导致供回液温度失控。\n- 接头、管路、冷却液污染带来的泄漏、堵塞和维护复杂度。\n### 边界说明\n- 当前为一级工程分析。\n- 不替代 CFD。\n- 不替代实验测试。\n- 不替代工业级冷板设计。\n- 未覆盖压降、泵曲线、冷板流道优化。\n- 不包含详细流道、压降、泵曲线。\n- 不编造缺失的物性、厂家数据或仿真结果。\n- 乙二醇/丙二醇物性需要物性表或厂商数据。\n- 需要进一步实验、仿真或现场数据验证。\n- 该图为一级示意图。\n- 该图为工程解释图，不是 CFD 仿真云图。\n- 该图不替代 CFD。\n- 该图不包含详细流道、压降或泵曲线。\n- 该图不能作为工业级设计图。\n- 节点参数为空时表示当前问题未提供或知识库未检索到。\n- generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。\n- simulation_based=false 时表示未运行 CFD 或外部仿真求解器。\n- 当前为一级工程估算。\n- 不包含详细流道、压降和泵曲线。\n- 不编造缺失的物性或仿真数据。\n- 推荐散热路径为 generic template，不是具体模型仿真结果。\n\n## 10. 下一步建议\n### 验证建议\n- 补充入口水温和允许冷却液温升 ΔT。\n- 确定 GPU 目标结温或壳温上限。\n- 查询冷板热阻、流阻和压降曲线。\n- 建立简化热阻网络并校核芯片到冷却液的温差。\n- 使用 CFD 或实验数据校核温度分布和压降，但当前报告不输出仿真结果。\n### 下一步数据需求\n- 允许冷却液温升 ΔT\n- 冷却液类型及比热容 cp\n- 入口水温\n- 目标结温或壳温上限\n- 冷板热阻\n- 压降限制\n- 泵曲线\n- 补充边界条件。\n- 校核流量和温升。\n- 检查冷板压降和泵匹配。\n- 进行实验或公开算例验证。\n\n## 11. 上下文警告\n- 当前报告缺少检索来源支撑；应补充知识库来源、设计手册或厂商资料。\n\n## 12. 估算假设\n- 示例估算假设冷却液为水，cp≈4180 J/(kg·K)。\n- 示例估算假设允许冷却液温升 ΔT=5K。\n- 示例估算假设水密度约 1000 kg/m³。\n- 该结果仅为一级估算，不替代最终设计、CFD 或实验验证。",
+      "warnings": [
+        "报告只整合已有 query、answer、sources 和 metadata，并补充一级工程分析框架。",
+        "本阶段不生成 docx/pdf/pptx 文件，不生成图片。",
+        "本阶段不运行 CFD，不输出仿真结果。"
+      ],
+      "limitations": [
+        "当前为一级工程分析。",
+        "不替代 CFD。",
+        "不替代实验测试。",
+        "不替代工业级冷板设计。",
+        "未覆盖压降、泵曲线、冷板流道优化。",
+        "不包含详细流道、压降、泵曲线。",
+        "不编造缺失的物性、厂家数据或仿真结果。",
+        "乙二醇/丙二醇物性需要物性表或厂商数据。",
+        "需要进一步实验、仿真或现场数据验证。",
+        "该图为一级示意图。",
+        "该图为工程解释图，不是 CFD 仿真云图。",
+        "该图不替代 CFD。",
+        "该图不包含详细流道、压降或泵曲线。",
+        "该图不能作为工业级设计图。",
+        "节点参数为空时表示当前问题未提供或知识库未检索到。",
+        "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+        "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。",
+        "当前为一级工程估算。",
+        "不包含详细流道、压降和泵曲线。",
+        "不编造缺失的物性或仿真数据。",
+        "推荐散热路径为 generic template，不是具体模型仿真结果。"
+      ],
+      "source_count": 0,
+      "includes": {
+        "calculation": false,
+        "knowledge": true,
+        "visualization": true,
+        "simulation": false,
+        "solution": true,
+        "comparison": false
+      },
+      "exports": [],
+      "quality": {
+        "has_input_table": true,
+        "has_calculation_section": true,
+        "has_visualization_section": true,
+        "has_source_section": true,
+        "has_boundary_section": true,
+        "frontend_ready": true
+      },
+      "render_hints": {
+        "preferred_renderer": "markdown",
+        "contains_tables": true,
+        "contains_warnings": true
+      }
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "none",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 71,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": false,
+          "final_answer_unchanged": true
+        }
+      ],
+      "repair_attempts": 0,
+      "repaired": false,
+      "original_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。\n\n提示：检测到分析报告需求；报告应保持规则式工程分析边界，不作为真实仿真报告。",
+      "final_answer": "当前知识库中没有检索到足够依据，无法给出有来源支撑的完整回答。\n\n提示：检测到分析报告需求；报告应保持规则式工程分析边界，不作为真实仿真报告。",
+      "original_route": "finalize",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_report.json",
+    "description": "Analysis report metadata and Markdown content.",
+    "mock_only": false,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": []
+  }
+}

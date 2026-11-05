@@ -1,0 +1,396 @@
+{
+  "answer": "结论：所需质量流量约为 0.038278 kg/s，体积流量约为 2.296651 L/min。\n\n公式：m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000\n\n代入计算：\n- m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s\n- V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s\n- L/min = 3.8e-05 * 60000 = 2.296651 L/min\n\n结果：\n- mass_flow_kg_s: 0.038278\n- volume_flow_m3_s: 3.8e-05\n- volume_flow_L_min: 2.296651\n\n单位校验：passed\n- W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s.\n\n显式假设：\n- Default water cp_J_kgK = 4180 was used.\n- Default water rho_kg_m3 = 1000 was used.\n\n工程边界与警告：\n- Coolant cp was not provided; water default was used. Glycol mixtures require table values.\n- Coolant density was not provided; water default was used. Glycol mixtures require table values.\n- This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin.\n\nRAG 与计算关系：\n- 当前计算基于通用传热/能量守恒公式，未从当前知识库检索到强匹配来源。",
+  "query": "800W 热负荷，水，允许温升 5K，需要多少 L/min 流量？",
+  "task_type": "general_qa",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "general_qa",
+    "domain": "thermal_management",
+    "entities": [
+      "水",
+      "温升",
+      "热负荷",
+      "流量",
+      "允许"
+    ],
+    "intent": "800W 热负荷,水,允许温升 5K,需要多少 L/min 流量?",
+    "needs_retrieval": true,
+    "needs_calculation": true,
+    "needs_visualization": false,
+    "confidence": 0.55,
+    "original_query": "800W 热负荷，水，允许温升 5K，需要多少 L/min 流量？",
+    "normalized_query": "800W 热负荷,水,允许温升 5K,需要多少 L/min 流量?",
+    "warnings": [
+      "检测到工程计算意图；将优先尝试调用本地热管理计算工具，结果仅用于一级工程估算。"
+    ],
+    "candidate_tools": [
+      "liquid_flow_rate_required"
+    ],
+    "properties": [],
+    "needs_report": false,
+    "needs_comparison": false,
+    "needs_simulation": false,
+    "is_property_lookup": false,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [
+        "liquid_flow_rate_required"
+      ],
+      "property_lookup": [],
+      "visualization": [],
+      "analysis": []
+    }
+  },
+  "rewrite": {
+    "original_query": "800W 热负荷，水，允许温升 5K，需要多少 L/min 流量？",
+    "rewritten_query": "800W 热负荷,水,允许温升 5K,需要多少 L/min 流量? 水 温升 热负荷 流量 允许",
+    "expanded_queries": [
+      "800W 热负荷,水,允许温升 5K,需要多少 L/min 流量? 水 温升 热负荷 流量 允许",
+      "水 温升 热负荷 流量 允许 散热 热管理",
+      "水 温升 temperature rise delta T 热负载 热负荷 流量 允许 allowable"
+    ],
+    "keywords": [
+      "水",
+      "温升",
+      "热负荷",
+      "流量",
+      "允许",
+      "W",
+      "K",
+      "L/min",
+      "允许温升",
+      "需要多少",
+      "temperature rise",
+      "delta T",
+      "热负载",
+      "allowable"
+    ],
+    "entities": [
+      "水",
+      "温升",
+      "热负荷",
+      "流量",
+      "允许"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-calculation",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": true,
+    "tool_name": "liquid_flow_rate_required",
+    "tool_status": "ok",
+    "tool_inputs": {
+      "Q_W": 800.0,
+      "delta_T_K": 5.0,
+      "cp_J_kgK": 4180.0,
+      "rho_kg_m3": 1000.0,
+      "fluid_name": "water"
+    },
+    "tool_result": {
+      "mass_flow_kg_s": 0.038278,
+      "volume_flow_m3_s": 3.8e-05,
+      "volume_flow_L_min": 2.296651
+    },
+    "tool_formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000",
+    "tool_steps": [
+      "m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s",
+      "V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s",
+      "L/min = 3.8e-05 * 60000 = 2.296651 L/min"
+    ],
+    "tool_warnings": [
+      "Coolant cp was not provided; water default was used. Glycol mixtures require table values.",
+      "Coolant density was not provided; water default was used. Glycol mixtures require table values.",
+      "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin."
+    ],
+    "missing_parameters": [],
+    "assumptions": [
+      "Default water cp_J_kgK = 4180 was used.",
+      "Default water rho_kg_m3 = 1000 was used."
+    ],
+    "calculation": {
+      "used_calculation": true,
+      "tool_name": "liquid_flow_rate_required",
+      "tool_status": "ok",
+      "tool_inputs": {
+        "Q_W": 800.0,
+        "delta_T_K": 5.0,
+        "cp_J_kgK": 4180.0,
+        "rho_kg_m3": 1000.0,
+        "fluid_name": "water"
+      },
+      "tool_result": {
+        "mass_flow_kg_s": 0.038278,
+        "volume_flow_m3_s": 3.8e-05,
+        "volume_flow_L_min": 2.296651
+      },
+      "tool_formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000",
+      "tool_steps": [
+        "m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s",
+        "V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s",
+        "L/min = 3.8e-05 * 60000 = 2.296651 L/min"
+      ],
+      "tool_warnings": [
+        "Coolant cp was not provided; water default was used. Glycol mixtures require table values.",
+        "Coolant density was not provided; water default was used. Glycol mixtures require table values.",
+        "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin."
+      ],
+      "missing_parameters": [],
+      "assumptions": [
+        "Default water cp_J_kgK = 4180 was used.",
+        "Default water rho_kg_m3 = 1000 was used."
+      ],
+      "unit_check": {
+        "status": "passed",
+        "messages": [
+          "W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s."
+        ]
+      },
+      "error": null,
+      "raw": {
+        "tool_name": "liquid_flow_rate_required",
+        "status": "ok",
+        "inputs": {
+          "Q_W": 800.0,
+          "delta_T_K": 5.0,
+          "cp_J_kgK": 4180.0,
+          "rho_kg_m3": 1000.0,
+          "fluid_name": "water"
+        },
+        "formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000",
+        "calculation_steps": [
+          "m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s",
+          "V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s",
+          "L/min = 3.8e-05 * 60000 = 2.296651 L/min"
+        ],
+        "result": {
+          "mass_flow_kg_s": 0.038278,
+          "volume_flow_m3_s": 3.8e-05,
+          "volume_flow_L_min": 2.296651
+        },
+        "unit_check": {
+          "status": "passed",
+          "messages": [
+            "W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s."
+          ]
+        },
+        "warnings": [
+          "Coolant cp was not provided; water default was used. Glycol mixtures require table values.",
+          "Coolant density was not provided; water default was used. Glycol mixtures require table values.",
+          "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin."
+        ],
+        "assumptions": [
+          "Default water cp_J_kgK = 4180 was used.",
+          "Default water rho_kg_m3 = 1000 was used."
+        ],
+        "engineering_note": "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin.",
+        "error": null,
+        "missing_parameters": [],
+        "parameter_parse": {
+          "tool_name": "liquid_flow_rate_required",
+          "inputs": {
+            "Q_W": 800.0,
+            "delta_T_K": 5.0,
+            "cp_J_kgK": null,
+            "rho_kg_m3": null,
+            "fluid_name": "water"
+          },
+          "missing_parameters": [],
+          "fluid_name": "water",
+          "normalized_query": "800W 热负荷,水,允许温升 5K,需要多少 L/min 流量？",
+          "assumptions": [],
+          "warnings": []
+        }
+      }
+    },
+    "calculation_status": "ok",
+    "calculation_tool": "liquid_flow_rate_required",
+    "calculation_error": null,
+    "calculation_result": {
+      "tool_name": "liquid_flow_rate_required",
+      "status": "ok",
+      "inputs": {
+        "Q_W": 800.0,
+        "delta_T_K": 5.0,
+        "cp_J_kgK": 4180.0,
+        "rho_kg_m3": 1000.0,
+        "fluid_name": "water"
+      },
+      "formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000",
+      "calculation_steps": [
+        "m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s",
+        "V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s",
+        "L/min = 3.8e-05 * 60000 = 2.296651 L/min"
+      ],
+      "result": {
+        "mass_flow_kg_s": 0.038278,
+        "volume_flow_m3_s": 3.8e-05,
+        "volume_flow_L_min": 2.296651
+      },
+      "unit_check": {
+        "status": "passed",
+        "messages": [
+          "W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s."
+        ]
+      },
+      "warnings": [
+        "Coolant cp was not provided; water default was used. Glycol mixtures require table values.",
+        "Coolant density was not provided; water default was used. Glycol mixtures require table values.",
+        "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin."
+      ],
+      "assumptions": [
+        "Default water cp_J_kgK = 4180 was used.",
+        "Default water rho_kg_m3 = 1000 was used."
+      ],
+      "engineering_note": "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin.",
+      "error": null,
+      "missing_parameters": [],
+      "parameter_parse": {
+        "tool_name": "liquid_flow_rate_required",
+        "inputs": {
+          "Q_W": 800.0,
+          "delta_T_K": 5.0,
+          "cp_J_kgK": null,
+          "rho_kg_m3": null,
+          "fluid_name": "water"
+        },
+        "missing_parameters": [],
+        "fluid_name": "water",
+        "normalized_query": "800W 热负荷,水,允许温升 5K,需要多少 L/min 流量？",
+        "assumptions": [],
+        "warnings": []
+      }
+    },
+    "property_lookup": {
+      "used_property_lookup": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "property_name": null,
+      "fluid": null,
+      "temperature_c": null,
+      "concentration_percent": null,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": []
+    },
+    "knowledge": {
+      "synthesized": false,
+      "answer_style": null,
+      "source_language": "mixed/en",
+      "template_type": null
+    },
+    "analysis_mode": {
+      "enabled": false,
+      "mode": "default_chat",
+      "reason": "ordinary_chat",
+      "requested_outputs": []
+    },
+    "analysis_workflow": {
+      "enabled": false,
+      "mode": "default_chat",
+      "requested_outputs": [],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": false
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "none",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 983,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": false,
+          "final_answer_unchanged": true
+        }
+      ],
+      "repair_attempts": 0,
+      "repaired": false,
+      "original_answer": "结论：所需质量流量约为 0.038278 kg/s，体积流量约为 2.296651 L/min。\n\n公式：m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000\n\n代入计算：\n- m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s\n- V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s\n- L/min = 3.8e-05 * 60000 = 2.296651 L/min\n\n结果：\n- mass_flow_kg_s: 0.038278\n- volume_flow_m3_s: 3.8e-05\n- volume_flow_L_min: 2.296651\n\n单位校验：passed\n- W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s.\n\n显式假设：\n- Default water cp_J_kgK = 4180 was used.\n- Default water rho_kg_m3 = 1000 was used.\n\n工程边界与警告：\n- Coolant cp was not provided; water default was used. Glycol mixtures require table values.\n- Coolant density was not provided; water default was used. Glycol mixtures require table values.\n- This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin.\n\nRAG 与计算关系：\n- 当前计算基于通用传热/能量守恒公式，未从当前知识库检索到强匹配来源。",
+      "final_answer": "结论：所需质量流量约为 0.038278 kg/s，体积流量约为 2.296651 L/min。\n\n公式：m_dot = Q_W / (cp_J_kgK * delta_T_K); V_dot = m_dot / rho_kg_m3; L_min = V_dot * 60000\n\n代入计算：\n- m_dot = 800.0 / (4180.0 * 5.0) = 0.038278 kg/s\n- V_dot = 0.038278 / 1000.0 = 3.8e-05 m^3/s\n- L/min = 3.8e-05 * 60000 = 2.296651 L/min\n\n结果：\n- mass_flow_kg_s: 0.038278\n- volume_flow_m3_s: 3.8e-05\n- volume_flow_L_min: 2.296651\n\n单位校验：passed\n- W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s.\n\n显式假设：\n- Default water cp_J_kgK = 4180 was used.\n- Default water rho_kg_m3 = 1000 was used.\n\n工程边界与警告：\n- Coolant cp was not provided; water default was used. Glycol mixtures require table values.\n- Coolant density was not provided; water default was used. Glycol mixtures require table values.\n- This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin.\n\nRAG 与计算关系：\n- 当前计算基于通用传热/能量守恒公式，未从当前知识库检索到强匹配来源。",
+      "original_route": "finalize",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_calculation.json",
+    "description": "Liquid cooling flow-rate calculation response.",
+    "mock_only": false,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": []
+  }
+}

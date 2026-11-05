@@ -1,0 +1,249 @@
+{
+  "dataset_id": "foundational_thermal_fluid_qa_phase7a",
+  "version": "2026-07-12",
+  "description": "Evaluation cases for formula registry, structured property lookup, and calculation/property routing separation.",
+  "cases": [
+    {
+      "id": "formula_fourier_001",
+      "query": "傅里叶导热定律的公式是什么？各参数单位是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "fourier_law_conduction",
+      "must_include": ["\\dot Q", "dT/dx", "W/(m*K)"],
+      "must_not_include": ["Q = m_dot * cp * DeltaT"]
+    },
+    {
+      "id": "formula_plane_wall_001",
+      "query": "一维平壁稳态导热量公式怎么写？",
+      "expected_intent": "formula",
+      "expected_formula_id": "plane_wall_conduction",
+      "must_include": ["Q_dot", "k", "A", "L"]
+    },
+    {
+      "id": "formula_rcond_001",
+      "query": "导热热阻 R=L/(kA) 中 L、k、A 分别代表什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "conduction_thermal_resistance",
+      "must_include": ["R_cond", "K/W"]
+    },
+    {
+      "id": "formula_newton_001",
+      "query": "牛顿冷却公式 Q=hAΔT 的适用边界是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "newton_law_of_cooling",
+      "must_include": ["h", "W/(m2*K)"]
+    },
+    {
+      "id": "formula_rconv_001",
+      "query": "对流热阻 1/(hA) 如何理解？",
+      "expected_intent": "formula",
+      "expected_formula_id": "convective_thermal_resistance",
+      "must_include": ["R_conv", "1 / (h * A)"]
+    },
+    {
+      "id": "formula_series_001",
+      "query": "串联热阻的总热阻怎么算？",
+      "expected_intent": "formula",
+      "expected_formula_id": "thermal_resistance_series",
+      "must_include": ["R_total", "sum"]
+    },
+    {
+      "id": "formula_parallel_001",
+      "query": "并联热阻的等效热阻公式是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "thermal_resistance_parallel",
+      "must_include": ["R_eq", "sum"]
+    },
+    {
+      "id": "formula_tj_001",
+      "query": "结温估算 Tj = Tin + P Rtotal 的含义是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "junction_temperature_estimate",
+      "must_include": ["T_j", "R_total"]
+    },
+    {
+      "id": "formula_required_r_001",
+      "query": "所需总热阻目标公式怎么推？",
+      "expected_intent": "formula",
+      "expected_formula_id": "required_thermal_resistance",
+      "must_include": ["R_required"]
+    },
+    {
+      "id": "formula_energy_001",
+      "query": "Q = m_dot cp DeltaT 是什么公式？",
+      "expected_intent": "formula",
+      "expected_formula_id": "coolant_energy_balance",
+      "must_include": ["m_dot", "c_p", "DeltaT"]
+    },
+    {
+      "id": "formula_flow_001",
+      "query": "液冷所需质量流量公式是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "liquid_mass_flow_required",
+      "must_include": ["m_dot", "Q", "DeltaT"]
+    },
+    {
+      "id": "formula_re_001",
+      "query": "雷诺数定义是什么？它如何判断层流和湍流？",
+      "expected_intent": "formula",
+      "expected_formula_id": "reynolds_number",
+      "must_include": ["Re", "2300", "4000"]
+    },
+    {
+      "id": "formula_dh_001",
+      "query": "非圆管的水力直径怎么定义？",
+      "expected_intent": "formula",
+      "expected_formula_id": "hydraulic_diameter",
+      "must_include": ["D_h", "4"]
+    },
+    {
+      "id": "formula_darcy_001",
+      "query": "Darcy-Weisbach 压降公式中各参数是什么意思？",
+      "expected_intent": "formula",
+      "expected_formula_id": "darcy_weisbach_pressure_drop",
+      "must_include": ["Delta_p", "rho", "v"]
+    },
+    {
+      "id": "formula_laminar_f_001",
+      "query": "圆管层流摩擦因子 f=64/Re 的适用条件是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "laminar_friction_factor",
+      "must_include": ["64", "Re"]
+    },
+    {
+      "id": "formula_minor_loss_001",
+      "query": "局部损失压降 K rho v^2/2 怎么用？",
+      "expected_intent": "formula",
+      "expected_formula_id": "minor_loss_pressure_drop",
+      "must_include": ["K", "rho", "v"]
+    },
+    {
+      "id": "formula_head_001",
+      "query": "压降如何换算成泵扬程？",
+      "expected_intent": "formula",
+      "expected_formula_id": "pump_head_from_pressure_drop",
+      "must_include": ["H", "rho", "g"]
+    },
+    {
+      "id": "formula_nu_001",
+      "query": "努塞尔数 Nu = hL/k 的物理意义是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "nusselt_number",
+      "must_include": ["Nu", "h", "k_f"]
+    },
+    {
+      "id": "formula_pr_001",
+      "query": "Prandtl number 的定义是什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "prandtl_number",
+      "must_include": ["Pr", "c_p", "mu"]
+    },
+    {
+      "id": "formula_alpha_001",
+      "query": "热扩散率 alpha = k/(rho cp) 代表什么？",
+      "expected_intent": "formula",
+      "expected_formula_id": "thermal_diffusivity",
+      "must_include": ["alpha", "rho", "c_p"]
+    },
+    {
+      "id": "formula_bi_001",
+      "query": "Biot number 如何判断集中参数法？",
+      "expected_intent": "formula",
+      "expected_formula_id": "biot_number",
+      "must_include": ["Bi", "0.1"]
+    },
+    {
+      "id": "property_water_cp_25",
+      "query": "25°C 水的比热容是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "success",
+      "expected_fluid": "water",
+      "expected_property": "cp",
+      "expected_value": 4180.0,
+      "must_include": ["default_water_assumption"]
+    },
+    {
+      "id": "property_water_density_25",
+      "query": "25°C 冷却水密度是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "success",
+      "expected_fluid": "water",
+      "expected_property": "density",
+      "expected_value": 1000.0
+    },
+    {
+      "id": "property_water_viscosity_20",
+      "query": "20°C 水的动力黏度约是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "missing_data",
+      "expected_fluid": "water",
+      "expected_property": "viscosity",
+      "must_not_include": ["0.001", "1.0 mPa"]
+    },
+    {
+      "id": "property_air_k_40",
+      "query": "40°C 空气的导热系数是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "missing_data",
+      "expected_fluid": "air",
+      "expected_property": "thermal_conductivity"
+    },
+    {
+      "id": "property_egw_missing_concentration",
+      "query": "25°C EGW 的比热容是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "missing_params",
+      "expected_missing_fields": ["concentration_percent"]
+    },
+    {
+      "id": "property_egw_missing_data",
+      "query": "40% EGW 在 25°C 的比热容是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "missing_data",
+      "must_not_include": ["4180"]
+    },
+    {
+      "id": "property_no_extrapolate_water_cp",
+      "query": "20°C 水的比热容是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "unsupported_range",
+      "expected_behavior": "No extrapolation from 25 C default point."
+    },
+    {
+      "id": "calc_flow_given_cp",
+      "query": "芯片热负荷1200 W，冷却液比热4200 J/(kg*K)，允许温升5 K，求质量流量。",
+      "expected_intent": "calculation",
+      "expected_tool": "liquid_flow_rate_required",
+      "expected_property_lookup": false,
+      "expected_mass_flow_kg_s": 0.05714285714285714
+    },
+    {
+      "id": "calc_plane_wall",
+      "query": "一块平壁厚度为0.05 m，导热系数为0.8 W/(m*K)，面积为2 m2，两侧温度分别为100°C和40°C，计算稳态导热量。",
+      "expected_intent": "calculation",
+      "expected_tool": "plane_wall_conduction",
+      "expected_property_lookup": false,
+      "expected_heat_rate_W": 1920.0
+    },
+    {
+      "id": "negative_k_as_material_input",
+      "query": "厚度 2 mm、导热系数 k=5 W/(m*K)、面积 400 mm2，求导热热阻。",
+      "expected_intent": "calculation",
+      "expected_tool": "conduction_resistance",
+      "expected_property_lookup": false
+    },
+    {
+      "id": "property_missing_temperature",
+      "query": "水的密度是多少？",
+      "expected_intent": "property_lookup",
+      "expected_status": "missing_params",
+      "expected_missing_fields": ["temperature_c"]
+    },
+    {
+      "id": "concept_cdu",
+      "query": "CDU 在服务器液冷系统中的作用是什么？",
+      "expected_intent": "concept",
+      "expected_property_lookup": false,
+      "expected_calculation": false
+    }
+  ]
+}

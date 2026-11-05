@@ -1,0 +1,1292 @@
+{
+  "queued": {
+    "created_at": "2026-09-09T15:38:17.120841+00:00",
+    "error": null,
+    "events": [],
+    "evidence": [],
+    "limitations": [
+      "本地有界任务队列；不自动执行外部求解器，不自动恢复中断任务。",
+      "后台任务使用隔离会话，不读取或修改原同步聊天记忆。"
+    ],
+    "parent_task_id": null,
+    "planner_version": "bounded-engineering-v1",
+    "query": "请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。",
+    "request_fingerprint": "7bb6c3f07383931f2f1258f91c5e46a19c784bda5188af2377fb2ca816cf9384",
+    "result": null,
+    "revision": 1,
+    "schema_version": "1.0",
+    "scope": "bounded_liquid_cooling",
+    "status": "queued",
+    "steps": [
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [],
+        "inputs": {},
+        "outputs": {},
+        "status": "pending",
+        "step_id": "structure_inputs",
+        "title": "明确液冷目标与参数"
+      },
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [],
+        "inputs": {},
+        "outputs": {},
+        "status": "pending",
+        "step_id": "retrieval",
+        "title": "检索液冷设计依据"
+      },
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [
+          "structure_inputs"
+        ],
+        "formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); if rho is provided, V_dot = m_dot / rho_kg_m3",
+        "inputs": {},
+        "outputs": {},
+        "status": "pending",
+        "step_id": "flow",
+        "title": "计算所需冷却液流量",
+        "tool_name": "liquid_flow_rate_required",
+        "tool_version": "thermal-tools-v2.1"
+      },
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [
+          "flow"
+        ],
+        "formula": "A = pi*D^2/4; v = Q/A; Re = rho*v*D/mu; delta_p = (f*L/D + K)*rho*v^2/2; H = delta_p/(rho*g)",
+        "input_bindings": {
+          "flow_rate_lpm": {
+            "output": "volume_flow_L_min",
+            "step_id": "flow",
+            "unit": "L/min"
+          }
+        },
+        "inputs": {},
+        "outputs": {},
+        "status": "pending",
+        "step_id": "pressure",
+        "title": "根据流量计算管路压降",
+        "tool_name": "liquid_pressure_drop_estimate",
+        "tool_version": "thermal-tools-v2.1"
+      },
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [
+          "flow",
+          "pressure"
+        ],
+        "inputs": {},
+        "outputs": {},
+        "status": "pending",
+        "step_id": "validation",
+        "title": "检查能量守恒与物理范围"
+      },
+      {
+        "dependency_policy": "after_terminal",
+        "depends_on": [
+          "retrieval",
+          "flow",
+          "pressure",
+          "validation"
+        ],
+        "inputs": {},
+        "outputs": {},
+        "status": "pending",
+        "step_id": "report",
+        "title": "生成工程分析报告"
+      }
+    ],
+    "task_id": "task_b3854212a1d7480ca5acad22ccddbe7b",
+    "updated_at": "2026-09-09T15:38:17.124947+00:00",
+    "variables": [],
+    "cancel_requested": false,
+    "retried_by": null,
+    "recoverable": false,
+    "step_summary": {
+      "total": 6,
+      "completed": 0,
+      "failed": 0
+    },
+    "current_step": null
+  },
+  "finished": {
+    "assumptions": [
+      "未提供局部损失系数，暂取 K=0；所得压降不包含未声明的弯头、接头等局部损失。"
+    ],
+    "created_at": "2026-09-09T15:38:17.120841+00:00",
+    "error": null,
+    "events": [
+      {
+        "at": "2026-09-09T15:38:17.146240+00:00",
+        "detail": "解析原问题的显式单位与参数。",
+        "sequence": 1,
+        "status": "running",
+        "step_id": "structure_inputs",
+        "title": "明确液冷目标与参数"
+      },
+      {
+        "at": "2026-09-09T15:38:17.157709+00:00",
+        "detail": "参数已保存；计划依赖已固定。",
+        "sequence": 2,
+        "status": "completed",
+        "step_id": "structure_inputs",
+        "title": "明确液冷目标与参数"
+      },
+      {
+        "at": "2026-09-09T15:38:17.168165+00:00",
+        "detail": "通过原 Agent 检索接口读取知识来源。",
+        "sequence": 3,
+        "status": "running",
+        "step_id": "retrieval",
+        "title": "检索液冷设计依据"
+      },
+      {
+        "at": "2026-09-09T15:38:17.190092+00:00",
+        "detail": "知识库未提供可引用依据。",
+        "sequence": 4,
+        "status": "incomplete",
+        "step_id": "retrieval",
+        "title": "检索液冷设计依据"
+      },
+      {
+        "at": "2026-09-09T15:38:17.199816+00:00",
+        "detail": "已固定输入，开始调用本地确定性计算工具。",
+        "sequence": 5,
+        "status": "running",
+        "step_id": "flow",
+        "title": "计算所需冷却液流量"
+      },
+      {
+        "at": "2026-09-09T15:38:17.229836+00:00",
+        "detail": "计算完成，已保存实际结果。",
+        "sequence": 6,
+        "status": "completed",
+        "step_id": "flow",
+        "title": "计算所需冷却液流量"
+      },
+      {
+        "at": "2026-09-09T15:38:17.245588+00:00",
+        "detail": "已固定输入，开始调用本地确定性计算工具。",
+        "sequence": 7,
+        "status": "running",
+        "step_id": "pressure",
+        "title": "根据流量计算管路压降"
+      },
+      {
+        "at": "2026-09-09T15:38:17.277110+00:00",
+        "detail": "计算完成，已保存实际结果。",
+        "sequence": 8,
+        "status": "completed",
+        "step_id": "pressure",
+        "title": "根据流量计算管路压降"
+      },
+      {
+        "at": "2026-09-09T15:38:17.295090+00:00",
+        "detail": "检查实际流量、压降、扬程与稳态能量偏差。",
+        "sequence": 9,
+        "status": "running",
+        "step_id": "validation",
+        "title": "检查能量守恒与物理范围"
+      },
+      {
+        "at": "2026-09-09T15:38:17.306269+00:00",
+        "detail": "物理约束检查通过。",
+        "sequence": 10,
+        "status": "completed",
+        "step_id": "validation",
+        "title": "检查能量守恒与物理范围"
+      },
+      {
+        "at": "2026-09-09T15:38:17.315938+00:00",
+        "detail": "依据已保存的输入、结果、物理检查和来源生成报告。",
+        "sequence": 11,
+        "status": "running",
+        "step_id": "report",
+        "title": "生成工程分析报告"
+      },
+      {
+        "at": "2026-09-09T15:38:17.327282+00:00",
+        "detail": "工程报告已生成并记录内容哈希。",
+        "sequence": 12,
+        "status": "completed",
+        "step_id": "report",
+        "title": "生成工程分析报告"
+      }
+    ],
+    "evidence": [],
+    "finished_at": "2026-09-09T15:38:17.337941+00:00",
+    "input_fingerprint": "3fc71187f5bfc8bc5a51b0646d29de8c8cda82b66618caff6a6a89f9d5082d4b",
+    "limitations": [
+      "本地有界任务队列；不自动执行外部求解器，不自动恢复中断任务。",
+      "后台任务使用隔离会话，不读取或修改原同步聊天记忆。"
+    ],
+    "missing_parameters": [],
+    "parent_task_id": null,
+    "planner_version": "bounded-engineering-v1",
+    "query": "请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。",
+    "report": {
+      "content_sha256": "3836095899be12a264efe9ea356d8006460a37cca7caadd2342722e480b6bde4",
+      "generated": true,
+      "sections": [
+        {
+          "id": "task_steps",
+          "title": "任务执行与依据"
+        }
+      ],
+      "title": "液冷工程任务报告"
+    },
+    "request_fingerprint": "7bb6c3f07383931f2f1258f91c5e46a19c784bda5188af2377fb2ca816cf9384",
+    "result": {
+      "answer": "# 液冷工程任务报告\n\n请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。\n\n任务状态：incomplete\n\n## 参数与中间结果\n\n| 步骤 | 角色 | 变量 | 数值 | 单位 | 来源 |\n|---|---|---|---|---|---|\n| structure_inputs | input | heat_load_w | 1000.0 | W | parsed_query |\n| structure_inputs | input | coolant_delta_t_k | 5.0 | K | parsed_query |\n| structure_inputs | input | specific_heat_j_kgk | 4180.0 | J/(kg*K) | parsed_query |\n| structure_inputs | input | density_kg_m3 | 997.0 | kg/m3 | parsed_query |\n| structure_inputs | input | dynamic_viscosity_pa_s | 0.001 | Pa*s | parsed_query |\n| structure_inputs | input | hydraulic_diameter_m | 0.01 | m | parsed_query |\n| structure_inputs | input | length_m | 2.0 | m | parsed_query |\n| structure_inputs | input | minor_loss_coefficient | 0.0 | 1 | declared_omission |\n| flow | input | Q_W | 1000.0 | W | structure_inputs |\n| flow | input | delta_T_K | 5.0 | K | structure_inputs |\n| flow | input | cp_J_kgK | 4180.0 | J/(kg*K) | structure_inputs |\n| flow | input | rho_kg_m3 | 997.0 | kg/m3 | structure_inputs |\n| flow | output | mass_flow_kg_s | 0.047847 | kg/s | liquid_flow_rate_required |\n| flow | output | volume_flow_m3_s | 4.8e-05 | m3/s | liquid_flow_rate_required |\n| flow | output | volume_flow_L_min | 2.879452 | L/min | liquid_flow_rate_required |\n| pressure | input | flow_rate_lpm | 2.879452 | L/min | flow.volume_flow_L_min |\n| pressure | input | hydraulic_diameter_mm | 10.0 | mm | structure_inputs.hydraulic_diameter_m × 1000 (m→mm) |\n| pressure | input | length_m | 2.0 | m | structure_inputs.length_m |\n| pressure | input | density_kg_m3 | 997.0 | kg/m3 | structure_inputs.density_kg_m3 |\n| pressure | input | dynamic_viscosity_pa_s | 0.001 | Pa*s | structure_inputs.dynamic_viscosity_pa_s |\n| pressure | input | minor_loss_coefficient_k | 0.0 | 1 | structure_inputs.minor_loss_coefficient |\n| pressure | output | pressure_drop_pa | 1333.147151 | Pa | liquid_pressure_drop_estimate |\n| pressure | output | pressure_drop_kpa | 1.333147 | kPa | liquid_pressure_drop_estimate |\n| pressure | output | required_head_m | 0.136352 | m | liquid_pressure_drop_estimate |\n| pressure | output | flow_rate_m3_s | 4.799086666666667e-05 | m3/s | liquid_pressure_drop_estimate |\n| pressure | output | flow_rate_lpm | 2.879452 | L/min | liquid_pressure_drop_estimate |\n| pressure | output | velocity_m_s | 0.611039 | m/s | liquid_pressure_drop_estimate |\n| pressure | output | reynolds_number | 6092.055762 | 1 | liquid_pressure_drop_estimate |\n| pressure | output | friction_factor | 0.0358134 | 1 | liquid_pressure_drop_estimate |\n| pressure | output | flow_regime | turbulent | None | liquid_pressure_drop_estimate |\n| pressure | output | major_loss_pa | 1333.147151 | Pa | liquid_pressure_drop_estimate |\n| pressure | output | minor_loss_pa | 0.0 | Pa | liquid_pressure_drop_estimate |\n\n## 步骤与公式\n\n- 明确液冷目标与参数：completed。\n- 检索液冷设计依据：incomplete。\n- 计算所需冷却液流量：completed。m_dot = Q_W / (cp_J_kgK * delta_T_K); if rho is provided, V_dot = m_dot / rho_kg_m3\n- 根据流量计算管路压降：completed。A = pi*D^2/4; v = Q/A; Re = rho*v*D/mu; delta_p = (f*L/D + K)*rho*v^2/2; H = delta_p/(rho*g)\n- 检查能量守恒与物理范围：completed。\n\n## 物理检查\n\n检查状态：passed；能量相对偏差：8.599332590453201e-08。\n\n## 假设与限制\n\n- 未提供局部损失系数，暂取 K=0；所得压降不包含未声明的弯头、接头等局部损失。\n- 采用稳态能量平衡与一维 Darcy–Weisbach 管路估算；不是 CFD 或试验结果。\n- 未计算芯片结温、详细冷板通道换热、泵曲线工作点、NPSH 或分流均匀性。\n- 物性为用户显式输入或已声明的近室温水假设，未自动认定为知识库测量值。\n\n## 知识来源\n\n知识库未提供可引用依据；本报告仅记录输入和确定性公式证据。\n",
+      "metadata": {
+        "analysis_mode": {
+          "enabled": false,
+          "mode": "default_chat",
+          "reason": "default",
+          "requested_outputs": []
+        },
+        "analysis_workflow": {
+          "enabled": false,
+          "errors": [],
+          "mode": "default_chat",
+          "requested_outputs": [],
+          "warnings": []
+        },
+        "calculation": {
+          "assumptions": [],
+          "missing_parameters": [],
+          "tool_formula": null,
+          "tool_inputs": {},
+          "tool_name": "liquid_cooling_chain",
+          "tool_result": {
+            "flow": {
+              "mass_flow_kg_s": 0.047847,
+              "volume_flow_L_min": 2.879452,
+              "volume_flow_m3_s": 4.8e-05
+            },
+            "pressure": {
+              "flow_rate_lpm": 2.879452,
+              "flow_rate_m3_s": 4.799086666666667e-05,
+              "flow_regime": "turbulent",
+              "friction_factor": 0.0358134,
+              "major_loss_pa": 1333.147151,
+              "minor_loss_pa": 0.0,
+              "pressure_drop_kpa": 1.333147,
+              "pressure_drop_pa": 1333.147151,
+              "required_head_m": 0.136352,
+              "reynolds_number": 6092.055762,
+              "source": {
+                "name": "Darcy-Weisbach pressure drop estimate",
+                "type": "engineering_formula"
+              },
+              "velocity_m_s": 0.611039
+            }
+          },
+          "tool_status": "incomplete",
+          "tool_steps": [],
+          "tool_warnings": [],
+          "used_calculation": true
+        },
+        "comparison": {
+          "generated": false
+        },
+        "engineering_task": {
+          "scope": "bounded_liquid_cooling",
+          "status": "incomplete",
+          "task_id": "task_b3854212a1d7480ca5acad22ccddbe7b"
+        },
+        "flow_distribution": {
+          "cfd_executed": false,
+          "checklist": [],
+          "generated": false,
+          "missing_inputs": [],
+          "result": {},
+          "status": "skipped",
+          "tool_name": null,
+          "topology": null,
+          "warnings": []
+        },
+        "hydraulic_network": {
+          "assumptions": [],
+          "branch_count": null,
+          "component_count": null,
+          "enabled": false,
+          "network_model": null,
+          "topology": null,
+          "warnings": []
+        },
+        "hydraulics": {
+          "missing_parameters": [],
+          "status": "skipped",
+          "tool_inputs": {},
+          "tool_name": null,
+          "tool_result": {},
+          "used_hydraulic_calculation": false,
+          "warnings": []
+        },
+        "knowledge": {
+          "answer_style": null,
+          "source_language": "mixed/en",
+          "synthesized": false,
+          "template_type": null
+        },
+        "matlab": {
+          "available": false,
+          "configured": false,
+          "connected": false,
+          "engine_error": null,
+          "engine_import_ok": false,
+          "engine_started": false,
+          "execution_mode": "unavailable",
+          "last_check_at": null,
+          "matlab_root": null,
+          "matlab_version": null,
+          "python_version": null,
+          "uses_real_matlab": false
+        },
+        "multi_agent": {
+          "enabled": false,
+          "errors": [],
+          "mode": "disabled",
+          "plan": null,
+          "role_cards": [],
+          "uses_llm": false,
+          "warnings": [],
+          "worker_trace": []
+        },
+        "physics_validation": {
+          "checked_quantity_count": 11,
+          "energy_balance_checked": true,
+          "energy_relative_error": 8.599332590453201e-08,
+          "issues": [],
+          "limitations": [
+            "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+            "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+            "Units are explicit canonical units; no inference or unit conversion is performed.",
+            "链间传递原工具的 L/min 输出，并由压降工具换算为 m3/s；能量闭合采用该实际体积流量，避免旧工具 m3/s 显示舍入导致精度损失。"
+          ],
+          "passed": true,
+          "schema_version": "1.0",
+          "status": "passed",
+          "validation_method": "deterministic_constraints",
+          "validator_version": "physics-v1"
+        },
+        "property_lookup": {
+          "concentration_percent": null,
+          "fluid": null,
+          "interpolation": null,
+          "property_name": null,
+          "source": null,
+          "temperature_c": null,
+          "tool_inputs": {},
+          "tool_name": null,
+          "tool_result": {},
+          "tool_status": "skipped",
+          "unit": null,
+          "used_property_lookup": false,
+          "value": null,
+          "warnings": []
+        },
+        "pump_selection": {
+          "generated": false,
+          "missing_inputs": [],
+          "pump_curve_used": false,
+          "pump_model_selected": false,
+          "required_flow_rate_lpm": null,
+          "required_head_m": null,
+          "required_pressure_drop_kpa": null,
+          "selection_checklist": [],
+          "status": "skipped",
+          "warnings": []
+        },
+        "report": {
+          "content": "# 液冷工程任务报告\n\n请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。\n\n任务状态：incomplete\n\n## 参数与中间结果\n\n| 步骤 | 角色 | 变量 | 数值 | 单位 | 来源 |\n|---|---|---|---|---|---|\n| structure_inputs | input | heat_load_w | 1000.0 | W | parsed_query |\n| structure_inputs | input | coolant_delta_t_k | 5.0 | K | parsed_query |\n| structure_inputs | input | specific_heat_j_kgk | 4180.0 | J/(kg*K) | parsed_query |\n| structure_inputs | input | density_kg_m3 | 997.0 | kg/m3 | parsed_query |\n| structure_inputs | input | dynamic_viscosity_pa_s | 0.001 | Pa*s | parsed_query |\n| structure_inputs | input | hydraulic_diameter_m | 0.01 | m | parsed_query |\n| structure_inputs | input | length_m | 2.0 | m | parsed_query |\n| structure_inputs | input | minor_loss_coefficient | 0.0 | 1 | declared_omission |\n| flow | input | Q_W | 1000.0 | W | structure_inputs |\n| flow | input | delta_T_K | 5.0 | K | structure_inputs |\n| flow | input | cp_J_kgK | 4180.0 | J/(kg*K) | structure_inputs |\n| flow | input | rho_kg_m3 | 997.0 | kg/m3 | structure_inputs |\n| flow | output | mass_flow_kg_s | 0.047847 | kg/s | liquid_flow_rate_required |\n| flow | output | volume_flow_m3_s | 4.8e-05 | m3/s | liquid_flow_rate_required |\n| flow | output | volume_flow_L_min | 2.879452 | L/min | liquid_flow_rate_required |\n| pressure | input | flow_rate_lpm | 2.879452 | L/min | flow.volume_flow_L_min |\n| pressure | input | hydraulic_diameter_mm | 10.0 | mm | structure_inputs.hydraulic_diameter_m × 1000 (m→mm) |\n| pressure | input | length_m | 2.0 | m | structure_inputs.length_m |\n| pressure | input | density_kg_m3 | 997.0 | kg/m3 | structure_inputs.density_kg_m3 |\n| pressure | input | dynamic_viscosity_pa_s | 0.001 | Pa*s | structure_inputs.dynamic_viscosity_pa_s |\n| pressure | input | minor_loss_coefficient_k | 0.0 | 1 | structure_inputs.minor_loss_coefficient |\n| pressure | output | pressure_drop_pa | 1333.147151 | Pa | liquid_pressure_drop_estimate |\n| pressure | output | pressure_drop_kpa | 1.333147 | kPa | liquid_pressure_drop_estimate |\n| pressure | output | required_head_m | 0.136352 | m | liquid_pressure_drop_estimate |\n| pressure | output | flow_rate_m3_s | 4.799086666666667e-05 | m3/s | liquid_pressure_drop_estimate |\n| pressure | output | flow_rate_lpm | 2.879452 | L/min | liquid_pressure_drop_estimate |\n| pressure | output | velocity_m_s | 0.611039 | m/s | liquid_pressure_drop_estimate |\n| pressure | output | reynolds_number | 6092.055762 | 1 | liquid_pressure_drop_estimate |\n| pressure | output | friction_factor | 0.0358134 | 1 | liquid_pressure_drop_estimate |\n| pressure | output | flow_regime | turbulent | None | liquid_pressure_drop_estimate |\n| pressure | output | major_loss_pa | 1333.147151 | Pa | liquid_pressure_drop_estimate |\n| pressure | output | minor_loss_pa | 0.0 | Pa | liquid_pressure_drop_estimate |\n\n## 步骤与公式\n\n- 明确液冷目标与参数：completed。\n- 检索液冷设计依据：incomplete。\n- 计算所需冷却液流量：completed。m_dot = Q_W / (cp_J_kgK * delta_T_K); if rho is provided, V_dot = m_dot / rho_kg_m3\n- 根据流量计算管路压降：completed。A = pi*D^2/4; v = Q/A; Re = rho*v*D/mu; delta_p = (f*L/D + K)*rho*v^2/2; H = delta_p/(rho*g)\n- 检查能量守恒与物理范围：completed。\n\n## 物理检查\n\n检查状态：passed；能量相对偏差：8.599332590453201e-08。\n\n## 假设与限制\n\n- 未提供局部损失系数，暂取 K=0；所得压降不包含未声明的弯头、接头等局部损失。\n- 采用稳态能量平衡与一维 Darcy–Weisbach 管路估算；不是 CFD 或试验结果。\n- 未计算芯片结温、详细冷板通道换热、泵曲线工作点、NPSH 或分流均匀性。\n- 物性为用户显式输入或已声明的近室温水假设，未自动认定为知识库测量值。\n\n## 知识来源\n\n知识库未提供可引用依据；本报告仅记录输入和确定性公式证据。\n",
+          "content_sha256": "3836095899be12a264efe9ea356d8006460a37cca7caadd2342722e480b6bde4",
+          "generated": true,
+          "sections": [
+            {
+              "id": "task_steps",
+              "title": "任务执行与依据"
+            }
+          ],
+          "title": "液冷工程任务报告"
+        },
+        "retrieval": {
+          "enabled": false,
+          "has_sources": false,
+          "retrieval_query_present": false,
+          "score_summary": {
+            "count": 0,
+            "max": null,
+            "min": null
+          },
+          "source_count": 0,
+          "warnings": []
+        },
+        "retrieval_error": null,
+        "self_critique": {
+          "enabled": false,
+          "issues": [],
+          "passed": true,
+          "repair_action": "none",
+          "repaired": false,
+          "requires_human_review": false,
+          "route": "skipped",
+          "safe_repair_applied": false,
+          "severity": "ok",
+          "warnings": []
+        },
+        "sensitivity": {
+          "base_metric": null,
+          "cfd_executed": false,
+          "generated": false,
+          "missing_inputs": [],
+          "perturbations": [],
+          "result": {},
+          "status": "skipped",
+          "target_metric": null,
+          "warnings": []
+        },
+        "simulation": {
+          "enabled": false
+        },
+        "simulation_execution": {
+          "backend": null,
+          "cfd_executed": false,
+          "duration_seconds": null,
+          "errors": [],
+          "evidence": {},
+          "executed": false,
+          "finished_at": null,
+          "matlab_entrypoint": null,
+          "plan_id": null,
+          "result": {},
+          "result_files": [],
+          "solver_backend": null,
+          "started_at": null,
+          "status": "not_started",
+          "warnings": []
+        },
+        "simulation_mode": {
+          "button_state": {
+            "show_cancel": false,
+            "show_confirm": false,
+            "show_plan": false,
+            "show_status": false
+          },
+          "cancelled": false,
+          "confirmed": false,
+          "enabled": false,
+          "errors": [],
+          "executed": false,
+          "pending_confirmation": false,
+          "persistence": "in_memory_process_local",
+          "plan_id": null,
+          "requires_confirmation": false,
+          "state": "off",
+          "ui_actions": [
+            "show_plan",
+            "show_confirm",
+            "show_cancel",
+            "show_status"
+          ],
+          "warnings": []
+        },
+        "simulation_plan": {
+          "can_execute_now": false,
+          "candidate_models": [],
+          "checklist": [],
+          "execution_steps": [],
+          "expected_outputs": [],
+          "generated": false,
+          "inputs": {},
+          "matlab_entrypoint": null,
+          "missing_inputs": [],
+          "model_id": null,
+          "model_selection_confidence": 0.0,
+          "not_executable_reason": null,
+          "objective": null,
+          "plan_id": null,
+          "requires_confirmation": true,
+          "selected_model_id": null,
+          "selected_model_name": null,
+          "selection_reason": null,
+          "simulation_type": null,
+          "user_question": null
+        },
+        "solution": {
+          "generated": false
+        },
+        "thermal_network": {
+          "allowable_total_resistance_k_per_w": null,
+          "bottlenecks": [],
+          "cfd_executed": false,
+          "elements": [],
+          "generated": false,
+          "junction_temperature_c": null,
+          "margin_c": null,
+          "missing_inputs": [],
+          "node_temperatures": [],
+          "status": "skipped",
+          "tool_name": null,
+          "topology": null,
+          "total_resistance_k_per_w": null,
+          "warnings": []
+        },
+        "thermal_path": {
+          "cfd_executed": false,
+          "generated": false,
+          "graph": null,
+          "graph_type": null,
+          "warnings": []
+        },
+        "used_calculation": true,
+        "visualization": {
+          "generated": false
+        }
+      },
+      "query": "请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。",
+      "retrieval_count": 0,
+      "rewrite": {
+        "entities": [
+          "液冷",
+          "温升",
+          "流量",
+          "压降",
+          "允许"
+        ],
+        "expanded_queries": [
+          "请设计液冷回路:功率1000W,允许温升5K,比热4180J/(kg·K),密度997kg/m³,动力黏度0.001Pa·s,管径10mm,管长2m.计算质量与体积流量、流速、雷诺数和压降,检查物理约束并生成报告. 液冷 温升 流量 压降 允许",
+          "液冷 温升 流量 压降 允许 散热 热管理",
+          "液冷 liquid cooling cold plate 冷板 CDU 冷却液 温升 temperature rise delta T 热负载 流量 压降"
+        ],
+        "keywords": [
+          "液冷",
+          "温升",
+          "流量",
+          "压降",
+          "允许",
+          "W",
+          "K",
+          "J/",
+          "kg",
+          "kg/m",
+          "Pa",
+          "s",
+          "mm",
+          "m.",
+          "请设计液冷回路",
+          "功率",
+          "允许温升",
+          "比热",
+          "密度",
+          "动力黏度",
+          "管径",
+          "管长",
+          "计算质量与体积流量",
+          "liquid cooling",
+          "cold plate",
+          "冷板",
+          "CDU",
+          "冷却液",
+          "temperature rise",
+          "delta T",
+          "热负载",
+          "allowable"
+        ],
+        "original_query": "请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。",
+        "rewritten_query": "请设计液冷回路:功率1000W,允许温升5K,比热4180J/(kg·K),密度997kg/m³,动力黏度0.001Pa·s,管径10mm,管长2m.计算质量与体积流量、流速、雷诺数和压降,检查物理约束并生成报告. 液冷 温升 流量 压降 允许"
+      },
+      "session_id": "default",
+      "sources": [],
+      "task": {
+        "bottleneck_requested": false,
+        "candidate_tools": [
+          "liquid_pressure_drop_estimate"
+        ],
+        "confidence": 0.84,
+        "domain": "thermal_management",
+        "entities": [
+          "液冷",
+          "温升",
+          "流量",
+          "压降",
+          "允许"
+        ],
+        "flow_distribution_requested": false,
+        "intent": "请设计液冷回路:功率1000W,允许温升5K,比热4180J/(kg·K),密度997kg/m³,动力黏度0.001Pa·s,管径10mm,管长2m.计算质量与体积流量、流速、雷诺数和压降,检查物理约束并生成报告.",
+        "is_irrelevant_or_analogy": false,
+        "is_property_lookup": false,
+        "needs_calculation": true,
+        "needs_comparison": false,
+        "needs_report": true,
+        "needs_retrieval": true,
+        "needs_simulation": false,
+        "needs_visualization": true,
+        "normalized_query": "请设计液冷回路:功率1000W,允许温升5K,比热4180J/(kg·K),密度997kg/m³,动力黏度0.001Pa·s,管径10mm,管长2m.计算质量与体积流量、流速、雷诺数和压降,检查物理约束并生成报告.",
+        "original_query": "请设计液冷回路：功率1000W，允许温升5K，比热4180J/(kg·K)，密度997kg/m³，动力黏度0.001Pa·s，管径10mm，管长2m。计算质量与体积流量、流速、雷诺数和压降，检查物理约束并生成报告。",
+        "properties": [
+          "cp",
+          "rho",
+          "mu"
+        ],
+        "pump_selection_requested": false,
+        "raw_signals": {
+          "analysis": [
+            "report"
+          ],
+          "calculation": [
+            "explicit_calculation_keyword"
+          ],
+          "hydraulic_network": [],
+          "hydraulics": [
+            "pressure_drop_estimate"
+          ],
+          "property_lookup": [
+            "property_name"
+          ],
+          "thermal_network": [],
+          "visualization": [
+            "visualization_keyword"
+          ]
+        },
+        "sensitivity_requested": false,
+        "task_type": "liquid_cooling_design",
+        "thermal_network_requested": false,
+        "warnings": [
+          "检测到工程计算意图；将优先尝试调用本地热管理计算工具，结果仅用于一级工程估算。",
+          "检测到图结构或可视化表达意图；本阶段仅标记结构化需求，不生成 CFD 云图。",
+          "检测到分析报告需求；报告应保持规则式工程分析边界，不作为真实仿真报告。"
+        ]
+      },
+      "task_type": "liquid_cooling_design"
+    },
+    "revision": 15,
+    "schema_version": "1.0",
+    "scope": "bounded_liquid_cooling",
+    "status": "incomplete",
+    "steps": [
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [],
+        "finished_at": "2026-09-09T15:38:17.157709+00:00",
+        "inputs": {
+          "coolant_delta_t_k": 5.0,
+          "density_kg_m3": 997.0,
+          "dynamic_viscosity_pa_s": 0.001,
+          "heat_load_w": 1000.0,
+          "hydraulic_diameter_m": 0.01,
+          "length_m": 2.0,
+          "minor_loss_coefficient": 0.0,
+          "specific_heat_j_kgk": 4180.0
+        },
+        "outputs": {},
+        "started_at": "2026-09-09T15:38:17.146240+00:00",
+        "status": "completed",
+        "step_id": "structure_inputs",
+        "title": "明确液冷目标与参数"
+      },
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [],
+        "error": null,
+        "finished_at": "2026-09-09T15:38:17.190092+00:00",
+        "inputs": {},
+        "outputs": {
+          "retrieval_count": 0
+        },
+        "started_at": "2026-09-09T15:38:17.168165+00:00",
+        "status": "incomplete",
+        "step_id": "retrieval",
+        "title": "检索液冷设计依据"
+      },
+      {
+        "calculation_result": {
+          "assumptions": [],
+          "calculation_steps": [
+            "m_dot = 1000.0 / (4180.0 * 5.0) = 0.047847 kg/s",
+            "V_dot = 0.047847 / 997.0 = 4.8e-05 m^3/s",
+            "L/min = 4.8e-05 * 60000 = 2.879452 L/min"
+          ],
+          "engineering_note": "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin.",
+          "error": null,
+          "formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); if rho is provided, V_dot = m_dot / rho_kg_m3",
+          "inputs": {
+            "Q_W": 1000.0,
+            "cp_J_kgK": 4180.0,
+            "delta_T_K": 5.0,
+            "fluid_name": null,
+            "rho_kg_m3": 997.0
+          },
+          "missing_parameters": [],
+          "parameter_parse": {
+            "assumptions": [],
+            "inputs": {
+              "Q_W": 1000.0,
+              "cp_J_kgK": 4180.0,
+              "delta_T_K": 5.0,
+              "rho_kg_m3": 997.0
+            },
+            "missing_parameters": [],
+            "tool_name": "liquid_flow_rate_required",
+            "warnings": []
+          },
+          "physics_validation": {
+            "checked_quantity_count": 2,
+            "energy_balance_checked": false,
+            "energy_relative_error": null,
+            "issues": [],
+            "limitations": [
+              "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+              "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+              "Units are explicit canonical units; no inference or unit conversion is performed.",
+              "原计算器输出带舍入；小量的有效位数不足可导致零值或闭合检查失败，不代表物理定律失效。"
+            ],
+            "passed": true,
+            "schema_version": "1.0",
+            "status": "passed",
+            "validation_method": "deterministic_constraints",
+            "validator_version": "physics-v1"
+          },
+          "result": {
+            "mass_flow_kg_s": 0.047847,
+            "volume_flow_L_min": 2.879452,
+            "volume_flow_m3_s": 4.8e-05
+          },
+          "status": "ok",
+          "tool_name": "liquid_flow_rate_required",
+          "unit_check": {
+            "messages": [
+              "W / (J/(kg*K) * K) gives kg/s; kg/s divided by kg/m^3 gives m^3/s."
+            ],
+            "status": "passed"
+          },
+          "warnings": [
+            "This ideal energy-balance flow estimate does not include cold-plate resistance, pressure drop, pump curve, local losses, flow distribution, contact resistance, or design safety margin."
+          ]
+        },
+        "dependency_policy": "requires_success",
+        "depends_on": [
+          "structure_inputs"
+        ],
+        "error": null,
+        "finished_at": "2026-09-09T15:38:17.229836+00:00",
+        "formula": "m_dot = Q_W / (cp_J_kgK * delta_T_K); if rho is provided, V_dot = m_dot / rho_kg_m3",
+        "input_sources": {
+          "Q_W": "structure_inputs",
+          "cp_J_kgK": "structure_inputs",
+          "delta_T_K": "structure_inputs",
+          "rho_kg_m3": "structure_inputs"
+        },
+        "inputs": {
+          "Q_W": 1000.0,
+          "cp_J_kgK": 4180.0,
+          "delta_T_K": 5.0,
+          "rho_kg_m3": 997.0
+        },
+        "outputs": {
+          "mass_flow_kg_s": 0.047847,
+          "volume_flow_L_min": 2.879452,
+          "volume_flow_m3_s": 4.8e-05
+        },
+        "run_id": "engineering_69cd0ef8cc0b4d59926f0bfda0461715",
+        "started_at": "2026-09-09T15:38:17.199816+00:00",
+        "status": "completed",
+        "step_id": "flow",
+        "title": "计算所需冷却液流量",
+        "tool_name": "liquid_flow_rate_required",
+        "tool_version": "thermal-tools-v2.1"
+      },
+      {
+        "calculation_result": {
+          "assumptions": [],
+          "calculation_steps": [
+            "Convert flow rate and hydraulic diameter to SI units.",
+            "Compute flow area, velocity, and Reynolds number.",
+            "Determine or apply the Darcy friction factor.",
+            "Compute major and minor pressure losses.",
+            "Convert total pressure drop to required liquid head."
+          ],
+          "engineering_note": "Engineering estimate only; not an experimental or CFD result.",
+          "error": null,
+          "formula": "A = pi*D^2/4; v = Q/A; Re = rho*v*D/mu; delta_p = (f*L/D + K)*rho*v^2/2; H = delta_p/(rho*g)",
+          "hydraulic_status": "success",
+          "inputs": {
+            "concentration_percent": null,
+            "coolant": null,
+            "density_kg_m3": 997.0,
+            "dynamic_viscosity_pa_s": 0.001,
+            "flow_rate_lpm": 2.879452,
+            "flow_rate_m3_s": 4.799086666666667e-05,
+            "friction_factor": null,
+            "hydraulic_diameter_m": 0.01,
+            "hydraulic_diameter_mm": 10.0,
+            "length_m": 2.0,
+            "minor_loss_coefficient_k": 0.0,
+            "notes": null,
+            "parallel_channels": 1,
+            "pipe_diameter_mm": null,
+            "roughness_m": null,
+            "safety_factor": 1.0,
+            "temperature_c": null
+          },
+          "missing_parameters": [],
+          "parameter_parse": {
+            "assumptions": [],
+            "inputs": {
+              "density_kg_m3": 997.0,
+              "dynamic_viscosity_pa_s": 0.001,
+              "flow_rate_lpm": 2.879452,
+              "hydraulic_diameter_mm": 10.0,
+              "length_m": 2.0,
+              "minor_loss_coefficient_k": 0.0
+            },
+            "missing_parameters": [],
+            "tool_name": "liquid_pressure_drop_estimate",
+            "warnings": []
+          },
+          "physics_validation": {
+            "checked_quantity_count": 9,
+            "energy_balance_checked": false,
+            "energy_relative_error": null,
+            "issues": [],
+            "limitations": [
+              "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+              "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+              "Units are explicit canonical units; no inference or unit conversion is performed.",
+              "原计算器输出带舍入；小量的有效位数不足可导致零值或闭合检查失败，不代表物理定律失效。"
+            ],
+            "passed": true,
+            "schema_version": "1.0",
+            "status": "passed",
+            "validation_method": "deterministic_constraints",
+            "validator_version": "physics-v1"
+          },
+          "result": {
+            "flow_rate_lpm": 2.879452,
+            "flow_rate_m3_s": 4.799086666666667e-05,
+            "flow_regime": "turbulent",
+            "friction_factor": 0.0358134,
+            "major_loss_pa": 1333.147151,
+            "minor_loss_pa": 0.0,
+            "pressure_drop_kpa": 1.333147,
+            "pressure_drop_pa": 1333.147151,
+            "required_head_m": 0.136352,
+            "reynolds_number": 6092.055762,
+            "source": {
+              "name": "Darcy-Weisbach pressure drop estimate",
+              "type": "engineering_formula"
+            },
+            "velocity_m_s": 0.611039
+          },
+          "source": {
+            "name": "Darcy-Weisbach pressure drop estimate",
+            "type": "engineering_formula"
+          },
+          "status": "ok",
+          "tool_name": "liquid_pressure_drop_estimate",
+          "unit_check": {
+            "messages": [
+              "SI conversion applied for flow rate, diameter, pressure, and head."
+            ],
+            "status": "passed"
+          },
+          "warnings": [
+            "smooth_pipe_friction_factor_estimate_without_roughness"
+          ]
+        },
+        "dependency_policy": "requires_success",
+        "depends_on": [
+          "flow"
+        ],
+        "error": null,
+        "finished_at": "2026-09-09T15:38:17.277110+00:00",
+        "formula": "A = pi*D^2/4; v = Q/A; Re = rho*v*D/mu; delta_p = (f*L/D + K)*rho*v^2/2; H = delta_p/(rho*g)",
+        "input_bindings": {
+          "flow_rate_lpm": {
+            "output": "volume_flow_L_min",
+            "step_id": "flow",
+            "unit": "L/min"
+          }
+        },
+        "input_sources": {
+          "density_kg_m3": "structure_inputs.density_kg_m3",
+          "dynamic_viscosity_pa_s": "structure_inputs.dynamic_viscosity_pa_s",
+          "flow_rate_lpm": "flow.volume_flow_L_min",
+          "hydraulic_diameter_mm": "structure_inputs.hydraulic_diameter_m × 1000 (m→mm)",
+          "length_m": "structure_inputs.length_m",
+          "minor_loss_coefficient_k": "structure_inputs.minor_loss_coefficient"
+        },
+        "inputs": {
+          "density_kg_m3": 997.0,
+          "dynamic_viscosity_pa_s": 0.001,
+          "flow_rate_lpm": 2.879452,
+          "hydraulic_diameter_mm": 10.0,
+          "length_m": 2.0,
+          "minor_loss_coefficient_k": 0.0
+        },
+        "outputs": {
+          "flow_rate_lpm": 2.879452,
+          "flow_rate_m3_s": 4.799086666666667e-05,
+          "flow_regime": "turbulent",
+          "friction_factor": 0.0358134,
+          "major_loss_pa": 1333.147151,
+          "minor_loss_pa": 0.0,
+          "pressure_drop_kpa": 1.333147,
+          "pressure_drop_pa": 1333.147151,
+          "required_head_m": 0.136352,
+          "reynolds_number": 6092.055762,
+          "source": {
+            "name": "Darcy-Weisbach pressure drop estimate",
+            "type": "engineering_formula"
+          },
+          "velocity_m_s": 0.611039
+        },
+        "run_id": "engineering_1876d55ec77e4687bc5a1b48dcdd49db",
+        "started_at": "2026-09-09T15:38:17.245588+00:00",
+        "status": "completed",
+        "step_id": "pressure",
+        "title": "根据流量计算管路压降",
+        "tool_name": "liquid_pressure_drop_estimate",
+        "tool_version": "thermal-tools-v2.1"
+      },
+      {
+        "dependency_policy": "requires_success",
+        "depends_on": [
+          "flow",
+          "pressure"
+        ],
+        "error": null,
+        "finished_at": "2026-09-09T15:38:17.306269+00:00",
+        "inputs": {},
+        "outputs": {
+          "checked_quantity_count": 11,
+          "energy_balance_checked": true,
+          "energy_relative_error": 8.599332590453201e-08,
+          "issues": [],
+          "limitations": [
+            "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+            "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+            "Units are explicit canonical units; no inference or unit conversion is performed.",
+            "链间传递原工具的 L/min 输出，并由压降工具换算为 m3/s；能量闭合采用该实际体积流量，避免旧工具 m3/s 显示舍入导致精度损失。"
+          ],
+          "passed": true,
+          "schema_version": "1.0",
+          "status": "passed",
+          "validation_method": "deterministic_constraints",
+          "validator_version": "physics-v1"
+        },
+        "started_at": "2026-09-09T15:38:17.295090+00:00",
+        "status": "completed",
+        "step_id": "validation",
+        "title": "检查能量守恒与物理范围"
+      },
+      {
+        "dependency_policy": "after_terminal",
+        "depends_on": [
+          "retrieval",
+          "flow",
+          "pressure",
+          "validation"
+        ],
+        "finished_at": "2026-09-09T15:38:17.327282+00:00",
+        "inputs": {},
+        "outputs": {
+          "content_sha256": "3836095899be12a264efe9ea356d8006460a37cca7caadd2342722e480b6bde4"
+        },
+        "started_at": "2026-09-09T15:38:17.315938+00:00",
+        "status": "completed",
+        "step_id": "report",
+        "title": "生成工程分析报告"
+      }
+    ],
+    "task_id": "task_b3854212a1d7480ca5acad22ccddbe7b",
+    "updated_at": "2026-09-09T15:38:17.341945+00:00",
+    "validation": {
+      "checked_quantity_count": 11,
+      "energy_balance_checked": true,
+      "energy_relative_error": 8.599332590453201e-08,
+      "issues": [],
+      "limitations": [
+        "Checks only the supplied quantities and constraints; a pass is not engineering certification.",
+        "Energy balance assumes steady state and a common control volume with all losses accounted for.",
+        "Units are explicit canonical units; no inference or unit conversion is performed.",
+        "链间传递原工具的 L/min 输出，并由压降工具换算为 m3/s；能量闭合采用该实际体积流量，避免旧工具 m3/s 显示舍入导致精度损失。"
+      ],
+      "passed": true,
+      "schema_version": "1.0",
+      "status": "passed",
+      "validation_method": "deterministic_constraints",
+      "validator_version": "physics-v1"
+    },
+    "variables": [
+      {
+        "name": "heat_load_w",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "W",
+        "value": 1000.0
+      },
+      {
+        "name": "coolant_delta_t_k",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "K",
+        "value": 5.0
+      },
+      {
+        "name": "specific_heat_j_kgk",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "J/(kg*K)",
+        "value": 4180.0
+      },
+      {
+        "name": "density_kg_m3",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "kg/m3",
+        "value": 997.0
+      },
+      {
+        "name": "dynamic_viscosity_pa_s",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "Pa*s",
+        "value": 0.001
+      },
+      {
+        "name": "hydraulic_diameter_m",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "m",
+        "value": 0.01
+      },
+      {
+        "name": "length_m",
+        "role": "input",
+        "source": "parsed_query",
+        "step_id": "structure_inputs",
+        "unit": "m",
+        "value": 2.0
+      },
+      {
+        "name": "minor_loss_coefficient",
+        "role": "input",
+        "source": "declared_omission",
+        "step_id": "structure_inputs",
+        "unit": "1",
+        "value": 0.0
+      },
+      {
+        "name": "Q_W",
+        "role": "input",
+        "source": "structure_inputs",
+        "step_id": "flow",
+        "unit": "W",
+        "value": 1000.0
+      },
+      {
+        "name": "delta_T_K",
+        "role": "input",
+        "source": "structure_inputs",
+        "step_id": "flow",
+        "unit": "K",
+        "value": 5.0
+      },
+      {
+        "name": "cp_J_kgK",
+        "role": "input",
+        "source": "structure_inputs",
+        "step_id": "flow",
+        "unit": "J/(kg*K)",
+        "value": 4180.0
+      },
+      {
+        "name": "rho_kg_m3",
+        "role": "input",
+        "source": "structure_inputs",
+        "step_id": "flow",
+        "unit": "kg/m3",
+        "value": 997.0
+      },
+      {
+        "name": "mass_flow_kg_s",
+        "role": "output",
+        "source": "liquid_flow_rate_required",
+        "step_id": "flow",
+        "unit": "kg/s",
+        "value": 0.047847
+      },
+      {
+        "name": "volume_flow_m3_s",
+        "role": "output",
+        "source": "liquid_flow_rate_required",
+        "step_id": "flow",
+        "unit": "m3/s",
+        "value": 4.8e-05
+      },
+      {
+        "name": "volume_flow_L_min",
+        "role": "output",
+        "source": "liquid_flow_rate_required",
+        "step_id": "flow",
+        "unit": "L/min",
+        "value": 2.879452
+      },
+      {
+        "name": "flow_rate_lpm",
+        "role": "input",
+        "source": "flow.volume_flow_L_min",
+        "step_id": "pressure",
+        "unit": "L/min",
+        "value": 2.879452
+      },
+      {
+        "name": "hydraulic_diameter_mm",
+        "role": "input",
+        "source": "structure_inputs.hydraulic_diameter_m × 1000 (m→mm)",
+        "step_id": "pressure",
+        "unit": "mm",
+        "value": 10.0
+      },
+      {
+        "name": "length_m",
+        "role": "input",
+        "source": "structure_inputs.length_m",
+        "step_id": "pressure",
+        "unit": "m",
+        "value": 2.0
+      },
+      {
+        "name": "density_kg_m3",
+        "role": "input",
+        "source": "structure_inputs.density_kg_m3",
+        "step_id": "pressure",
+        "unit": "kg/m3",
+        "value": 997.0
+      },
+      {
+        "name": "dynamic_viscosity_pa_s",
+        "role": "input",
+        "source": "structure_inputs.dynamic_viscosity_pa_s",
+        "step_id": "pressure",
+        "unit": "Pa*s",
+        "value": 0.001
+      },
+      {
+        "name": "minor_loss_coefficient_k",
+        "role": "input",
+        "source": "structure_inputs.minor_loss_coefficient",
+        "step_id": "pressure",
+        "unit": "1",
+        "value": 0.0
+      },
+      {
+        "name": "pressure_drop_pa",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "Pa",
+        "value": 1333.147151
+      },
+      {
+        "name": "pressure_drop_kpa",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "kPa",
+        "value": 1.333147
+      },
+      {
+        "name": "required_head_m",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "m",
+        "value": 0.136352
+      },
+      {
+        "name": "flow_rate_m3_s",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "m3/s",
+        "value": 4.799086666666667e-05
+      },
+      {
+        "name": "flow_rate_lpm",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "L/min",
+        "value": 2.879452
+      },
+      {
+        "name": "velocity_m_s",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "m/s",
+        "value": 0.611039
+      },
+      {
+        "name": "reynolds_number",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "1",
+        "value": 6092.055762
+      },
+      {
+        "name": "friction_factor",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "1",
+        "value": 0.0358134
+      },
+      {
+        "name": "flow_regime",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": null,
+        "value": "turbulent"
+      },
+      {
+        "name": "major_loss_pa",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "Pa",
+        "value": 1333.147151
+      },
+      {
+        "name": "minor_loss_pa",
+        "role": "output",
+        "source": "liquid_pressure_drop_estimate",
+        "step_id": "pressure",
+        "unit": "Pa",
+        "value": 0.0
+      }
+    ],
+    "cancel_requested": false,
+    "retried_by": null,
+    "recoverable": true,
+    "step_summary": {
+      "total": 6,
+      "completed": 5,
+      "failed": 0
+    },
+    "current_step": null
+  }
+}

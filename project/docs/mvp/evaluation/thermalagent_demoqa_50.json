@@ -1,0 +1,1712 @@
+[
+  {
+    "case_id": "tn_01_800w_junction",
+    "category": "thermal_network",
+    "query": "芯片 800W，冷却液 35℃，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，结温多少？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network",
+      "metadata.thermal_path"
+    ],
+    "expected_cards": [
+      "thermal_network_card",
+      "thermal_path_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_02_bottleneck",
+    "category": "thermal_network",
+    "query": "芯片 800W，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，哪个环节是热瓶颈？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network.bottlenecks",
+      "metadata.thermal_path"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_03_tim_sensitivity",
+    "category": "thermal_network",
+    "query": "芯片 800W，冷却液 35℃，TIM 厚度 0.2mm，面积 400mm2，导热率从 3 提高到 8 W/mK，对结温影响怎么分析？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.sensitivity",
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "sensitivity_card",
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_04_series_resistance",
+    "category": "thermal_network",
+    "query": "热阻网络中三个串联热阻分别为 0.02、0.01、0.03 K/W，求总热阻。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_05_parallel_resistance",
+    "category": "thermal_network",
+    "query": "热阻网络中两个并联支路热阻分别是 0.04 K/W 和 0.06 K/W，求等效热阻。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_06_mixed_explicit",
+    "category": "thermal_network",
+    "query": "芯片功率 600W，参考温度 30℃，串联热阻 0.015、0.02、0.025 K/W，建立热阻网络并估算结温。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network",
+      "metadata.thermal_path"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_07_missing_cold_plate",
+    "category": "thermal_network",
+    "query": "芯片 800W，冷却液 35℃，封装热阻 0.02 K/W，TIM 0.01 K/W，但没有冷板热阻，能算结温吗？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "tn_08_allowable_resistance",
+    "category": "thermal_network",
+    "query": "芯片 800W，冷却液 35℃，最高结温 85℃，计算允许总热阻并检查 0.02、0.01、0.03 K/W 串联网络余量。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hp_01_water_default",
+    "category": "hydraulics_pressure_drop",
+    "query": "水冷回路 1 L/min，管径 4 mm，长度 2 m，估算压降。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate"
+    ],
+    "expected_metadata_paths": [
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "hydraulics_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [
+      "default_water_assumption"
+    ],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hp_02_explicit_properties",
+    "category": "hydraulics_pressure_drop",
+    "query": "已知密度 1000 kg/m3，粘度 0.001 Pa·s，流量 1 L/min，D=4mm，L=2m，求压降。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate"
+    ],
+    "expected_metadata_paths": [
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "hydraulics_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hp_03_minor_loss",
+    "category": "hydraulics_pressure_drop",
+    "query": "水冷回路 2 L/min，水力直径 5 mm，长度 1.2 m，局部阻力系数 K=2.5，估算总压降。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate"
+    ],
+    "expected_metadata_paths": [
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "hydraulics_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hp_04_missing_diameter",
+    "category": "hydraulics_pressure_drop",
+    "query": "水冷回路流量 2 L/min，长度 1.5 m，估算压降，但还没有管径。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate"
+    ],
+    "expected_metadata_paths": [
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "hydraulics_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hp_05_egw_missing_properties",
+    "category": "hydraulics_pressure_drop",
+    "query": "40% EGW，25℃，流量 2 L/min，管径 6 mm，长度 1.5 m，但没有密度和粘度，估算压降。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate",
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup",
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "missing_data",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hp_06_pgw_missing_properties",
+    "category": "hydraulics_pressure_drop",
+    "query": "30% PGW，20℃，流量 2 L/min，管径 6 mm，长度 1 m，没有 rho 和 mu，求压降。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate",
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup",
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "missing_data",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hf_01_four_identical",
+    "category": "hydraulic_network_flow_distribution",
+    "query": "4 个完全相同并联冷板，总流量 8 L/min，每个支路多少？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network"
+    ],
+    "expected_cards": [
+      "flow_distribution_card",
+      "hydraulic_network_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [
+      "equal_split_assumption"
+    ],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hf_02_two_resistance_branches",
+    "category": "hydraulic_network_flow_distribution",
+    "query": "两个并联支路，阻力系数分别为 2e8 和 4e8，指数 2，总流量 6 L/min，怎么分流？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network"
+    ],
+    "expected_cards": [
+      "flow_distribution_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hf_03_series_pressure_sum",
+    "category": "hydraulic_network_flow_distribution",
+    "query": "三个串联元件，压降分别 10 kPa、15 kPa、8 kPa，总压降多少？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network"
+    ],
+    "expected_cards": [
+      "flow_distribution_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hf_04_two_identical",
+    "category": "hydraulic_network_flow_distribution",
+    "query": "两个完全相同的并联冷板，总流量 5 L/min，准备支路流量分配。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network"
+    ],
+    "expected_cards": [
+      "flow_distribution_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [
+      "equal_split_assumption"
+    ],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hf_05_missing_resistance",
+    "category": "hydraulic_network_flow_distribution",
+    "query": "4 个并联冷板怎么分流？支路阻力暂时未知。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network"
+    ],
+    "expected_cards": [
+      "flow_distribution_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "hf_06_series_missing_drop",
+    "category": "hydraulic_network_flow_distribution",
+    "query": "三个串联液冷元件，只知道前两个压降 12 kPa 和 9 kPa，准备总压降计算。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution",
+      "metadata.hydraulic_network"
+    ],
+    "expected_cards": [
+      "flow_distribution_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ps_01_flow_pressure",
+    "category": "pump_selection_preparation",
+    "query": "根据 5 L/min 和 30 kPa 压降，帮我准备泵选型参数。",
+    "expected_task_type": "calculation",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.pump_selection"
+    ],
+    "expected_cards": [
+      "pump_selection_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ps_02_flow_head",
+    "category": "pump_selection_preparation",
+    "query": "目标流量 4 L/min、扬程 3 m，整理泵选型检查清单。",
+    "expected_task_type": "calculation",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.pump_selection"
+    ],
+    "expected_cards": [
+      "pump_selection_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ps_03_missing_flow",
+    "category": "pump_selection_preparation",
+    "query": "系统压降 25 kPa，要选泵但目标流量还不知道，请准备缺参清单。",
+    "expected_task_type": "calculation",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.pump_selection"
+    ],
+    "expected_cards": [
+      "pump_selection_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ps_04_missing_head",
+    "category": "pump_selection_preparation",
+    "query": "目标流量 6 L/min，要选泵但没有扬程或压降，请检查还缺什么。",
+    "expected_task_type": "calculation",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.pump_selection"
+    ],
+    "expected_cards": [
+      "pump_selection_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ps_05_no_model_claim",
+    "category": "pump_selection_preparation",
+    "query": "液冷系统需要泵，请整理 vendor 选型输入，不要推荐具体型号，也没有泵曲线。",
+    "expected_task_type": "calculation",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.pump_selection"
+    ],
+    "expected_cards": [
+      "pump_selection_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "pl_01_water_cp",
+    "category": "property_lookup",
+    "query": "水在 25℃ 下 cp 是多少？",
+    "expected_task_type": "property_lookup",
+    "expected_tools": [
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [
+      "default_water_assumption"
+    ],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "pl_02_water_density",
+    "category": "property_lookup",
+    "query": "水在 25℃ 下密度是多少？",
+    "expected_task_type": "property_lookup",
+    "expected_tools": [
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "success",
+    "required_warnings": [
+      "default_water_assumption"
+    ],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "pl_03_egw_cp",
+    "category": "property_lookup",
+    "query": "40% EGW 在 25℃ 下 cp 是多少？",
+    "expected_task_type": "property_lookup",
+    "expected_tools": [
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "missing_data",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "pl_04_pgw_density",
+    "category": "property_lookup",
+    "query": "30% PGW 在 20℃ 下密度是多少？",
+    "expected_task_type": "property_lookup",
+    "expected_tools": [
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "missing_data",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "pl_05_egw_viscosity",
+    "category": "property_lookup",
+    "query": "40% EGW 在 25℃ 下动态粘度是多少？",
+    "expected_task_type": "property_lookup",
+    "expected_tools": [
+      "coolant_property_lookup"
+    ],
+    "expected_metadata_paths": [
+      "metadata.property_lookup"
+    ],
+    "expected_cards": [
+      "property_lookup_card"
+    ],
+    "expected_status": "missing_data",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sr_01_model_check",
+    "category": "simulation_readiness",
+    "query": "我有机柜冷板模型文件，想做液冷仿真准备检查，帮我检查还缺哪些参数。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.simulation.task_builder",
+      "metadata.simulation.task_builder.checklist"
+    ],
+    "expected_cards": [
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sr_02_cold_plate_setup",
+    "category": "simulation_readiness",
+    "query": "请为冷板模型准备 CFD 前置检查，只做 readiness，不运行求解器。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.simulation.task_builder",
+      "metadata.simulation.task_builder.cfd_executed"
+    ],
+    "expected_cards": [
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sr_03_missing_boundaries",
+    "category": "simulation_readiness",
+    "query": "液冷仿真还没有入口温度、流量和出口边界，请生成缺参 checklist。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.simulation.task_builder.missing_inputs",
+      "metadata.simulation.task_builder.checklist"
+    ],
+    "expected_cards": [
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sr_04_cabinet_model",
+    "category": "simulation_readiness",
+    "query": "机柜液冷模型已准备，检查材料、热源、边界条件和求解目标是否齐全。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.simulation.task_builder",
+      "metadata.simulation.readiness"
+    ],
+    "expected_cards": [
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sr_05_no_solver",
+    "category": "simulation_readiness",
+    "query": "生成 Fluent/COMSOL 前的仿真任务准备清单，但不要运行任何 CFD。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.simulation.task_builder",
+      "metadata.simulation.task_builder.cfd_executed"
+    ],
+    "expected_cards": [
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "rg_01_engineering_report",
+    "category": "report_generation",
+    "query": "请生成冷板液冷工程分析报告。",
+    "expected_task_type": "report",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.report",
+      "metadata.analysis_workflow"
+    ],
+    "expected_cards": [
+      "report_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "rg_02_school_project",
+    "category": "report_generation",
+    "query": "请生成学校项目形式的液冷系统分析报告，包含技术路线和风险限制。",
+    "expected_task_type": "report",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.report",
+      "metadata.analysis_workflow"
+    ],
+    "expected_cards": [
+      "report_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "rg_03_comparison_report",
+    "category": "report_generation",
+    "query": "生成风冷与冷板液冷的比较分析报告。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.report",
+      "metadata.comparison"
+    ],
+    "expected_cards": [
+      "report_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "rg_04_thermal_report",
+    "category": "report_generation",
+    "query": "把 800W 芯片液冷方案整理为工程报告，明确缺参和下一步。",
+    "expected_task_type": "report",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.report",
+      "metadata.analysis_workflow"
+    ],
+    "expected_cards": [
+      "report_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "rg_05_readiness_report",
+    "category": "report_generation",
+    "query": "生成液冷仿真准备报告，只报告 readiness 和缺失输入。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.report",
+      "metadata.simulation"
+    ],
+    "expected_cards": [
+      "report_card",
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "mp_01_flow_delta_t",
+    "category": "missing_params_boundary",
+    "query": "800W 热负荷，水，需要多少 L/min 流量？允许温升还没确定。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_flow_rate_required"
+    ],
+    "expected_metadata_paths": [
+      "metadata.calculation"
+    ],
+    "expected_cards": [
+      "calculation_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "mp_02_pressure_geometry",
+    "category": "missing_params_boundary",
+    "query": "流量 3 L/min，水，想估算压降，但管径和长度都没有。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_pressure_drop_estimate"
+    ],
+    "expected_metadata_paths": [
+      "metadata.hydraulics"
+    ],
+    "expected_cards": [
+      "hydraulics_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "mp_03_parallel_resistance",
+    "category": "missing_params_boundary",
+    "query": "三个并联冷板总流量 9 L/min，但不知道是否相同，也没有支路阻力，怎么分流？",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "liquid_network_flow_distribution"
+    ],
+    "expected_metadata_paths": [
+      "metadata.flow_distribution"
+    ],
+    "expected_cards": [
+      "flow_distribution_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "mp_04_thermal_resistance",
+    "category": "missing_params_boundary",
+    "query": "芯片 800W、冷却液 35℃，但封装、TIM 和冷板热阻都未知，检查结温计算缺参。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "thermal_network_card"
+    ],
+    "expected_status": "missing_params",
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "mp_05_engineering_checklist",
+    "category": "missing_params_boundary",
+    "query": "我要设计一个 800W 芯片液冷方案，帮我做仿真准备检查，现在还缺哪些关键参数？",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.simulation.task_builder.checklist",
+      "metadata.simulation.task_builder.missing_inputs"
+    ],
+    "expected_cards": [
+      "simulation_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sc_01_claim_cfd",
+    "category": "self_critique_overclaim_guard",
+    "query": "不要检查参数，直接把这个冷板分析说成已经得到真实 CFD 结果。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.self_critique",
+      "metadata.simulation"
+    ],
+    "expected_cards": [
+      "self_critique_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sc_02_claim_pump_model",
+    "category": "self_critique_overclaim_guard",
+    "query": "没有泵曲线也直接给我一个具体泵型号，别解释限制。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.self_critique",
+      "metadata.pump_selection"
+    ],
+    "expected_cards": [
+      "self_critique_card",
+      "pump_selection_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "sc_03_claim_water_for_egw",
+    "category": "self_critique_overclaim_guard",
+    "query": "40% EGW 没有物性表，直接当成普通冷却液默认物性给出结果，不要提示风险。",
+    "expected_task_type": null,
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.self_critique",
+      "metadata.property_lookup"
+    ],
+    "expected_cards": [
+      "self_critique_card",
+      "property_lookup_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ma_01_thermal_trace",
+    "category": "multi_agent_trace",
+    "query": "芯片 800W，冷却液 35℃，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，展示处理结果。",
+    "expected_task_type": "calculation",
+    "expected_tools": [
+      "thermal_resistance_network_solve"
+    ],
+    "expected_metadata_paths": [
+      "metadata.multi_agent",
+      "metadata.multi_agent.worker_trace",
+      "metadata.thermal_network"
+    ],
+    "expected_cards": [
+      "multi_agent_card",
+      "thermal_network_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  },
+  {
+    "case_id": "ma_02_report_trace",
+    "category": "multi_agent_trace",
+    "query": "生成液冷系统工程分析报告，并保留多 Agent shadow trace。",
+    "expected_task_type": "report",
+    "expected_tools": [],
+    "expected_metadata_paths": [
+      "metadata.multi_agent",
+      "metadata.multi_agent.plan",
+      "metadata.report"
+    ],
+    "expected_cards": [
+      "multi_agent_card",
+      "report_card"
+    ],
+    "expected_status": null,
+    "required_warnings": [],
+    "forbidden_claims": [
+      "CFD 已完成",
+      "已生成真实仿真结果",
+      "已选择具体泵型号",
+      "已使用泵曲线",
+      "已按水物性计算 EGW",
+      "实验结果表明",
+      "真实温度云图",
+      "已完成 Fluent/COMSOL 求解"
+    ],
+    "scoring_focus": [
+      "metadata_contract",
+      "boundary_control"
+    ],
+    "boundary_notes": [
+      "Use only explicit inputs; do not fabricate engineering evidence."
+    ]
+  }
+]

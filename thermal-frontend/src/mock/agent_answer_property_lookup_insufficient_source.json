@@ -1,0 +1,305 @@
+{
+  "answer": "结论：当前知识库未检索到该物性参数的直接数值，不能给出确定结果。\n\n来源判断：当前 sources 未同时覆盖流体类型、浓度、温度、物性名、明确数值和单位。\n\n需要补充：应使用厂商冷却液数据表、乙二醇/丙二醇水溶液物性表或工程手册。\n\n边界说明：不能默认使用水的 4180 J/(kg·K) 比热容默认值，也不能把相近液冷资料当作物性表。",
+  "query": "40% EGW 在 25℃ 下 cp 是多少？",
+  "task_type": "property_lookup",
+  "retrieval_count": 0,
+  "task": {
+    "task_type": "property_lookup",
+    "domain": "thermal_management",
+    "entities": [
+      "乙二醇水溶液"
+    ],
+    "intent": "查找乙二醇水溶液在指定温度、浓度和物性名下的可靠物性表数值",
+    "needs_retrieval": true,
+    "needs_calculation": false,
+    "needs_visualization": false,
+    "confidence": 0.93,
+    "original_query": "40% EGW 在 25℃ 下 cp 是多少？",
+    "normalized_query": "40% EGW 在 25℃ 下 cp 是多少?",
+    "warnings": [
+      "检测到冷却液物性查表意图；若来源未同时覆盖流体类型、浓度、温度、物性名、数值和单位，则不能给出确定物性值。"
+    ],
+    "candidate_tools": [],
+    "properties": [
+      "cp"
+    ],
+    "needs_report": false,
+    "needs_comparison": false,
+    "needs_simulation": false,
+    "is_property_lookup": true,
+    "is_irrelevant_or_analogy": false,
+    "raw_signals": {
+      "calculation": [],
+      "property_lookup": [
+        "coolant_context",
+        "concentration",
+        "temperature",
+        "property_name"
+      ],
+      "visualization": [],
+      "analysis": []
+    }
+  },
+  "rewrite": {
+    "original_query": "40% EGW 在 25℃ 下 cp 是多少？",
+    "rewritten_query": "40% EGW 在 25℃ 下 cp 是多少? 乙二醇水溶液 物性参数 比热容 specific heat cp density viscosity thermal conductivity ethylene glycol water propylene glycol water",
+    "expanded_queries": [
+      "40% EGW 在 25℃ 下 cp 是多少? 乙二醇水溶液 物性参数 比热容 specific heat cp density viscosity thermal conductivity ethylene glycol water propylene glycol water",
+      "物性参数 比热容 specific heat cp density viscosity thermal conductivity",
+      "乙二醇水溶液 ethylene glycol water propylene glycol water EGW PGW",
+      "property table datasheet engineering handbook temperature concentration"
+    ],
+    "keywords": [
+      "乙二醇水溶液",
+      "EGW",
+      "cp",
+      "是多少",
+      "物性参数",
+      "比热容",
+      "specific heat",
+      "density",
+      "viscosity",
+      "thermal conductivity",
+      "ethylene glycol water",
+      "propylene glycol water",
+      "PGW",
+      "property table",
+      "datasheet",
+      "engineering handbook",
+      "temperature",
+      "concentration"
+    ],
+    "entities": [
+      "乙二醇水溶液"
+    ]
+  },
+  "sources": [],
+  "session_id": "fixture-property-lookup",
+  "metadata": {
+    "retrieval_count": 0,
+    "retrieval_latency_ms": 0,
+    "retrieval_error": null,
+    "retrieval_plan": null,
+    "used_memory": false,
+    "used_calculation": false,
+    "tool_name": null,
+    "tool_status": "skipped",
+    "tool_inputs": {},
+    "tool_result": {},
+    "tool_formula": null,
+    "tool_steps": [],
+    "tool_warnings": [],
+    "missing_parameters": [],
+    "assumptions": [],
+    "calculation": {
+      "used_calculation": false,
+      "tool_name": null,
+      "tool_status": "skipped",
+      "tool_inputs": {},
+      "tool_result": {},
+      "tool_formula": null,
+      "tool_steps": [],
+      "tool_warnings": [],
+      "missing_parameters": [],
+      "assumptions": []
+    },
+    "calculation_status": null,
+    "calculation_tool": null,
+    "calculation_error": null,
+    "calculation_result": null,
+    "property_lookup": {
+      "used_property_lookup": true,
+      "tool_name": "coolant_property_lookup",
+      "tool_status": "missing_data",
+      "tool_inputs": {
+        "fluid": "EGW",
+        "property_name": "cp",
+        "temperature_c": 25.0,
+        "concentration_percent": 40.0,
+        "allow_interpolation": true
+      },
+      "tool_result": {
+        "status": "missing_data",
+        "fluid": "EGW",
+        "normalized_fluid": "EGW",
+        "property_name": "cp",
+        "normalized_property_name": "cp",
+        "temperature_c": 25.0,
+        "concentration_percent": 40.0,
+        "value": null,
+        "unit": null,
+        "source": null,
+        "interpolation": null,
+        "warnings": [],
+        "missing_fields": [],
+        "supported_range": null,
+        "error": "No validated data for this coolant/property combination.",
+        "tool_name": "coolant_property_lookup",
+        "inputs": {
+          "fluid": "EGW",
+          "property_name": "cp",
+          "temperature_c": 25.0,
+          "concentration_percent": 40.0,
+          "allow_interpolation": true
+        }
+      },
+      "property_name": "cp",
+      "fluid": "EGW",
+      "temperature_c": 25.0,
+      "concentration_percent": 40.0,
+      "value": null,
+      "unit": null,
+      "source": null,
+      "interpolation": null,
+      "warnings": [],
+      "missing_fields": [],
+      "supported_range": null,
+      "error": "No validated data for this coolant/property combination."
+    },
+    "knowledge": {
+      "synthesized": true,
+      "answer_style": "structured_zh",
+      "source_language": "mixed/en",
+      "template_type": "property_lookup",
+      "boundary": "insufficient_source"
+    },
+    "analysis_mode": {
+      "enabled": false,
+      "mode": "default_chat",
+      "reason": "ordinary_chat",
+      "requested_outputs": []
+    },
+    "analysis_workflow": {
+      "enabled": false,
+      "mode": "default_chat",
+      "requested_outputs": [],
+      "warnings": [],
+      "errors": []
+    },
+    "visualization": {
+      "generated": false
+    },
+    "simulation": {
+      "enabled": false
+    },
+    "solution": {
+      "generated": false
+    },
+    "comparison": {
+      "generated": false
+    },
+    "report": {
+      "generated": false
+    },
+    "llm_enabled": false,
+    "self_critique": {
+      "enabled": true,
+      "passed": true,
+      "severity": "ok",
+      "issues": [],
+      "repair_action": "replace_with_property_lookup_insufficient_source_template",
+      "route": "finalize",
+      "requires_human_review": false,
+      "workflow": {
+        "enabled": true,
+        "version": "critic_workflow_v1",
+        "repair_enabled": true,
+        "max_repair_attempts": 1,
+        "requested_repair": true,
+        "requested_max_repair_attempts": 1
+      },
+      "trace": [
+        {
+          "node": "prepare_state",
+          "status": "ok",
+          "sources_count": 0,
+          "answer_chars": 128,
+          "repair_enabled": true
+        },
+        {
+          "node": "critique_answer",
+          "status": "ok",
+          "severity": "warning",
+          "issues_count": 1,
+          "repair_action": "replace_with_property_lookup_insufficient_source_template"
+        },
+        {
+          "node": "route_by_critique",
+          "status": "ok",
+          "route": "safe_boundary_answer"
+        },
+        {
+          "node": "safe_repair",
+          "status": "ok",
+          "repair_action": "replace_with_property_lookup_insufficient_source_template",
+          "repaired": true,
+          "warnings": []
+        },
+        {
+          "node": "critique_after_repair",
+          "status": "ok",
+          "severity": "ok",
+          "issues_count": 0,
+          "repair_action": "none"
+        },
+        {
+          "node": "route_after_repair",
+          "status": "ok",
+          "route": "finalize"
+        },
+        {
+          "node": "finalize",
+          "status": "ok",
+          "repaired": true,
+          "final_answer_unchanged": false
+        }
+      ],
+      "repair_attempts": 1,
+      "repaired": true,
+      "original_answer": "No reliable local coolant property data is available for EGW cp at 25.0 degC, concentration 40.0%; no numeric value is returned.",
+      "final_answer": "结论：当前知识库未检索到该物性参数的直接数值，不能给出确定结果。\n\n来源判断：当前 sources 未同时覆盖流体类型、浓度、温度、物性名、明确数值和单位。\n\n需要补充：应使用厂商冷却液数据表、乙二醇/丙二醇水溶液物性表或工程手册。\n\n边界说明：不能默认使用水的 4180 J/(kg·K) 比热容默认值，也不能把相近液冷资料当作物性表。",
+      "original_route": "safe_boundary_answer",
+      "final_route": "finalize",
+      "original_critique": {
+        "enabled": true,
+        "passed": false,
+        "severity": "warning",
+        "issues": [
+          {
+            "type": "source_insufficient",
+            "severity": "warning",
+            "message": "物性查表回答给出了确定数值，但 sources 未充分覆盖流体类型、浓度、温度、物性名、明确数值和单位。",
+            "suggested_action": "replace_with_property_lookup_insufficient_source_template",
+            "evidence": {
+              "sources_count": 0,
+              "query": "40% EGW 在 25℃ 下 cp 是多少？"
+            },
+            "node": "source_sufficiency_checker"
+          }
+        ],
+        "repair_action": "replace_with_property_lookup_insufficient_source_template",
+        "route": "safe_boundary_answer",
+        "requires_human_review": false
+      },
+      "final_critique": {
+        "enabled": true,
+        "passed": true,
+        "severity": "ok",
+        "issues": [],
+        "repair_action": "none",
+        "route": "finalize",
+        "requires_human_review": false
+      },
+      "errors": []
+    }
+  },
+  "fixture": {
+    "name": "agent_answer_property_lookup_insufficient_source.json",
+    "description": "Property lookup boundary when no EGW/PGW table is available.",
+    "mock_only": false,
+    "generated_by": "scripts/generate_frontend_mock_responses.py",
+    "notes": [
+      "No EGW/PGW property table is available in Phase A; water defaults are not applied."
+    ]
+  }
+}

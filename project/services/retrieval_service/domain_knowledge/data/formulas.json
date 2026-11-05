@@ -1,0 +1,641 @@
+{
+  "metadata": {
+    "dataset_id": "foundational_thermal_fluid_formulas_phase7a",
+    "version": "2026-07-12",
+    "scope": "Local deterministic formula registry for ThermalAgent routing and explanation. Source status is explicit; no unrelated retrieval chunk is treated as formula provenance."
+  },
+  "formulas": [
+    {
+      "formula_id": "fourier_law_conduction",
+      "name_zh": "傅里叶导热定律",
+      "name_en": "Fourier's law of heat conduction",
+      "category": "heat_transfer",
+      "expression": "q_x = -k * dT/dx; Q_dot = -k * A * dT/dx",
+      "latex": "\\dot Q = -k A \\frac{dT}{dx}",
+      "variables": [
+        {"symbol": "q_x", "name_zh": "热流密度", "unit": "W/m2", "description_zh": "沿 x 方向单位面积导热速率"},
+        {"symbol": "Q_dot", "name_zh": "导热热流率", "unit": "W", "description_zh": "通过面积 A 的总导热速率"},
+        {"symbol": "k", "name_zh": "导热系数", "unit": "W/(m*K)", "description_zh": "材料导热能力"},
+        {"symbol": "A", "name_zh": "传热面积", "unit": "m2"},
+        {"symbol": "dT/dx", "name_zh": "温度梯度", "unit": "K/m"}
+      ],
+      "physical_meaning_zh": "导热热流率与导热系数、传热面积和温度梯度成正比，方向由高温指向低温。",
+      "assumptions_zh": ["连续介质", "局部热平衡", "导热系数在使用区间内可视为已知"],
+      "applicability_zh": ["固体导热", "静止流体中的导热近似", "平壁、圆筒壁等稳态导热模型的基础"],
+      "limitations_zh": ["不直接描述对流换热", "多维或瞬态问题需要更完整的热传导方程", "k 随温度变化明显时应分段或积分处理"],
+      "keywords": ["fourier", "傅里叶", "导热定律", "heat conduction", "dT/dx"],
+      "aliases": ["傅里叶导热", "Fourier law", "Fourier's law", "导热基本定律"],
+      "tool_id": null,
+      "examples_zh": ["解释 Q_dot = -k A dT/dx 中各参数的意义。"],
+      "engineering_notes_zh": ["平壁一维稳态导热可由该定律积分得到 Q_dot = k A (T1 - T2) / L。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "公式为基础传热学常识；本地尚未绑定可审计教材/手册页码，不能用无关液冷资料替代来源。"
+      }
+    },
+    {
+      "formula_id": "plane_wall_conduction",
+      "name_zh": "一维平壁稳态导热量",
+      "name_en": "One-dimensional steady plane-wall conduction",
+      "category": "heat_transfer",
+      "expression": "Q_dot = k * A * (T1 - T2) / L",
+      "latex": "\\dot Q = k A \\frac{T_1 - T_2}{L}",
+      "variables": [
+        {"symbol": "Q_dot", "name_zh": "导热量/热流率", "unit": "W"},
+        {"symbol": "k", "name_zh": "导热系数", "unit": "W/(m*K)"},
+        {"symbol": "A", "name_zh": "垂直热流方向面积", "unit": "m2"},
+        {"symbol": "T1 - T2", "name_zh": "两侧温差", "unit": "K"},
+        {"symbol": "L", "name_zh": "平壁厚度", "unit": "m"}
+      ],
+      "physical_meaning_zh": "平壁稳态导热量随温差、面积、导热系数增大而增大，随厚度增大而减小。",
+      "assumptions_zh": ["一维稳态", "无内热源", "材料均匀", "两侧表面温度已知"],
+      "applicability_zh": ["平板材料导热估算", "TIM 或壁面层的早期热阻/热流估算"],
+      "limitations_zh": ["不能自动代表冷板内部对流", "接触热阻需另建模", "边缘效应显著时不适用"],
+      "keywords": ["plane wall", "平壁", "稳态导热", "导热量", "heat rate"],
+      "aliases": ["平板导热", "平壁传热", "one dimensional conduction"],
+      "tool_id": "plane_wall_conduction",
+      "examples_zh": ["厚度 0.05 m、k=0.8 W/(m*K)、面积 2 m2、温差 60 K 时计算导热量。"],
+      "engineering_notes_zh": ["该公式与 R_cond = L/(kA) 等价，可写成 Q_dot = ΔT/R_cond。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "conduction_thermal_resistance",
+      "name_zh": "导热热阻",
+      "name_en": "Conduction thermal resistance",
+      "category": "thermal_resistance",
+      "expression": "R_cond = L / (k * A)",
+      "latex": "R_{cond}=\\frac{L}{kA}",
+      "variables": [
+        {"symbol": "R_cond", "name_zh": "导热热阻", "unit": "K/W"},
+        {"symbol": "L", "name_zh": "导热层厚度", "unit": "m"},
+        {"symbol": "k", "name_zh": "导热系数", "unit": "W/(m*K)"},
+        {"symbol": "A", "name_zh": "导热面积", "unit": "m2"}
+      ],
+      "physical_meaning_zh": "用热阻形式表示一维导热中温差与热流率的比例。",
+      "assumptions_zh": ["一维稳态", "常导热系数", "均匀截面积"],
+      "applicability_zh": ["热阻网络", "材料层或 TIM 层估算"],
+      "limitations_zh": ["不包含接触热阻", "不包含流体侧对流热阻"],
+      "keywords": ["R_cond", "L/(kA)", "导热热阻", "thermal resistance"],
+      "aliases": ["conduction resistance", "材料热阻"],
+      "tool_id": "conduction_resistance",
+      "examples_zh": ["厚度、导热系数、面积已知时计算导热热阻。"],
+      "engineering_notes_zh": ["与 Q_dot = ΔT/R_cond 配合使用。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "newton_law_of_cooling",
+      "name_zh": "牛顿冷却公式/对流换热",
+      "name_en": "Newton's law of cooling",
+      "category": "heat_transfer",
+      "expression": "Q_dot = h * A * (T_s - T_inf)",
+      "latex": "\\dot Q = h A (T_s - T_\\infty)",
+      "variables": [
+        {"symbol": "Q_dot", "name_zh": "对流换热量", "unit": "W"},
+        {"symbol": "h", "name_zh": "对流换热系数", "unit": "W/(m2*K)"},
+        {"symbol": "A", "name_zh": "换热面积", "unit": "m2"},
+        {"symbol": "T_s", "name_zh": "固体表面温度", "unit": "degC or K"},
+        {"symbol": "T_inf", "name_zh": "主流流体温度", "unit": "degC or K"}
+      ],
+      "physical_meaning_zh": "对流换热量与换热面积、表面和主流温差、换热系数成正比。",
+      "assumptions_zh": ["h 已知或可由关联式获得", "温差定义清楚", "表面与流体边界明确"],
+      "applicability_zh": ["冷板流道对流段", "空气散热器", "换热器一侧的简化估算"],
+      "limitations_zh": ["h 不能凭空假设", "复杂流道需实验、关联式或 CFD 支撑"],
+      "keywords": ["convection", "Newton cooling", "对流换热", "hAΔT"],
+      "aliases": ["牛顿冷却定律", "Newton's law"],
+      "tool_id": null,
+      "examples_zh": ["已知 h、面积和温差时估算对流换热量。"],
+      "engineering_notes_zh": ["可写成 R_conv = 1/(hA)。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "convective_thermal_resistance",
+      "name_zh": "对流热阻",
+      "name_en": "Convective thermal resistance",
+      "category": "thermal_resistance",
+      "expression": "R_conv = 1 / (h * A)",
+      "latex": "R_{conv}=\\frac{1}{hA}",
+      "variables": [
+        {"symbol": "R_conv", "name_zh": "对流热阻", "unit": "K/W"},
+        {"symbol": "h", "name_zh": "对流换热系数", "unit": "W/(m2*K)"},
+        {"symbol": "A", "name_zh": "换热面积", "unit": "m2"}
+      ],
+      "physical_meaning_zh": "把对流换热写成热阻网络中的一个阻抗。",
+      "assumptions_zh": ["h 与面积定义一致", "对流边界可视为单一等效边界"],
+      "applicability_zh": ["热阻网络", "冷板-冷却液、散热器-空气的简化建模"],
+      "limitations_zh": ["h 的获得需要可靠关联式、实验或仿真", "不能代表泵、压降或流量分配"],
+      "keywords": ["R_conv", "1/(hA)", "对流热阻"],
+      "aliases": ["convective resistance", "换热热阻"],
+      "tool_id": null,
+      "examples_zh": ["将冷板流体侧换热折算为热阻。"],
+      "engineering_notes_zh": ["常与导热热阻串联形成总热阻。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "thermal_resistance_series",
+      "name_zh": "串联热阻",
+      "name_en": "Series thermal resistance",
+      "category": "thermal_resistance",
+      "expression": "R_total = sum(R_i)",
+      "latex": "R_{total}=\\sum_i R_i",
+      "variables": [
+        {"symbol": "R_total", "name_zh": "总热阻", "unit": "K/W"},
+        {"symbol": "R_i", "name_zh": "第 i 段热阻", "unit": "K/W"}
+      ],
+      "physical_meaning_zh": "同一热流依次穿过多个热阻时，总热阻为各段热阻之和。",
+      "assumptions_zh": ["各段传热路径串联", "热流近似相同", "稳态一维网络"],
+      "applicability_zh": ["芯片-TIM-冷板-冷却液路径", "多层材料热阻估算"],
+      "limitations_zh": ["并联或混合拓扑需显式建模", "不能自动推断缺失热阻"],
+      "keywords": ["series thermal resistance", "串联热阻", "R_total"],
+      "aliases": ["热阻串联", "sum thermal resistance"],
+      "tool_id": "thermal_resistance_network_solve",
+      "examples_zh": ["三个串联热阻 0.02、0.01、0.03 K/W 的总热阻。"],
+      "engineering_notes_zh": ["总温升可用 ΔT = Q * R_total。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "thermal_resistance_parallel",
+      "name_zh": "并联热阻",
+      "name_en": "Parallel thermal resistance",
+      "category": "thermal_resistance",
+      "expression": "1 / R_eq = sum(1 / R_i)",
+      "latex": "\\frac{1}{R_{eq}}=\\sum_i \\frac{1}{R_i}",
+      "variables": [
+        {"symbol": "R_eq", "name_zh": "等效热阻", "unit": "K/W"},
+        {"symbol": "R_i", "name_zh": "第 i 条并联路径热阻", "unit": "K/W"}
+      ],
+      "physical_meaning_zh": "多条传热路径共享同一温差时，等效热阻由各路径导热能力相加得到。",
+      "assumptions_zh": ["并联路径端点温度相同", "各路径热阻明确", "稳态网络"],
+      "applicability_zh": ["多路径散热", "等效热阻网络"],
+      "limitations_zh": ["路径耦合强或温度场复杂时需要详细模型", "不能由文本自动猜拓扑"],
+      "keywords": ["parallel thermal resistance", "并联热阻", "R_eq"],
+      "aliases": ["热阻并联", "parallel resistance"],
+      "tool_id": "thermal_resistance_network_solve",
+      "examples_zh": ["两条并联热阻路径的等效热阻。"],
+      "engineering_notes_zh": ["与电阻并联形式相似，但必须确认热边界相同。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "junction_temperature_estimate",
+      "name_zh": "结温估算",
+      "name_en": "Junction temperature estimate",
+      "category": "thermal_resistance",
+      "expression": "T_j = T_ref + P * R_total",
+      "latex": "T_j=T_{ref}+P R_{total}",
+      "variables": [
+        {"symbol": "T_j", "name_zh": "结温/热源温度", "unit": "degC"},
+        {"symbol": "T_ref", "name_zh": "参考温度", "unit": "degC"},
+        {"symbol": "P", "name_zh": "热负荷/功耗", "unit": "W"},
+        {"symbol": "R_total", "name_zh": "总热阻", "unit": "K/W"}
+      ],
+      "physical_meaning_zh": "热源温度等于参考温度加上热负荷通过总热阻形成的温升。",
+      "assumptions_zh": ["稳态", "总热阻已知", "热负荷全部经该热路径传递"],
+      "applicability_zh": ["早期结温/冷板方案估算", "热阻预算"],
+      "limitations_zh": ["不替代封装、TIM、冷板和流体侧详细模型", "R_total 不应凭空设定"],
+      "keywords": ["Tj", "junction temperature", "结温", "P*R"],
+      "aliases": ["芯片温度估算", "热源温度估算"],
+      "tool_id": "junction_temperature_estimate",
+      "examples_zh": ["P=800 W、T_ref=30°C、R_total=0.08 K/W 时估算 Tj。"],
+      "engineering_notes_zh": ["若存在温度上限，可进一步计算 margin。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "required_thermal_resistance",
+      "name_zh": "所需总热阻目标",
+      "name_en": "Required total thermal resistance",
+      "category": "thermal_resistance",
+      "expression": "R_required = (T_max - T_ref - safety_margin) / P",
+      "latex": "R_{required}=\\frac{T_{max}-T_{ref}-margin}{P}",
+      "variables": [
+        {"symbol": "R_required", "name_zh": "允许的最大总热阻", "unit": "K/W"},
+        {"symbol": "T_max", "name_zh": "允许最高温度", "unit": "degC"},
+        {"symbol": "T_ref", "name_zh": "参考温度", "unit": "degC"},
+        {"symbol": "safety_margin", "name_zh": "安全裕量", "unit": "K", "required": false},
+        {"symbol": "P", "name_zh": "热负荷", "unit": "W"}
+      ],
+      "physical_meaning_zh": "可用温差预算除以功耗，得到散热路径必须达到的总热阻目标。",
+      "assumptions_zh": ["温度上限、参考温度和热负荷明确", "目标是总热阻约束"],
+      "applicability_zh": ["散热方案早期指标分解", "热阻预算"],
+      "limitations_zh": ["不能自动分配到 TIM、冷板、冷却液或设施侧", "安全裕量需工程方显式给定"],
+      "keywords": ["R_required", "required thermal resistance", "所需热阻", "热阻目标"],
+      "aliases": ["最大允许热阻", "总热阻目标"],
+      "tool_id": "required_thermal_resistance",
+      "examples_zh": ["Tmax=85°C、Tin=30°C、P=800 W 时估算总热阻目标。"],
+      "engineering_notes_zh": ["当结果过低时说明散热路径需要更强换热或降低热负荷。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "coolant_energy_balance",
+      "name_zh": "冷却液能量守恒",
+      "name_en": "Coolant energy balance",
+      "category": "liquid_cooling",
+      "expression": "Q = m_dot * c_p * DeltaT",
+      "latex": "Q=\\dot m c_p \\Delta T",
+      "variables": [
+        {"symbol": "Q", "name_zh": "冷却液带走的热量", "unit": "W"},
+        {"symbol": "m_dot", "name_zh": "质量流量", "unit": "kg/s"},
+        {"symbol": "c_p", "name_zh": "定压比热容", "unit": "J/(kg*K)"},
+        {"symbol": "DeltaT", "name_zh": "进出口温升", "unit": "K"}
+      ],
+      "physical_meaning_zh": "冷却液单位时间带走的热量等于质量流量、比热容和温升的乘积。",
+      "assumptions_zh": ["热量主要由流体带走", "c_p 为已知输入或可靠物性表值", "忽略相变和显著热损失"],
+      "applicability_zh": ["冷却液温升估算", "液冷流量需求估算"],
+      "limitations_zh": ["不计算冷板热阻", "不计算压降和泵曲线", "不能把未知混合液默认为水"],
+      "keywords": ["m_dot cp DeltaT", "Q=mcpdT", "温升", "质量流量", "比热"],
+      "aliases": ["液冷能量平衡", "冷却液温升公式", "Q = m_dot cp ΔT"],
+      "tool_id": "coolant_temperature_rise",
+      "examples_zh": ["已知 Q、m_dot、cp 时求冷却液温升。"],
+      "engineering_notes_zh": ["用户给定 cp 时它是计算输入，不需要再触发物性查表。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_thermodynamics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "liquid_mass_flow_required",
+      "name_zh": "液体所需质量流量",
+      "name_en": "Required liquid mass flow",
+      "category": "liquid_cooling",
+      "expression": "m_dot = Q / (c_p * DeltaT)",
+      "latex": "\\dot m=\\frac{Q}{c_p \\Delta T}",
+      "variables": [
+        {"symbol": "m_dot", "name_zh": "所需质量流量", "unit": "kg/s"},
+        {"symbol": "Q", "name_zh": "热负荷", "unit": "W"},
+        {"symbol": "c_p", "name_zh": "比热容", "unit": "J/(kg*K)"},
+        {"symbol": "DeltaT", "name_zh": "允许温升", "unit": "K"}
+      ],
+      "physical_meaning_zh": "在给定热负荷和允许温升下，所需质量流量与热负荷成正比，与比热和温升成反比。",
+      "assumptions_zh": ["c_p 已知", "允许温升明确", "热负荷由冷却液承担"],
+      "applicability_zh": ["液冷早期流量估算", "水或已知配方冷却液计算"],
+      "limitations_zh": ["体积流量还需要密度", "混合液 cp 需要可靠来源或用户显式输入"],
+      "keywords": ["required flow", "所需流量", "m_dot", "液冷流量"],
+      "aliases": ["质量流量需求", "流量需求公式"],
+      "tool_id": "liquid_flow_rate_required",
+      "examples_zh": ["1200 W、cp=4200 J/(kg*K)、允许温升 5 K 时求质量流量。"],
+      "engineering_notes_zh": ["如果用户只给 cp/k 等材料或流体参数，应优先视为计算输入而不是查表请求。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_thermodynamics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "reynolds_number",
+      "name_zh": "雷诺数",
+      "name_en": "Reynolds number",
+      "category": "fluid_mechanics",
+      "expression": "Re = rho * v * D / mu = v * D / nu; for non-circular channels use D = D_h, so Re = rho * v * D_h / mu",
+      "latex": "Re=\\frac{\\rho v D_h}{\\mu}=\\frac{vD_h}{\\nu}",
+      "variables": [
+        {"symbol": "Re", "name_zh": "雷诺数", "unit": "dimensionless"},
+        {"symbol": "rho", "name_zh": "流体密度", "unit": "kg/m3"},
+        {"symbol": "v", "name_zh": "平均流速", "unit": "m/s"},
+        {"symbol": "D_h", "name_zh": "水力直径", "unit": "m"},
+        {"symbol": "mu", "name_zh": "动力黏度", "unit": "Pa*s"},
+        {"symbol": "nu", "name_zh": "运动黏度", "unit": "m2/s"}
+      ],
+      "physical_meaning_zh": "雷诺数表示惯性力与黏性力的相对大小，是判断管内流动状态的常用无量纲数。",
+      "assumptions_zh": ["流体物性已知", "特征长度定义清楚", "平均流速可代表截面流动"],
+      "applicability_zh": ["圆管或等效水力直径流道", "液冷流道流态判断"],
+      "limitations_zh": ["临界值受入口扰动、粗糙度、流道形状和换热结构影响", "不是压降公式本身"],
+      "keywords": ["reynolds", "雷诺数", "Re", "laminar", "turbulent"],
+      "aliases": ["Re number", "Reynolds definition"],
+      "tool_id": null,
+      "examples_zh": ["解释 Re = rho v D / mu 中各参数含义。"],
+      "engineering_notes_zh": ["计算 Re 需要密度和黏度；若用户给定这些数值，应作为计算输入。"],
+      "criteria_zh": ["圆管工程常用判断：Re < 2300 为层流，2300-4000 为过渡区，Re > 4000 为湍流。"],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_fluid_mechanics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "hydraulic_diameter",
+      "name_zh": "水力直径",
+      "name_en": "Hydraulic diameter",
+      "category": "fluid_mechanics",
+      "expression": "D_h = 4 * A_c / P_w",
+      "latex": "D_h=\\frac{4A_c}{P_w}",
+      "variables": [
+        {"symbol": "D_h", "name_zh": "水力直径", "unit": "m"},
+        {"symbol": "A_c", "name_zh": "流通截面积", "unit": "m2"},
+        {"symbol": "P_w", "name_zh": "润湿周长", "unit": "m"}
+      ],
+      "physical_meaning_zh": "用等效长度表征非圆管流道的截面尺度。",
+      "assumptions_zh": ["截面几何明确", "润湿周长定义正确"],
+      "applicability_zh": ["非圆冷板流道", "Re 和压降估算中的特征长度"],
+      "limitations_zh": ["复杂微通道仍可能需要专用关联式", "不能替代完整几何模型"],
+      "keywords": ["hydraulic diameter", "水力直径", "D_h"],
+      "aliases": ["等效直径"],
+      "tool_id": null,
+      "examples_zh": ["矩形流道由截面积和润湿周长计算 D_h。"],
+      "engineering_notes_zh": ["圆管中 D_h 等于内径。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_fluid_mechanics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "darcy_weisbach_pressure_drop",
+      "name_zh": "Darcy-Weisbach 压降",
+      "name_en": "Darcy-Weisbach pressure drop",
+      "category": "hydraulics",
+      "expression": "Delta_p = f * (L / D_h) * rho * v^2 / 2",
+      "latex": "\\Delta p=f\\frac{L}{D_h}\\frac{\\rho v^2}{2}",
+      "variables": [
+        {"symbol": "Delta_p", "name_zh": "沿程压降", "unit": "Pa"},
+        {"symbol": "f", "name_zh": "Darcy 摩擦因子", "unit": "dimensionless"},
+        {"symbol": "L", "name_zh": "流道长度", "unit": "m"},
+        {"symbol": "D_h", "name_zh": "水力直径", "unit": "m"},
+        {"symbol": "rho", "name_zh": "密度", "unit": "kg/m3"},
+        {"symbol": "v", "name_zh": "平均流速", "unit": "m/s"}
+      ],
+      "physical_meaning_zh": "流体沿管道流动的摩擦压降与动压、长度直径比和摩擦因子相关。",
+      "assumptions_zh": ["单相不可压近似", "一维平均流速", "f 已知或由关联式给出"],
+      "applicability_zh": ["液冷管路和简化冷板流道压降估算"],
+      "limitations_zh": ["复杂分配歧管、局部结构和多相流需更详细模型", "不自动推断 f"],
+      "keywords": ["Darcy", "Weisbach", "pressure drop", "压降", "摩擦因子"],
+      "aliases": ["达西魏斯巴赫", "沿程压降公式"],
+      "tool_id": "liquid_pressure_drop_estimate",
+      "examples_zh": ["已知流量、直径、长度、密度、黏度和摩擦因子时估算压降。"],
+      "engineering_notes_zh": ["总压降通常还需要加上局部损失项。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_fluid_mechanics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "laminar_friction_factor",
+      "name_zh": "圆管层流摩擦因子",
+      "name_en": "Laminar pipe friction factor",
+      "category": "hydraulics",
+      "expression": "f = 64 / Re",
+      "latex": "f=\\frac{64}{Re}",
+      "variables": [
+        {"symbol": "f", "name_zh": "Darcy 摩擦因子", "unit": "dimensionless"},
+        {"symbol": "Re", "name_zh": "雷诺数", "unit": "dimensionless"}
+      ],
+      "physical_meaning_zh": "圆管充分发展层流中 Darcy 摩擦因子与雷诺数成反比。",
+      "assumptions_zh": ["圆管", "充分发展层流", "牛顿流体"],
+      "applicability_zh": ["圆管层流压降估算"],
+      "limitations_zh": ["不适用于湍流", "非圆管和入口段需修正"],
+      "keywords": ["f=64/Re", "摩擦因子", "层流"],
+      "aliases": ["laminar friction factor"],
+      "tool_id": "liquid_pressure_drop_estimate",
+      "examples_zh": ["Re 已知且为层流时估算 f。"],
+      "engineering_notes_zh": ["若是 Fanning friction factor，数值定义不同，需区分。"],
+      "criteria_zh": ["通常配合 Re < 2300 的圆管层流判断使用。"],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_fluid_mechanics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "minor_loss_pressure_drop",
+      "name_zh": "局部损失压降",
+      "name_en": "Minor-loss pressure drop",
+      "category": "hydraulics",
+      "expression": "Delta_p_minor = K * rho * v^2 / 2",
+      "latex": "\\Delta p_{minor}=K\\frac{\\rho v^2}{2}",
+      "variables": [
+        {"symbol": "Delta_p_minor", "name_zh": "局部压降", "unit": "Pa"},
+        {"symbol": "K", "name_zh": "局部损失系数", "unit": "dimensionless"},
+        {"symbol": "rho", "name_zh": "密度", "unit": "kg/m3"},
+        {"symbol": "v", "name_zh": "平均流速", "unit": "m/s"}
+      ],
+      "physical_meaning_zh": "弯头、接头、入口、出口等局部结构造成的压降与动压成正比。",
+      "assumptions_zh": ["K 已知", "参考速度定义与 K 一致"],
+      "applicability_zh": ["管路附件和冷板局部损失估算"],
+      "limitations_zh": ["K 不能凭空设定", "复杂几何可能需要实验或仿真"],
+      "keywords": ["minor loss", "局部损失", "K coefficient"],
+      "aliases": ["局部阻力压降"],
+      "tool_id": "liquid_pressure_drop_estimate",
+      "examples_zh": ["给定 K 和流速估算局部损失。"],
+      "engineering_notes_zh": ["总压降常写为 (fL/D + ΣK) rho v^2/2。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_fluid_mechanics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "pump_head_from_pressure_drop",
+      "name_zh": "压降与泵扬程换算",
+      "name_en": "Pump head from pressure drop",
+      "category": "hydraulics",
+      "expression": "H = Delta_p / (rho * g)",
+      "latex": "H=\\frac{\\Delta p}{\\rho g}",
+      "variables": [
+        {"symbol": "H", "name_zh": "扬程", "unit": "m"},
+        {"symbol": "Delta_p", "name_zh": "压降", "unit": "Pa"},
+        {"symbol": "rho", "name_zh": "流体密度", "unit": "kg/m3"},
+        {"symbol": "g", "name_zh": "重力加速度", "unit": "m/s2"}
+      ],
+      "physical_meaning_zh": "把压力损失换算为泵需要克服的等效液柱高度。",
+      "assumptions_zh": ["密度已知", "单相不可压流体", "g 取当地或工程常用值"],
+      "applicability_zh": ["液冷泵选型前的压降-扬程换算"],
+      "limitations_zh": ["不能替代泵曲线匹配", "不包含泵效率和控制策略"],
+      "keywords": ["pump head", "扬程", "Delta_p/(rho g)"],
+      "aliases": ["压降转扬程"],
+      "tool_id": "liquid_pressure_drop_estimate",
+      "examples_zh": ["压降 30 kPa、密度 1000 kg/m3 时换算扬程。"],
+      "engineering_notes_zh": ["泵选型仍需流量-扬程曲线。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_fluid_mechanics_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "nusselt_number",
+      "name_zh": "努塞尔数",
+      "name_en": "Nusselt number",
+      "category": "heat_transfer",
+      "expression": "Nu = h * L_c / k_f",
+      "latex": "Nu=\\frac{hL_c}{k_f}",
+      "variables": [
+        {"symbol": "Nu", "name_zh": "努塞尔数", "unit": "dimensionless"},
+        {"symbol": "h", "name_zh": "对流换热系数", "unit": "W/(m2*K)"},
+        {"symbol": "L_c", "name_zh": "特征长度", "unit": "m"},
+        {"symbol": "k_f", "name_zh": "流体导热系数", "unit": "W/(m*K)"}
+      ],
+      "physical_meaning_zh": "表示对流换热相对于纯导热的增强程度。",
+      "assumptions_zh": ["特征长度和流体导热系数定义明确", "h 与几何/边界条件一致"],
+      "applicability_zh": ["换热关联式", "由 Nu 反算 h"],
+      "limitations_zh": ["Nu 关联式依赖几何、流态和边界条件", "不能脱离关联式直接给 h"],
+      "keywords": ["Nusselt", "Nu", "努塞尔数"],
+      "aliases": ["Nu number"],
+      "tool_id": null,
+      "examples_zh": ["由 Nu、流体导热系数和特征长度求 h。"],
+      "engineering_notes_zh": ["常与 Re、Pr 共同用于对流换热关联式。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "prandtl_number",
+      "name_zh": "普朗特数",
+      "name_en": "Prandtl number",
+      "category": "heat_transfer",
+      "expression": "Pr = c_p * mu / k_f = nu / alpha",
+      "latex": "Pr=\\frac{c_p\\mu}{k_f}=\\frac{\\nu}{\\alpha}",
+      "variables": [
+        {"symbol": "Pr", "name_zh": "普朗特数", "unit": "dimensionless"},
+        {"symbol": "c_p", "name_zh": "定压比热容", "unit": "J/(kg*K)"},
+        {"symbol": "mu", "name_zh": "动力黏度", "unit": "Pa*s"},
+        {"symbol": "k_f", "name_zh": "流体导热系数", "unit": "W/(m*K)"},
+        {"symbol": "nu", "name_zh": "运动黏度", "unit": "m2/s"},
+        {"symbol": "alpha", "name_zh": "热扩散率", "unit": "m2/s"}
+      ],
+      "physical_meaning_zh": "表示动量扩散与热扩散相对强弱。",
+      "assumptions_zh": ["流体物性在指定温度和压力条件下已知", "单相连续介质"],
+      "applicability_zh": ["对流换热关联式", "流体热边界层分析"],
+      "limitations_zh": ["依赖可靠物性数据", "混合液需明确浓度和温度"],
+      "keywords": ["Prandtl", "Pr", "普朗特数"],
+      "aliases": ["Pr number"],
+      "tool_id": null,
+      "examples_zh": ["用 cp、mu、k 计算 Pr。"],
+      "engineering_notes_zh": ["若 cp、mu、k 是用户给定值，则应作为计算输入，不应二次查表。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "thermal_diffusivity",
+      "name_zh": "热扩散率",
+      "name_en": "Thermal diffusivity",
+      "category": "heat_transfer",
+      "expression": "alpha = k / (rho * c_p)",
+      "latex": "\\alpha=\\frac{k}{\\rho c_p}",
+      "variables": [
+        {"symbol": "alpha", "name_zh": "热扩散率", "unit": "m2/s"},
+        {"symbol": "k", "name_zh": "导热系数", "unit": "W/(m*K)"},
+        {"symbol": "rho", "name_zh": "密度", "unit": "kg/m3"},
+        {"symbol": "c_p", "name_zh": "比热容", "unit": "J/(kg*K)"}
+      ],
+      "physical_meaning_zh": "描述材料或流体温度扰动扩散的快慢。",
+      "assumptions_zh": ["k、rho、c_p 在同一状态点下定义", "单相连续介质"],
+      "applicability_zh": ["瞬态导热", "无量纲数计算"],
+      "limitations_zh": ["物性随温度变化明显时需要状态点一致的数据", "不能由缺失物性自动推断"],
+      "keywords": ["thermal diffusivity", "alpha", "热扩散率"],
+      "aliases": ["导温系数"],
+      "tool_id": null,
+      "examples_zh": ["由 k、rho、cp 计算热扩散率。"],
+      "engineering_notes_zh": ["该式要求输入物性彼此条件一致。"],
+      "criteria_zh": [],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    },
+    {
+      "formula_id": "biot_number",
+      "name_zh": "毕奥数",
+      "name_en": "Biot number",
+      "category": "heat_transfer",
+      "expression": "Bi = h * L_c / k_s",
+      "latex": "Bi=\\frac{hL_c}{k_s}",
+      "variables": [
+        {"symbol": "Bi", "name_zh": "毕奥数", "unit": "dimensionless"},
+        {"symbol": "h", "name_zh": "对流换热系数", "unit": "W/(m2*K)"},
+        {"symbol": "L_c", "name_zh": "固体特征长度", "unit": "m"},
+        {"symbol": "k_s", "name_zh": "固体导热系数", "unit": "W/(m*K)"}
+      ],
+      "physical_meaning_zh": "表示固体内部导热阻力与表面对流阻力的相对大小。",
+      "assumptions_zh": ["h、L_c、k_s 定义明确", "固体可用等效特征长度表示"],
+      "applicability_zh": ["瞬态导热近似判断", "集中参数法适用性判断"],
+      "limitations_zh": ["几何复杂或边界不均匀时只能作为粗略判断", "h 仍需可靠获得"],
+      "keywords": ["Biot", "Bi", "毕奥数"],
+      "aliases": ["Bi number"],
+      "tool_id": null,
+      "examples_zh": ["判断集中参数法是否可能适用。"],
+      "engineering_notes_zh": ["常见经验是 Bi < 0.1 时集中参数法较可能适用，但需结合具体问题。"],
+      "criteria_zh": ["经验判断：Bi < 0.1 时固体内部温差通常较小。"],
+      "provenance": {
+        "status": "pending",
+        "source_id": "source_required_foundational_heat_transfer_textbook",
+        "source_type": "textbook_or_handbook_required",
+        "note": "需后续绑定可审计来源页码。"
+      }
+    }
+  ]
+}

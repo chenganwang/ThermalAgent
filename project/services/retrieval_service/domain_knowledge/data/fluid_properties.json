@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "dataset_id": "fluid_properties_phase7a",
+    "version": "2026-07-12",
+    "scope": "Structured local property points for ThermalAgent. This is intentionally sparse; missing values must return missing_data/source_required.",
+    "no_extrapolation": true
+  },
+  "supported_fluids": [
+    {"fluid": "water", "status": "partial", "notes": ["Only cp and density defaults at 25 C are available from existing project data."]},
+    {"fluid": "air", "status": "source_required", "notes": ["No numeric points included without a reliable local source."]},
+    {"fluid": "EGW", "status": "source_required", "notes": ["Mixture queries require concentration and source data."]},
+    {"fluid": "PGW", "status": "source_required", "notes": ["Mixture queries require concentration and source data."]}
+  ],
+  "property_points": [
+    {
+      "fluid": "water",
+      "property_name": "specific_heat",
+      "temperature_c": 25.0,
+      "concentration_percent": null,
+      "pressure_condition": "near room temperature; pressure not specified in source",
+      "value": 4180.0,
+      "unit": "J/(kg*K)",
+      "source_id": "default_water_engineering_assumption",
+      "source_status": "pending",
+      "source_quality": "approximate_default",
+      "validated": true,
+      "notes": ["default_water_assumption", "Only use when the user explicitly states water."]
+    },
+    {
+      "fluid": "water",
+      "property_name": "density",
+      "temperature_c": 25.0,
+      "concentration_percent": null,
+      "pressure_condition": "near room temperature; pressure not specified in source",
+      "value": 1000.0,
+      "unit": "kg/m3",
+      "source_id": "default_water_engineering_assumption",
+      "source_status": "pending",
+      "source_quality": "approximate_default",
+      "validated": true,
+      "notes": ["default_water_assumption", "Only use when the user explicitly states water."]
+    }
+  ],
+  "source_required": [
+    {
+      "fluid": "water",
+      "property_name": "dynamic_viscosity",
+      "temperature_c": 20.0,
+      "source_id": "source_required_water_viscosity",
+      "reason": "No reliable local source available; do not fill a handbook value without provenance."
+    },
+    {
+      "fluid": "air",
+      "property_name": "thermal_conductivity",
+      "source_id": "source_required_air_properties",
+      "reason": "No reliable local source available."
+    },
+    {
+      "fluid": "EGW",
+      "property_name": "specific_heat",
+      "source_id": "source_required_glycol_properties",
+      "reason": "Mixture tables require concentration and source."
+    },
+    {
+      "fluid": "PGW",
+      "property_name": "specific_heat",
+      "source_id": "source_required_glycol_properties",
+      "reason": "Mixture tables require concentration and source."
+    }
+  ]
+}

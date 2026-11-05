@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "dataset_id": "egw_properties_pending_source_data",
+    "description": "EGW property table placeholder. No production numeric values are stored until reliable local source data is accepted.",
+    "pending_source_data": true,
+    "test_only": false
+  },
+  "data_points": []
+}

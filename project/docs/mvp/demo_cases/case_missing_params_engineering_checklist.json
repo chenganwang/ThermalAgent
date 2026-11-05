@@ -1,0 +1,13 @@
+{
+  "case_id": "case_missing_params_engineering_checklist",
+  "title": "Missing-parameter engineering checklist",
+  "category": "engineering_checklist",
+  "query": "我要设计一个 800W 芯片液冷方案，帮我做仿真准备检查，现在还缺哪些关键参数？",
+  "expected_task_type": "simulation",
+  "expected_tools": [],
+  "expected_metadata_paths": ["metadata.analysis_workflow", "metadata.simulation.status", "metadata.simulation.missing_inputs", "metadata.simulation.cfd_executed"],
+  "expected_cards": ["simulation_card", "self_critique_card", "multi_agent_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["Without a registered model, the response reports model_file as missing and does not fabricate a CFD checklist."],
+  "should_not_include": ["CFD completed", "simulation completed", "实验已经完成", "已选择具体泵型号"]
+}

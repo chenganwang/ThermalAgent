@@ -1,0 +1,37 @@
+name: Portfolio checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  demo-and-frontend:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile backend and search original example notes
+        working-directory: project
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python -m pip install -r requirements-demo.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -m compileall -q services scripts examples cli.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $hits = python examples/demo.py | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0 -or $hits[0].chunk_id -ne 2) { throw 'Sample retrieval failed' }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install frontend from lockfile
+        working-directory: thermal-frontend
+        run: npm ci
+      - name: Frontend tests
+        working-directory: thermal-frontend
+        run: npm test
+      - name: Build frontend
+        working-directory: thermal-frontend
+        run: npm run build

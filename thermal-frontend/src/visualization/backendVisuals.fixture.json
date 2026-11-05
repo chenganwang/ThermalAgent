@@ -1,0 +1,1802 @@
+{
+  "provenance": "Captured real ThermalAgent outputs using export_batch17_visuals.py; retrieval explicitly empty fixture, LLM disabled, persistence disabled; graph outputs unmodified; not browser or independent-gold evidence.",
+  "cases": [
+    {
+      "case": "thermal_resistance_network",
+      "source_sha256": "5cd36687582d8c0a735a697dd74a4008b5b6af49aef61f5101977dc9233372fb",
+      "response": {
+        "query": "画芯片到冷却液的热阻网络示意图",
+        "task_type": "visualization",
+        "metadata": {
+          "visualization": {
+            "generated": true,
+            "graph_type": "thermal_resistance_network",
+            "graph": {
+              "graph_type": "thermal_resistance_network",
+              "title": "液冷热阻网络",
+              "nodes": [
+                {
+                  "id": "heat_source",
+                  "label": "芯片热源",
+                  "type": "heat_source",
+                  "role": "产生热量",
+                  "description": "产生热负荷的芯片或封装热源。",
+                  "engineering_parameters": [
+                    {
+                      "name": "功耗",
+                      "symbol": "P",
+                      "unit": "W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "功耗过高导致结温超过限制。",
+                    "热流密度过高导致局部热点。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "热源",
+                    "icon": "chip",
+                    "emphasis": "high"
+                  }
+                },
+                {
+                  "id": "package",
+                  "label": "封装/壳体",
+                  "type": "solid_layer",
+                  "role": "扩散热量并传递给冷却侧",
+                  "description": "芯片到外部界面的封装传热段。",
+                  "engineering_parameters": [
+                    {
+                      "name": "等效热阻",
+                      "symbol": "R",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "扩散热阻偏高。",
+                    "冷板接触面积不足。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "换热部件",
+                    "icon": "panel-top",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "tim",
+                  "label": "TIM",
+                  "type": "interface_resistance",
+                  "role": "表示导热界面和接触热阻",
+                  "description": "导热界面材料和接触热阻段。",
+                  "engineering_parameters": [
+                    {
+                      "name": "界面热阻",
+                      "symbol": "R_contact",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "界面材料老化或装配不均会放大热阻。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "导热界面",
+                    "icon": "layers",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "cold_plate_base",
+                  "label": "冷板基体",
+                  "type": "solid_layer",
+                  "role": "扩散热量并传递给冷却侧",
+                  "description": "冷板固体导热和扩散段。",
+                  "engineering_parameters": [
+                    {
+                      "name": "等效热阻",
+                      "symbol": "R",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "扩散热阻偏高。",
+                    "冷板接触面积不足。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "换热部件",
+                    "icon": "panel-top",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "coolant",
+                  "label": "冷却液",
+                  "type": "convective_boundary",
+                  "role": "表示冷板到冷却液的对流换热边界",
+                  "description": "冷板到冷却液对流换热边界。",
+                  "engineering_parameters": [
+                    {
+                      "name": "对流热阻",
+                      "symbol": "R_conv",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "流道换热不足。",
+                    "局部流速不足导致热点。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "对流边界",
+                    "icon": "waves",
+                    "emphasis": "medium"
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "id": "heat_source_to_package",
+                  "source": "heat_source",
+                  "target": "package",
+                  "mechanism": "R_package",
+                  "type": "conduction",
+                  "direction": "heat_flow",
+                  "label": "封装热阻",
+                  "description": "芯片热源到封装/壳体的等效热阻。",
+                  "engineering_parameters": [
+                    {
+                      "name": "热阻",
+                      "symbol": "R",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "接触热阻偏高。",
+                    "导热路径过长或材料导热系数不足。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "solid",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "package_to_tim",
+                  "source": "package",
+                  "target": "tim",
+                  "mechanism": "R_tim_contact",
+                  "type": "conduction",
+                  "direction": "heat_flow",
+                  "label": "TIM/接触热阻",
+                  "description": "封装到 TIM 的接触和界面热阻。",
+                  "engineering_parameters": [
+                    {
+                      "name": "热阻",
+                      "symbol": "R",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "接触热阻偏高。",
+                    "导热路径过长或材料导热系数不足。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "solid",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "tim_to_cold_plate_base",
+                  "source": "tim",
+                  "target": "cold_plate_base",
+                  "mechanism": "R_cold_plate",
+                  "type": "conduction",
+                  "direction": "heat_flow",
+                  "label": "冷板导热热阻",
+                  "description": "TIM 到冷板基体的导热路径。",
+                  "engineering_parameters": [
+                    {
+                      "name": "热阻",
+                      "symbol": "R",
+                      "unit": "K/W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "接触热阻偏高。",
+                    "导热路径过长或材料导热系数不足。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "solid",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "cold_plate_base_to_coolant",
+                  "source": "cold_plate_base",
+                  "target": "coolant",
+                  "mechanism": "R_convective",
+                  "type": "convection",
+                  "direction": "heat_flow",
+                  "label": "对流热阻",
+                  "description": "冷板基体到冷却液的换热热阻。",
+                  "engineering_parameters": [
+                    {
+                      "name": "对流换热系数",
+                      "symbol": "h",
+                      "unit": "W/(m2*K)",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "局部流速不足。",
+                    "换热面积或流道分配未确认。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "solid",
+                    "emphasis": "medium"
+                  }
+                }
+              ],
+              "warnings": [
+                "该图为一级示意图。",
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "该图不替代 CFD。",
+                "该图不包含详细流道、压降或泵曲线。",
+                "该图不能作为工业级设计图。"
+              ],
+              "limitations": [
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "节点参数为空时表示当前问题未提供或知识库未检索到。",
+                "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+                "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+              ],
+              "source_based": false,
+              "generic_template": true,
+              "simulation_based": false,
+              "graph_quality": {
+                "has_nodes": true,
+                "has_edges": true,
+                "has_engineering_parameters": true,
+                "has_numeric_parameters": false,
+                "has_risks": true,
+                "frontend_ready": true
+              }
+            },
+            "generic_template": true,
+            "source_based": false,
+            "simulation_based": false,
+            "graph_quality": {
+              "has_nodes": true,
+              "has_edges": true,
+              "has_engineering_parameters": true,
+              "has_numeric_parameters": false,
+              "has_risks": true,
+              "frontend_ready": true
+            },
+            "limitations": [
+              "该图为工程解释图，不是 CFD 仿真云图。",
+              "节点参数为空时表示当前问题未提供或知识库未检索到。",
+              "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+              "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+            ]
+          },
+          "thermal_path": {
+            "generated": false,
+            "graph_type": null,
+            "graph": null,
+            "warnings": [],
+            "cfd_executed": false
+          }
+        }
+      }
+    },
+    {
+      "case": "liquid_loop",
+      "source_sha256": "630a6a2d2f8734310f146cee699ba4f41d2aa3e74c53a3749e9d4d7ba3a3f763",
+      "response": {
+        "query": "画一个冷板液冷回路图",
+        "task_type": "visualization",
+        "metadata": {
+          "visualization": {
+            "generated": true,
+            "graph_type": "liquid_loop",
+            "graph": {
+              "graph_type": "liquid_loop",
+              "title": "冷板液冷回路",
+              "nodes": [
+                {
+                  "id": "cdu",
+                  "label": "CDU",
+                  "type": "distribution_unit",
+                  "role": "分配、监测并连接设施侧换热",
+                  "description": "液冷回路的分配、监测和换热节点。",
+                  "engineering_parameters": [
+                    {
+                      "name": "供液能力",
+                      "symbol": "Q_cdu",
+                      "unit": "W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "CDU 能力不足。",
+                    "监测或控制策略未确认。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "CDU",
+                    "icon": "server",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "pump",
+                  "label": "泵",
+                  "type": "pump",
+                  "role": "提供冷却液循环所需压头",
+                  "description": "为冷却液循环提供压头的动力部件。",
+                  "engineering_parameters": [
+                    {
+                      "name": "扬程/压头",
+                      "symbol": "H",
+                      "unit": "m",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "泵曲线未匹配。",
+                    "目标流量下压降未校核。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "泵",
+                    "icon": "rotate-cw",
+                    "emphasis": "high"
+                  }
+                },
+                {
+                  "id": "coolant_loop",
+                  "label": "冷却液回路",
+                  "type": "coolant_loop",
+                  "role": "吸收并输运热量",
+                  "description": "连接冷板、管路、泵和 CDU 的闭合冷却液循环。",
+                  "engineering_parameters": [
+                    {
+                      "name": "体积流量",
+                      "symbol": "V_dot",
+                      "unit": "L/min",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "流量不足导致温升过大。",
+                    "冷却液物性未确认。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "冷却液",
+                    "icon": "droplet",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "supply_line",
+                  "label": "供液管路",
+                  "type": "pipe",
+                  "role": "连接液冷回路并输运冷却液",
+                  "description": "向服务器或冷板提供冷却液。",
+                  "engineering_parameters": [
+                    {
+                      "name": "管路压降",
+                      "symbol": "Delta_p",
+                      "unit": "kPa",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "管路压降未校核。",
+                    "接头泄漏风险未评估。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "管路",
+                    "icon": "route",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "cold_plate",
+                  "label": "冷板",
+                  "type": "heat_exchanger",
+                  "role": "在固体壁面与冷却介质之间换热",
+                  "description": "与芯片热源耦合的液冷换热部件。",
+                  "engineering_parameters": [
+                    {
+                      "name": "换热能力",
+                      "symbol": "UA",
+                      "unit": "W/K",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "换热能力不足。",
+                    "内部流道堵塞或分配不均。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "换热部件",
+                    "icon": "panel-top",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "return_line",
+                  "label": "回液管路",
+                  "type": "pipe",
+                  "role": "连接液冷回路并输运冷却液",
+                  "description": "把升温后的冷却液带回 CDU 或换热器。",
+                  "engineering_parameters": [
+                    {
+                      "name": "管路压降",
+                      "symbol": "Delta_p",
+                      "unit": "kPa",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "管路压降未校核。",
+                    "接头泄漏风险未评估。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "管路",
+                    "icon": "route",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "heat_exchanger",
+                  "label": "换热器/外部冷源",
+                  "type": "heat_rejection",
+                  "role": "把系统热量排向设施侧或环境",
+                  "description": "把热量排到设施侧或外部冷源。",
+                  "engineering_parameters": [
+                    {
+                      "name": "排热能力",
+                      "symbol": "Q_reject",
+                      "unit": "W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "设施侧换热能力不足。",
+                    "外部冷源边界条件未确认。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "排热",
+                    "icon": "wind",
+                    "emphasis": "medium"
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "id": "cdu_to_pump",
+                  "source": "cdu",
+                  "target": "pump",
+                  "mechanism": "fluid_supply",
+                  "type": "fluid_transport",
+                  "direction": "coolant_flow",
+                  "label": "供液",
+                  "description": "CDU 向泵入口提供冷却液。",
+                  "engineering_parameters": [
+                    {
+                      "name": "流量",
+                      "symbol": "V_dot",
+                      "unit": "L/min",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "流量不足。",
+                    "支路不均流或管路阻力未校核。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "pump_to_supply_line",
+                  "source": "pump",
+                  "target": "supply_line",
+                  "mechanism": "fluid_transport",
+                  "type": "fluid_transport",
+                  "direction": "coolant_flow",
+                  "label": "泵送",
+                  "description": "泵推动冷却液进入供液管路。",
+                  "engineering_parameters": [
+                    {
+                      "name": "流量",
+                      "symbol": "V_dot",
+                      "unit": "L/min",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "流量不足。",
+                    "支路不均流或管路阻力未校核。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "supply_line_to_cold_plate",
+                  "source": "supply_line",
+                  "target": "cold_plate",
+                  "mechanism": "fluid_distribution",
+                  "type": "fluid_transport",
+                  "direction": "coolant_flow",
+                  "label": "进入冷板",
+                  "description": "冷却液进入冷板流道。",
+                  "engineering_parameters": [
+                    {
+                      "name": "流量",
+                      "symbol": "V_dot",
+                      "unit": "L/min",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "流量不足。",
+                    "支路不均流或管路阻力未校核。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "cold_plate_to_return_line",
+                  "source": "cold_plate",
+                  "target": "return_line",
+                  "mechanism": "heated_return",
+                  "type": "fluid_transport",
+                  "direction": "coolant_flow",
+                  "label": "回液",
+                  "description": "冷却液吸热后离开冷板。",
+                  "engineering_parameters": [
+                    {
+                      "name": "流量",
+                      "symbol": "V_dot",
+                      "unit": "L/min",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "流量不足。",
+                    "支路不均流或管路阻力未校核。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "return_line_to_heat_exchanger",
+                  "source": "return_line",
+                  "target": "heat_exchanger",
+                  "mechanism": "heat_transport",
+                  "type": "heat_rejection",
+                  "direction": "heat_flow",
+                  "label": "输热",
+                  "description": "回液携带热量进入换热节点。",
+                  "engineering_parameters": [
+                    {
+                      "name": "排热量",
+                      "symbol": "Q",
+                      "unit": "W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "设施侧冷源能力不足。",
+                    "换热器运行边界未确认。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "solid",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "heat_exchanger_to_coolant_loop",
+                  "source": "heat_exchanger",
+                  "target": "coolant_loop",
+                  "mechanism": "loop_closure",
+                  "type": "control_or_monitoring",
+                  "direction": "control_loop",
+                  "label": "回路闭合",
+                  "description": "换热后的冷却液回到闭合回路。",
+                  "engineering_parameters": [],
+                  "risks": [
+                    "控制策略、监测点和告警阈值未定义。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dotted",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "coolant_loop_to_cdu",
+                  "source": "coolant_loop",
+                  "target": "cdu",
+                  "mechanism": "loop_control",
+                  "type": "control_or_monitoring",
+                  "direction": "control_loop",
+                  "label": "回到 CDU",
+                  "description": "CDU 继续监测和维持循环。",
+                  "engineering_parameters": [],
+                  "risks": [
+                    "控制策略、监测点和告警阈值未定义。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dotted",
+                    "emphasis": "low"
+                  }
+                }
+              ],
+              "warnings": [
+                "该图为一级示意图。",
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "该图不替代 CFD。",
+                "该图不包含详细流道、压降或泵曲线。",
+                "该图不能作为工业级设计图。"
+              ],
+              "limitations": [
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "节点参数为空时表示当前问题未提供或知识库未检索到。",
+                "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+                "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+              ],
+              "source_based": false,
+              "generic_template": true,
+              "simulation_based": false,
+              "graph_quality": {
+                "has_nodes": true,
+                "has_edges": true,
+                "has_engineering_parameters": true,
+                "has_numeric_parameters": false,
+                "has_risks": true,
+                "frontend_ready": true
+              }
+            },
+            "generic_template": true,
+            "source_based": false,
+            "simulation_based": false,
+            "graph_quality": {
+              "has_nodes": true,
+              "has_edges": true,
+              "has_engineering_parameters": true,
+              "has_numeric_parameters": false,
+              "has_risks": true,
+              "frontend_ready": true
+            },
+            "limitations": [
+              "该图为工程解释图，不是 CFD 仿真云图。",
+              "节点参数为空时表示当前问题未提供或知识库未检索到。",
+              "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+              "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+            ]
+          },
+          "thermal_path": {
+            "generated": false,
+            "graph_type": null,
+            "graph": null,
+            "warnings": [],
+            "cfd_executed": false
+          }
+        }
+      }
+    },
+    {
+      "case": "server_structure",
+      "source_sha256": "001d9f921bf5967d16b4e506a3700f61b223fd11d524124313b814729ad49094",
+      "response": {
+        "query": "画服务器结构示意图",
+        "task_type": "general_qa",
+        "metadata": {
+          "visualization": {
+            "generated": true,
+            "graph_type": "server_structure",
+            "graph": {
+              "graph_type": "server_structure",
+              "title": "服务器组成示意（通用液冷配置）",
+              "nodes": [
+                {
+                  "id": "server",
+                  "label": "服务器机箱",
+                  "type": "enclosure",
+                  "role": "参与散热路径",
+                  "description": "通用组成关系；部件位置、数量和尺寸未经具体机型确认。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "cpu",
+                  "label": "CPU/处理器",
+                  "type": "heat_source",
+                  "role": "产生热量",
+                  "description": "主要计算部件与热源。",
+                  "engineering_parameters": [
+                    {
+                      "name": "功耗",
+                      "symbol": "P",
+                      "unit": "W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "功耗过高导致结温超过限制。",
+                    "热流密度过高导致局部热点。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "热源",
+                    "icon": "chip",
+                    "emphasis": "high"
+                  }
+                },
+                {
+                  "id": "gpu",
+                  "label": "GPU/加速卡（可选）",
+                  "type": "heat_source",
+                  "role": "产生热量",
+                  "description": "具体服务器可能不含独立加速卡。",
+                  "engineering_parameters": [
+                    {
+                      "name": "功耗",
+                      "symbol": "P",
+                      "unit": "W",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "功耗过高导致结温超过限制。",
+                    "热流密度过高导致局部热点。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "热源",
+                    "icon": "chip",
+                    "emphasis": "high"
+                  }
+                },
+                {
+                  "id": "memory",
+                  "label": "内存",
+                  "type": "component",
+                  "role": "参与散热路径",
+                  "description": "需按具体型号核对散热与供风要求。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "power",
+                  "label": "电源",
+                  "type": "component",
+                  "role": "参与散热路径",
+                  "description": "供电及其自身散热部件。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "cold_plate",
+                  "label": "冷板（液冷配置）",
+                  "type": "heat_exchanger",
+                  "role": "在固体壁面与冷却介质之间换热",
+                  "description": "可与处理器或加速卡热源耦合，不代表所有部件均液冷。",
+                  "engineering_parameters": [
+                    {
+                      "name": "换热能力",
+                      "symbol": "UA",
+                      "unit": "W/K",
+                      "value": null,
+                      "source": "unknown"
+                    }
+                  ],
+                  "risks": [
+                    "换热能力不足。",
+                    "内部流道堵塞或分配不均。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "换热部件",
+                    "icon": "panel-top",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "fan",
+                  "label": "风扇/残余风冷",
+                  "type": "component",
+                  "role": "参与散热路径",
+                  "description": "可用于内存、电源等非液冷部件。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "id": "server_to_cpu",
+                  "source": "server",
+                  "target": "cpu",
+                  "mechanism": "contains",
+                  "type": "structure",
+                  "direction": "contains",
+                  "label": "组成/可选配置",
+                  "description": "组成关系，不是流量或热量测量。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "server_to_gpu",
+                  "source": "server",
+                  "target": "gpu",
+                  "mechanism": "contains",
+                  "type": "structure",
+                  "direction": "contains",
+                  "label": "组成/可选配置",
+                  "description": "组成关系，不是流量或热量测量。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "server_to_memory",
+                  "source": "server",
+                  "target": "memory",
+                  "mechanism": "contains",
+                  "type": "structure",
+                  "direction": "contains",
+                  "label": "组成/可选配置",
+                  "description": "组成关系，不是流量或热量测量。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "server_to_power",
+                  "source": "server",
+                  "target": "power",
+                  "mechanism": "contains",
+                  "type": "structure",
+                  "direction": "contains",
+                  "label": "组成/可选配置",
+                  "description": "组成关系，不是流量或热量测量。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "server_to_cold_plate",
+                  "source": "server",
+                  "target": "cold_plate",
+                  "mechanism": "contains",
+                  "type": "structure",
+                  "direction": "contains",
+                  "label": "组成/可选配置",
+                  "description": "组成关系，不是流量或热量测量。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "server_to_fan",
+                  "source": "server",
+                  "target": "fan",
+                  "mechanism": "contains",
+                  "type": "structure",
+                  "direction": "contains",
+                  "label": "组成/可选配置",
+                  "description": "组成关系，不是流量或热量测量。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                }
+              ],
+              "warnings": [
+                "该图为一级示意图。",
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "该图不替代 CFD。",
+                "该图不包含详细流道、压降或泵曲线。",
+                "该图不能作为工业级设计图。"
+              ],
+              "limitations": [
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "节点参数为空时表示当前问题未提供或知识库未检索到。",
+                "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+                "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+              ],
+              "source_based": false,
+              "generic_template": true,
+              "simulation_based": false,
+              "graph_quality": {
+                "has_nodes": true,
+                "has_edges": true,
+                "has_engineering_parameters": true,
+                "has_numeric_parameters": false,
+                "has_risks": true,
+                "frontend_ready": true
+              }
+            },
+            "generic_template": true,
+            "source_based": false,
+            "simulation_based": false,
+            "graph_quality": {
+              "has_nodes": true,
+              "has_edges": true,
+              "has_engineering_parameters": true,
+              "has_numeric_parameters": false,
+              "has_risks": true,
+              "frontend_ready": true
+            },
+            "limitations": [
+              "该图为工程解释图，不是 CFD 仿真云图。",
+              "节点参数为空时表示当前问题未提供或知识库未检索到。",
+              "generic_template=true 时表示使用通用模板，不代表真实机柜或冷板模型。",
+              "simulation_based=false 时表示未运行 CFD 或外部仿真求解器。"
+            ]
+          },
+          "thermal_path": {
+            "generated": false,
+            "graph_type": null,
+            "graph": null,
+            "warnings": [],
+            "cfd_executed": false
+          }
+        }
+      }
+    },
+    {
+      "case": "flow_temperature_curve",
+      "source_sha256": "6437cf53dc276c0e59128b4495d660009fe4bbc74f90ed996d80062b8b624d75",
+      "response": {
+        "query": "画流量温升曲线，Q=500W，比热4000 J/kgK，质量流量0.1至0.5 kg/s",
+        "task_type": "general_qa",
+        "metadata": {
+          "visualization": {
+            "generated": true,
+            "graph_type": "flow_temperature_curve",
+            "graph": {
+              "graph_type": "flow_temperature_curve",
+              "title": "流量—冷却液温升曲线",
+              "nodes": [
+                {
+                  "id": "heat_load",
+                  "label": "固定热负荷与物性",
+                  "type": "heat_source",
+                  "role": "产生热量",
+                  "description": "用户输入及公开默认物性。",
+                  "engineering_parameters": [
+                    {
+                      "name": "热负荷",
+                      "symbol": "Q",
+                      "unit": "W",
+                      "value": 500.0,
+                      "source": "user_input"
+                    },
+                    {
+                      "name": "比热容",
+                      "symbol": "cp",
+                      "unit": "J/(kg*K)",
+                      "value": 4000.0,
+                      "source": "user_input"
+                    }
+                  ],
+                  "risks": [
+                    "功耗过高导致结温超过限制。",
+                    "热流密度过高导致局部热点。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "热源",
+                    "icon": "chip",
+                    "emphasis": "high"
+                  }
+                },
+                {
+                  "id": "flow_range",
+                  "label": "流量区间",
+                  "type": "fluid",
+                  "role": "吸收并输运热量",
+                  "description": "0.1—0.5 kg/s",
+                  "engineering_parameters": [],
+                  "risks": [
+                    "流量不足导致温升过大。",
+                    "冷却液物性未确认。"
+                  ],
+                  "frontend_hint": {
+                    "display_group": "冷却液",
+                    "icon": "droplet",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "temperature_rise",
+                  "label": "冷却液温升",
+                  "type": "calculated_result",
+                  "role": "参与散热路径",
+                  "description": "同一稳态能量平衡工具在21个流量点执行。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "id": "heat_load_to_temperature_rise",
+                  "source": "heat_load",
+                  "target": "temperature_rise",
+                  "mechanism": "energy_balance",
+                  "type": "model_dependency",
+                  "direction": "coolant_flow",
+                  "label": "Q=ṁcpΔT",
+                  "description": "能量平衡模型依赖。",
+                  "engineering_parameters": [],
+                  "risks": [
+                    "流量不足。",
+                    "支路不均流或管路阻力未校核。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "flow_range_to_temperature_rise",
+                  "source": "flow_range",
+                  "target": "temperature_rise",
+                  "mechanism": "energy_balance",
+                  "type": "model_dependency",
+                  "direction": "coolant_flow",
+                  "label": "固定Q与cp时反比",
+                  "description": "此关系限定在上述模型假设下。",
+                  "engineering_parameters": [],
+                  "risks": [
+                    "流量不足。",
+                    "支路不均流或管路阻力未校核。"
+                  ],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                }
+              ],
+              "warnings": [
+                "该图为一级示意图。",
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "该图不替代 CFD。",
+                "该图不包含详细流道、压降或泵曲线。",
+                "该图不能作为工业级设计图。",
+                "This energy-balance estimate assumes all heat is carried by the coolant. It omits heat losses, cold-plate efficiency, channel maldistribution, and sensor uncertainty.",
+                "Coolant temperature rise is very small; confirm flow rate and heat load."
+              ],
+              "limitations": [
+                "恒定热负荷与物性、稳态单相、热量全部进入冷却液的一级能量平衡；未验证泵、压降或沸腾边界。",
+                "数据由确定性温升工具计算，不是实验观测或 CFD；不代表系统已满足工程设计指标。"
+              ],
+              "source_based": false,
+              "generic_template": false,
+              "simulation_based": false,
+              "graph_quality": {
+                "has_nodes": true,
+                "has_edges": true,
+                "has_engineering_parameters": true,
+                "has_numeric_parameters": true,
+                "has_risks": true,
+                "frontend_ready": true
+              },
+              "chart": {
+                "x_axis": {
+                  "label": "质量流量",
+                  "unit": "kg/s"
+                },
+                "y_axis": {
+                  "label": "冷却液温升",
+                  "unit": "K"
+                },
+                "series": [
+                  {
+                    "name": "能量平衡估算",
+                    "points": [
+                      {
+                        "x": 0.1,
+                        "y": 1.25
+                      },
+                      {
+                        "x": 0.12000000000000001,
+                        "y": 1.0416666666666665
+                      },
+                      {
+                        "x": 0.14,
+                        "y": 0.8928571428571429
+                      },
+                      {
+                        "x": 0.16000000000000003,
+                        "y": 0.7812499999999999
+                      },
+                      {
+                        "x": 0.18,
+                        "y": 0.6944444444444444
+                      },
+                      {
+                        "x": 0.2,
+                        "y": 0.625
+                      },
+                      {
+                        "x": 0.22000000000000003,
+                        "y": 0.5681818181818181
+                      },
+                      {
+                        "x": 0.24000000000000002,
+                        "y": 0.5208333333333333
+                      },
+                      {
+                        "x": 0.26,
+                        "y": 0.4807692307692308
+                      },
+                      {
+                        "x": 0.28,
+                        "y": 0.44642857142857145
+                      },
+                      {
+                        "x": 0.30000000000000004,
+                        "y": 0.4166666666666666
+                      },
+                      {
+                        "x": 0.32000000000000006,
+                        "y": 0.39062499999999994
+                      },
+                      {
+                        "x": 0.3400000000000001,
+                        "y": 0.3676470588235293
+                      },
+                      {
+                        "x": 0.36,
+                        "y": 0.3472222222222222
+                      },
+                      {
+                        "x": 0.38,
+                        "y": 0.32894736842105265
+                      },
+                      {
+                        "x": 0.4,
+                        "y": 0.3125
+                      },
+                      {
+                        "x": 0.42000000000000004,
+                        "y": 0.29761904761904756
+                      },
+                      {
+                        "x": 0.44000000000000006,
+                        "y": 0.28409090909090906
+                      },
+                      {
+                        "x": 0.45999999999999996,
+                        "y": 0.27173913043478265
+                      },
+                      {
+                        "x": 0.48,
+                        "y": 0.2604166666666667
+                      },
+                      {
+                        "x": 0.5,
+                        "y": 0.25
+                      }
+                    ]
+                  }
+                ]
+              },
+              "formula": "ΔT = Q / (ṁ × cp)",
+              "inputs": {
+                "Q_W": 500.0,
+                "cp_J_kgK": 4000.0,
+                "rho_kg_m3": null,
+                "flow_range": [
+                  0.1,
+                  0.5
+                ],
+                "flow_unit": "kg/s"
+              },
+              "parameter_sources": {
+                "Q_W": "user_input",
+                "cp_J_kgK": "user_input",
+                "rho_kg_m3": "user_input",
+                "flow_range": "user_input"
+              },
+              "assumptions": [],
+              "calculation_tool_name": "coolant_temperature_rise",
+              "tool_version": "thermal-tools-v2.3",
+              "model_version": "deterministic-formula-v2.3"
+            },
+            "generic_template": false,
+            "source_based": false,
+            "simulation_based": false,
+            "graph_quality": {
+              "has_nodes": true,
+              "has_edges": true,
+              "has_engineering_parameters": true,
+              "has_numeric_parameters": true,
+              "has_risks": true,
+              "frontend_ready": true
+            },
+            "limitations": [
+              "恒定热负荷与物性、稳态单相、热量全部进入冷却液的一级能量平衡；未验证泵、压降或沸腾边界。",
+              "数据由确定性温升工具计算，不是实验观测或 CFD；不代表系统已满足工程设计指标。"
+            ]
+          },
+          "thermal_path": {
+            "generated": false,
+            "graph_type": null,
+            "graph": null,
+            "warnings": [],
+            "cfd_executed": false
+          }
+        }
+      }
+    },
+    {
+      "case": "fault_propagation",
+      "source_sha256": "02202ca7754f8fb21b2916ad76d47074c2cd3483359c88843b1241c289a94a7a",
+      "response": {
+        "query": "画CDU供水温度过高异常传播链图",
+        "task_type": "literature_lookup",
+        "metadata": {
+          "visualization": {
+            "generated": true,
+            "graph_type": "fault_propagation",
+            "graph": {
+              "graph_type": "fault_propagation",
+              "title": "异常现象与候选原因排查链",
+              "nodes": [
+                {
+                  "id": "observations_0",
+                  "label": "画CDU供水温度过高异常传播链图",
+                  "type": "user_observation",
+                  "role": "用户陈述（未复核）",
+                  "description": "用户陈述（未复核）",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "candidate_causes_0",
+                  "label": "若设施侧入口温度确实升高，需核对上游冷源设定、负荷变化与供回水状态。",
+                  "type": "candidate_cause",
+                  "role": "排查候选（未确认）",
+                  "description": "排查候选（未确认）",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "candidate_causes_1",
+                  "label": "若设施侧入口正常而 IT 侧升温，需检查 CDU 两侧流量、换热温差与控制状态。",
+                  "type": "candidate_cause",
+                  "role": "排查候选（未确认）",
+                  "description": "排查候选（未确认）",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "candidate_causes_2",
+                  "label": "传感器偏差、测点混淆或不同时间的记录可能造成表观异常，需要独立复测。",
+                  "type": "candidate_cause",
+                  "role": "排查候选（未确认）",
+                  "description": "排查候选（未确认）",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "checks_0",
+                  "label": "确认异常发生在哪一侧及具体测点",
+                  "type": "diagnostic_check",
+                  "role": "检查步骤",
+                  "description": "检查步骤",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "checks_1",
+                  "label": "核对同时刻供回水温度、两侧流量和热负荷",
+                  "type": "diagnostic_check",
+                  "role": "检查步骤",
+                  "description": "检查步骤",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                },
+                {
+                  "id": "checks_2",
+                  "label": "复核设定值与传感器",
+                  "type": "diagnostic_check",
+                  "role": "检查步骤",
+                  "description": "检查步骤",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "display_group": "其他",
+                    "icon": "circle",
+                    "emphasis": "low"
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "id": "observations_0_to_candidate_causes_0",
+                  "source": "observations_0",
+                  "target": "candidate_causes_0",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "observations_0_to_candidate_causes_1",
+                  "source": "observations_0",
+                  "target": "candidate_causes_1",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "observations_0_to_candidate_causes_2",
+                  "source": "observations_0",
+                  "target": "candidate_causes_2",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_0_to_checks_0",
+                  "source": "candidate_causes_0",
+                  "target": "checks_0",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_0_to_checks_1",
+                  "source": "candidate_causes_0",
+                  "target": "checks_1",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_0_to_checks_2",
+                  "source": "candidate_causes_0",
+                  "target": "checks_2",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_1_to_checks_0",
+                  "source": "candidate_causes_1",
+                  "target": "checks_0",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_1_to_checks_1",
+                  "source": "candidate_causes_1",
+                  "target": "checks_1",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_1_to_checks_2",
+                  "source": "candidate_causes_1",
+                  "target": "checks_2",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_2_to_checks_0",
+                  "source": "candidate_causes_2",
+                  "target": "checks_0",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_2_to_checks_1",
+                  "source": "candidate_causes_2",
+                  "target": "checks_1",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                },
+                {
+                  "id": "candidate_causes_2_to_checks_2",
+                  "source": "candidate_causes_2",
+                  "target": "checks_2",
+                  "mechanism": "diagnostic_dependency",
+                  "type": "diagnostic_dependency",
+                  "direction": "investigation",
+                  "label": "需核实/排查",
+                  "description": "排查关联，不表示已确认因果或概率排序。",
+                  "engineering_parameters": [],
+                  "risks": [],
+                  "frontend_hint": {
+                    "line_style": "dashed",
+                    "emphasis": "medium"
+                  }
+                }
+              ],
+              "warnings": [
+                "该图为一级示意图。",
+                "该图为工程解释图，不是 CFD 仿真云图。",
+                "该图不替代 CFD。",
+                "该图不包含详细流道、压降或泵曲线。",
+                "该图不能作为工业级设计图。"
+              ],
+              "limitations": [
+                "用户陈述尚未独立复核；规则排查候选均未确认，排列顺序不代表根因概率。",
+                "检索上下文不等于逐条因果支持；以下规则建议未完成与来源的逐项对应，不能作为故障确诊或覆盖率验收。",
+                "若实测超出设备温度、压力或泄漏限值，应遵循现场运行规程处理；当前信息不足以判定具体风险等级。"
+              ],
+              "source_based": false,
+              "generic_template": true,
+              "simulation_based": false,
+              "graph_quality": {
+                "has_nodes": true,
+                "has_edges": true,
+                "has_engineering_parameters": false,
+                "has_numeric_parameters": false,
+                "has_risks": false,
+                "frontend_ready": true
+              },
+              "diagnosis_confirmed": false
+            },
+            "generic_template": true,
+            "source_based": false,
+            "simulation_based": false,
+            "graph_quality": {
+              "has_nodes": true,
+              "has_edges": true,
+              "has_engineering_parameters": false,
+              "has_numeric_parameters": false,
+              "has_risks": false,
+              "frontend_ready": true
+            },
+            "limitations": [
+              "用户陈述尚未独立复核；规则排查候选均未确认，排列顺序不代表根因概率。",
+              "检索上下文不等于逐条因果支持；以下规则建议未完成与来源的逐项对应，不能作为故障确诊或覆盖率验收。",
+              "若实测超出设备温度、压力或泄漏限值，应遵循现场运行规程处理；当前信息不足以判定具体风险等级。"
+            ]
+          },
+          "thermal_path": {
+            "generated": false,
+            "graph_type": null,
+            "graph": null,
+            "warnings": [],
+            "cfd_executed": false
+          }
+        }
+      }
+    },
+    {
+      "case": "curve_missing",
+      "source_sha256": "793ba68d03b8d1e8a45f7c202b51fe5e54941870bad2d70959eb87202c222f6b",
+      "response": {
+        "query": "画流量温升曲线",
+        "task_type": "general_qa",
+        "metadata": {
+          "visualization": {
+            "generated": false,
+            "graph_type": "flow_temperature_curve",
+            "missing_parameters": [
+              "Q_W",
+              "cp_J_kgK",
+              "flow_range_with_units"
+            ],
+            "errors": [],
+            "limitations": [
+              "恒定热负荷与物性、稳态单相、热量全部进入冷却液的一级能量平衡；未验证泵、压降或沸腾边界。",
+              "数据由确定性温升工具计算，不是实验观测或 CFD；不代表系统已满足工程设计指标。"
+            ],
+            "assumptions": []
+          },
+          "thermal_path": {
+            "generated": false,
+            "graph_type": null,
+            "graph": null,
+            "warnings": [],
+            "cfd_executed": false
+          }
+        }
+      }
+    },
+    {
+      "case": "solved_network",
+      "source_sha256": "24eebcd761a4e5aee234a39a789c875fc2b469f25b6f4b5af72bacd0bdf50e08",
+      "response": {
+        "query": "芯片 800W，冷却液 35℃，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，结温多少？",
+        "task_type": "calculation",
+        "metadata": {
+          "visualization": {
+            "generated": false
+          },
+          "thermal_path": {
+            "generated": true,
+            "graph_type": "thermal_resistance_network",
+            "graph": {
+              "generated": true,
+              "graph_type": "thermal_resistance_network",
+              "nodes": [
+                {
+                  "id": "reference",
+                  "label": "Reference boundary",
+                  "type": "ambient",
+                  "temperature_c": 35.0
+                },
+                {
+                  "id": "after_package",
+                  "label": "封装热阻",
+                  "type": "node",
+                  "temperature_c": 51.0
+                },
+                {
+                  "id": "after_tim",
+                  "label": "TIM",
+                  "type": "node",
+                  "temperature_c": 59.0
+                },
+                {
+                  "id": "after_cold_plate",
+                  "label": "冷板",
+                  "type": "node",
+                  "temperature_c": 83.0
+                }
+              ],
+              "edges": [
+                {
+                  "source": "after_package",
+                  "target": "reference",
+                  "label": "封装热阻",
+                  "element_id": "package",
+                  "resistance_k_per_w": 0.02,
+                  "delta_t_c": 16.0,
+                  "heat_flow_w": 800.0,
+                  "direction": "heat_flow_hot_to_cold",
+                  "description": "正热负荷下由高温节点流向低温参考边界。"
+                },
+                {
+                  "source": "after_tim",
+                  "target": "after_package",
+                  "label": "TIM",
+                  "element_id": "tim",
+                  "resistance_k_per_w": 0.01,
+                  "delta_t_c": 8.0,
+                  "heat_flow_w": 800.0,
+                  "direction": "heat_flow_hot_to_cold",
+                  "description": "正热负荷下由高温节点流向低温参考边界。"
+                },
+                {
+                  "source": "after_cold_plate",
+                  "target": "after_tim",
+                  "label": "冷板",
+                  "element_id": "cold_plate",
+                  "resistance_k_per_w": 0.03,
+                  "delta_t_c": 24.0,
+                  "heat_flow_w": 800.0,
+                  "direction": "heat_flow_hot_to_cold",
+                  "description": "正热负荷下由高温节点流向低温参考边界。"
+                }
+              ],
+              "partial_graph": false,
+              "incomplete_network": false,
+              "final_junction_node_present": true,
+              "warnings": [
+                "schematic_thermal_path_not_solver_output",
+                "箭头有热流值时表示高温至低温；无热流值时仅表示声明连接。",
+                "串联节点温度按输入元件顺序从参考边界累计；不是实际部件表面测量。"
+              ],
+              "cfd_executed": false
+            },
+            "warnings": [
+              "schematic_thermal_path_not_solver_output",
+              "箭头有热流值时表示高温至低温；无热流值时仅表示声明连接。",
+              "串联节点温度按输入元件顺序从参考边界累计；不是实际部件表面测量。"
+            ],
+            "cfd_executed": false,
+            "partial_graph": false,
+            "incomplete_network": false,
+            "final_junction_node_present": true
+          }
+        }
+      }
+    }
+  ]
+}

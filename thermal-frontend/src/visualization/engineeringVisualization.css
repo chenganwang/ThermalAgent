@@ -1,0 +1,21 @@
+.ta-engineering-visualization { margin: 18px 0; padding: 16px; border: 1px solid var(--ta-border); border-radius: 10px; background: var(--ta-surface); color: var(--ta-text); min-width: 0; }
+.ta-engineering-visualization h4 { margin: 0 0 10px; font-size: 16px; }
+.ta-engineering-visualization p { margin: 8px 0; line-height: 1.6; }
+.ta-engineering-graph-provenance, .ta-engineering-graph-boundaries { color: var(--ta-text-muted); font-size: 12px; }
+.ta-engineering-graph-warning { color: var(--ta-warning); }
+.ta-engineering-graph-scroll { overflow-x: auto; max-width: 100%; margin: 12px 0; }
+.ta-engineering-graph-scroll svg { width: 100%; min-width: 480px; display: block; }
+.ta-engineering-node-label { fill: var(--ta-text); font-size: 12px; }
+.ta-engineering-node-value, .ta-engineering-axis { fill: var(--ta-text-muted); font-size: 11px; }
+.ta-engineering-edge-number { fill: var(--ta-primary); font-size: 11px; font-weight: 700; paint-order: stroke; stroke: var(--ta-surface); stroke-width: 4px; }
+.ta-engineering-graph-records { margin: 10px 0; overflow-wrap: anywhere; }
+.ta-engineering-graph-records summary { cursor: pointer; font-weight: 600; }
+.ta-engineering-graph-records li { margin: 12px 0; }
+.ta-engineering-graph-records table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+.ta-engineering-graph-records th, .ta-engineering-graph-records td { border: 1px solid var(--ta-border); padding: 6px; text-align: left; }
+.ta-graph-parameters { margin: 8px 0; font-size: 12px; }
+.ta-graph-parameters > div { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 4px 0; }
+.ta-graph-parameters dt { font-weight: 600; }
+.ta-graph-parameters dd { margin: 0; overflow-wrap: anywhere; }
+.ta-graph-parameters small { color: var(--ta-text-muted); }
+.ta-engineering-visualization :focus-visible { outline: 2px solid var(--ta-primary); outline-offset: 3px; }

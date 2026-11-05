@@ -1,0 +1,13 @@
+{
+  "fixture_type": "matlab_diagnostic",
+  "diagnostic": true,
+  "fake": false,
+  "status": "disabled",
+  "reason": "matlab_disabled_by_config",
+  "real_execution_attempted": false,
+  "checks": {
+    "start_engine": false,
+    "call_function": false,
+    "stop_engine": false
+  }
+}

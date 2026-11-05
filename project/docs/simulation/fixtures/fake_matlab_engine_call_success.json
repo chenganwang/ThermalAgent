@@ -1,0 +1,13 @@
+{
+  "fixture_type": "matlab_lifecycle",
+  "fake": true,
+  "status": "success",
+  "function_name": "estimate_temperature",
+  "result": {
+    "fake": true,
+    "kwargs": {
+      "power_w": 1
+    }
+  },
+  "note": "Fake engine fixture for lifecycle tests only; not real MATLAB output."
+}

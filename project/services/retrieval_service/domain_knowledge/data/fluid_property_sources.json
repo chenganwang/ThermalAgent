@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "dataset_id": "fluid_property_sources_phase7a",
+    "version": "2026-07-12",
+    "policy": "Numeric property points must reference a local source record. Missing reliable values are represented as source_required notes, not fabricated data."
+  },
+  "sources": [
+    {
+      "source_id": "default_water_engineering_assumption",
+      "source_name": "Engineering default for liquid water near room temperature",
+      "source_type": "engineering_assumption",
+      "source_status": "pending",
+      "source_quality": "approximate_default",
+      "document_id": null,
+      "document_name": null,
+      "page": null,
+      "url": null,
+      "note": "Migrated from data/reference/coolant_properties/water_properties.json. It is a project-approved approximate default, not a complete verified property table."
+    },
+    {
+      "source_id": "source_required_water_viscosity",
+      "source_name": "Source required for water viscosity table",
+      "source_type": "source_required",
+      "source_status": "source_required",
+      "source_quality": "missing",
+      "document_id": null,
+      "document_name": null,
+      "page": null,
+      "url": null,
+      "note": "No reliable local source was found for 20 C water dynamic viscosity in this phase."
+    },
+    {
+      "source_id": "source_required_air_properties",
+      "source_name": "Source required for air property table",
+      "source_type": "source_required",
+      "source_status": "source_required",
+      "source_quality": "missing",
+      "document_id": null,
+      "document_name": null,
+      "page": null,
+      "url": null,
+      "note": "No reliable local source was found for air density/cp/viscosity/thermal-conductivity tables in this phase."
+    },
+    {
+      "source_id": "source_required_glycol_properties",
+      "source_name": "Source required for EGW/PGW property tables",
+      "source_type": "source_required",
+      "source_status": "source_required",
+      "source_quality": "missing",
+      "document_id": null,
+      "document_name": null,
+      "page": null,
+      "url": null,
+      "note": "Existing EGW/PGW local files are placeholders without numeric data."
+    }
+  ]
+}

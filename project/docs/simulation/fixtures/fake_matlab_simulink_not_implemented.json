@@ -1,0 +1,9 @@
+{
+  "fixture_type": "matlab_lifecycle",
+  "fake": true,
+  "status": "not_implemented",
+  "code": "simulink_not_implemented",
+  "model_name": "demo_model",
+  "mocked": false,
+  "message": "Simulink execution is a structured placeholder and is not connected in Phase 3."
+}

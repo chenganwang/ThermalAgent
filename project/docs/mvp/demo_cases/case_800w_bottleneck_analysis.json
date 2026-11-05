@@ -1,0 +1,13 @@
+{
+  "case_id": "case_800w_bottleneck_analysis",
+  "title": "800 W thermal bottleneck analysis",
+  "category": "thermal_network",
+  "query": "芯片 800W，封装热阻 0.02 K/W，TIM 0.01 K/W，冷板 0.03 K/W，哪个环节是热瓶颈？",
+  "expected_task_type": "calculation",
+  "expected_tools": ["thermal_resistance_network_solve"],
+  "expected_metadata_paths": ["metadata.thermal_network.bottlenecks", "metadata.thermal_path"],
+  "expected_cards": ["thermal_network_card", "thermal_path_card", "self_critique_card"],
+  "expected_warnings": [],
+  "boundary_notes": ["Bottleneck ranking is based only on supplied thermal resistances."],
+  "should_not_include": ["CFD completed", "实验已经完成", "真实温度云图"]
+}

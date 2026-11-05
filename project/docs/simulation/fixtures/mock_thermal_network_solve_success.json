@@ -1,0 +1,25 @@
+{
+  "request": {
+    "tool_name": "thermal_network_solve_mock",
+    "adapter_name": "mock",
+    "mode": "mock",
+    "inputs": {
+      "heat_load_w": 100,
+      "resistances_k_per_w": [0.1, 0.2],
+      "reference_temperature_c": 25
+    }
+  },
+  "expected_subset": {
+    "tool_name": "thermal_network_solve_mock",
+    "adapter_name": "mock",
+    "status": "success",
+    "mocked": true,
+    "result.values.total_resistance_k_per_w.value": 0.3,
+    "result.values.junction_temperature_c.value": 55.0,
+    "metadata.cfd_executed": false,
+    "metadata.solver_executed": false
+  },
+  "required_warnings": [
+    "mock_result_not_real_solver_output"
+  ]
+}

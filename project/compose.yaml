@@ -1,0 +1,20 @@
+name: thermalagent-portfolio
+services:
+  db:
+    image: mysql:8.0
+    ports:
+      - "127.0.0.1:${MYSQL_PORT:-33317}:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DB:?Set MYSQL_DB in .env}
+      MYSQL_USER: ${MYSQL_USER:?Set MYSQL_USER in .env}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+    volumes:
+      - thermal_demo_db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+volumes:
+  thermal_demo_db:

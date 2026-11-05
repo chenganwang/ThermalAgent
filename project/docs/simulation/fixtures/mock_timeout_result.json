@@ -1,0 +1,26 @@
+{
+  "request": {
+    "tool_name": "matlab_function_eval",
+    "adapter_name": "mock",
+    "mode": "mock",
+    "inputs": {
+      "function_name": "estimate_temperature",
+      "parameters": {}
+    },
+    "options": {
+      "mock_mode": "timeout"
+    }
+  },
+  "expected_subset": {
+    "tool_name": "matlab_function_eval",
+    "adapter_name": "mock",
+    "status": "timeout",
+    "mocked": true,
+    "errors.0.code": "simulation_timeout",
+    "metadata.cfd_executed": false,
+    "metadata.solver_executed": false
+  },
+  "required_warnings": [
+    "mock_result_not_real_solver_output"
+  ]
+}

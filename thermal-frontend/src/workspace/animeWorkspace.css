@@ -1,0 +1,148 @@
+/* Anime V3: setting-book sheets and a compact research terminal.
+   The engineering theme deliberately inherits none of these layout rules. */
+:root[data-theme="cel"] .ta-workspace {
+  background-color:var(--ta-v3-mist);
+  background-image:linear-gradient(#667b9b09 1px,transparent 1px),linear-gradient(90deg,#667b9b09 1px,transparent 1px);
+  background-size:24px 24px;
+}
+:root[data-theme="cel"] .ta-app-header { border-bottom:1px solid var(--ta-v3-ink); box-shadow:0 3px 0 #222b480b; background:#fffdf8; }
+:root[data-theme="cel"] .ta-brand h1 { font-family:var(--ta-font-display); font-size:24px; font-weight:800; letter-spacing:.8px; }
+:root[data-theme="cel"] .ta-brand p { font-size:8px; letter-spacing:2.2px; }
+:root[data-theme="cel"] .ta-brand-symbol { transform:none; border:1px solid var(--ta-v3-ink); border-radius:2px 10px 2px 2px; box-shadow:3px 3px 0 #b8c5dc; background:#222b48; }
+:root[data-theme="cel"] .ta-version { font:9px/1.6 var(--ta-font-mono); letter-spacing:.6px; background:#eeebff; border:1px solid #aaa0e0; border-radius:2px; }
+:root[data-theme="cel"] .ta-sidebar { background:#222b48; color:#f7f7fc; border-right:1px solid #101b37; gap:16px; padding-top:23px; background-image:linear-gradient(135deg,transparent 90%,#65759a1f 90%); background-size:48px 48px; }
+:root[data-theme="cel"] .ta-anime-department { display:flex; gap:10px; align-items:center; padding:0 5px 17px; border-bottom:1px solid #8c9bbb50; }
+:root[data-theme="cel"] .ta-anime-lab-seal { color:#8cdaea; font-size:29px; line-height:1; }
+:root[data-theme="cel"] .ta-anime-department>div>span { display:block; font:9px/1.5 var(--ta-font-mono); letter-spacing:1px; color:#cdd9f1; }
+:root[data-theme="cel"] .ta-anime-department strong { display:block; font-size:16px; letter-spacing:3px; margin:2px 0; }
+:root[data-theme="cel"] .ta-anime-department small { display:block; font:8px/1.6 var(--ta-font-mono); letter-spacing:.9px; color:#a7b7d4; }
+:root[data-theme="cel"] .ta-new-conversation { background:#edeaff; color:#342779; border:1px solid #d8d1ff; border-radius:2px 10px 2px 2px; box-shadow:3px 3px 0 #121a32; }
+:root[data-theme="cel"] .ta-new-conversation:hover { background:#fffdf8; transform:translateY(-1px); }
+:root[data-theme="cel"] .ta-sidebar .ta-nav-caption { color:#9faecc; font:9px/1.5 var(--ta-font-mono); letter-spacing:1.3px; }
+:root[data-theme="cel"] .ta-sidebar .ta-workspace-nav button { color:#e0e7f6; border-radius:2px; border:1px solid transparent; }
+:root[data-theme="cel"] .ta-sidebar .ta-workspace-nav button:hover { background:#ffffff0c; border-color:#8297be70; }
+:root[data-theme="cel"] .ta-sidebar .ta-workspace-nav button>span:last-child { color:#a4dce8; }
+:root[data-theme="cel"] .ta-conversation-heading { color:#c4cde3; border-color:#8493b43d; }
+:root[data-theme="cel"] .ta-conversation-select { color:#dbe4f7; border-radius:2px; }
+:root[data-theme="cel"] .ta-conversation-select:hover { background:#ffffff09; }
+:root[data-theme="cel"] .ta-conversation-row { border-radius:2px; }
+:root[data-theme="cel"] .ta-conversation-row.active { background:#40506c; border-color:#8c9cb8; border-left:3px solid #92d7e7; }
+:root[data-theme="cel"] .ta-conversation-delete { color:#bdc9e2; }
+:root[data-theme="cel"] .ta-empty-history { color:#b0bfd7; }
+:root[data-theme="cel"] .ta-anime-navigator { margin-top:auto; position:relative; padding:11px; background:#f9f7f0; border:1px solid #b0bfd4; color:#222b48; box-shadow:4px 4px 0 #141c34; border-radius:2px 10px 2px 2px; }
+:root[data-theme="cel"] .ta-anime-nav-label { display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid #c8cbd3; font:9px/1 var(--ta-font-mono); letter-spacing:1px; }
+:root[data-theme="cel"] .ta-anime-nav-label small { font-size:7px; color:#646b80; }
+:root[data-theme="cel"] .ta-anime-nav-body { display:flex; align-items:center; gap:8px; margin:10px 0 5px; }
+:root[data-theme="cel"] .ta-anime-portrait { width:49px; height:54px; display:grid; place-items:center; background:#e9e6fa; border:1px solid #7c79a5; border-radius:2px 7px 2px 2px; overflow:hidden; flex:none; }
+:root[data-theme="cel"] .ta-anime-portrait .ta-engineer-mark { width:57px; height:61px; }
+:root[data-theme="cel"] .ta-anime-nav-body strong { font-size:10px; }
+:root[data-theme="cel"] .ta-anime-nav-status { display:flex; align-items:center; gap:5px; margin-top:6px; font:8px/1.4 var(--ta-font-mono); color:#3d4b64; }
+:root[data-theme="cel"] .ta-anime-nav-status i { width:5px; height:5px; background:#167b89; transform:rotate(45deg); }
+:root[data-theme="cel"] .ta-anime-navigator p { margin:8px 0; padding:9px; background:white; border-left:2px solid #5746c4; font-size:11px; line-height:1.8; overflow-wrap:anywhere; }
+:root[data-theme="cel"] .ta-anime-nav-foot { display:flex; justify-content:space-between; color:#697189; font:7px/1.4 var(--ta-font-mono); letter-spacing:.5px; }
+:root[data-theme="cel"] .ta-workspace-topbar { padding-top:20px; padding-bottom:15px; }
+:root[data-theme="cel"] .ta-workspace-topbar h2 { background:none; border:0; border-left:3px solid #5746c4; padding:0 0 0 10px; box-shadow:none; transform:none; margin-top:7px; letter-spacing:1px; font-size:20px; }
+:root[data-theme="cel"] .ta-workspace-topbar .ta-eyebrow { font:9px/1.3 var(--ta-font-mono); letter-spacing:1.7px; color:#5a6280; }
+:root[data-theme="cel"] .ta-module-status { background:#ffffffab; border:1px solid #adb8cb; border-radius:2px; font-size:11px; }
+:root[data-theme="cel"] .ta-anime-welcome { margin:4px 3px 10px; }
+:root[data-theme="cel"] .ta-chat-column:has(.ta-anime-welcome) { height:auto; }
+:root[data-theme="cel"] .ta-messages:has(.ta-anime-welcome) { overflow:visible; flex:none; }
+:root[data-theme="cel"] .ta-anime-file-heading { display:flex; justify-content:space-between; gap:8px; padding:9px 14px; color:#fffdf8; background:#222b48; font:9px/1.5 var(--ta-font-mono); letter-spacing:1.7px; border-radius:2px 13px 0 0; border-bottom:3px solid #9184d4; }
+:root[data-theme="cel"] .ta-anime-briefing { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(230px,.85fr); position:relative; padding:25px 30px 21px; gap:20px; background:linear-gradient(135deg,#fffdf8 65%,#e8edf6 65%); border:1px solid #707b96; border-top:0; border-bottom:3px double #707b96; }
+:root[data-theme="cel"] .ta-anime-briefing::after { content:''; position:absolute; right:10px; bottom:10px; width:18px; height:18px; border-right:1px solid #8c9bb8; border-bottom:1px solid #8c9bb8; pointer-events:none; }
+:root[data-theme="cel"] .ta-anime-brief-copy { align-self:center; position:relative; z-index:1; }
+:root[data-theme="cel"] .ta-anime-chapter { font:9px/1.7 var(--ta-font-mono); letter-spacing:2px; color:#b35220; display:inline-flex; gap:30px; border-bottom:1px solid #b35220; }
+:root[data-theme="cel"] .ta-anime-chapter i { font-style:normal; }
+:root[data-theme="cel"] .ta-anime-brief-copy h2 { font-size:clamp(25px,2.5vw,38px); line-height:1.5; letter-spacing:1px; margin:12px 0; font-weight:850; }
+:root[data-theme="cel"] .ta-anime-brief-copy h2 em { font-style:normal; color:#5746c4; position:relative; }
+:root[data-theme="cel"] .ta-anime-brief-copy p { font-size:12px; line-height:1.9; color:#576179; margin:0 0 17px; }
+:root[data-theme="cel"] .ta-anime-note { display:inline-block; font-size:10px; padding:5px 11px; background:#e7edf7; border-left:2px solid #167b89; transform:rotate(-1deg); }
+:root[data-theme="cel"] .ta-anime-sketch-sheet { position:relative; background:#ffffffbd; padding:10px 8px; margin:0 5px; transform:rotate(2deg); border:1px solid #97a3ba; outline:1px solid #ffffff; outline-offset:3px; box-shadow:5px 5px 0 #7f92b321; align-self:center; }
+:root[data-theme="cel"] .ta-anime-sketch-sheet::before { content:''; position:absolute; top:-5px; left:42%; width:47px; height:12px; background:#bcb1e6b0; border-left:1px dashed #8c82b8; border-right:1px dashed #8c82b8; transform:rotate(-7deg); }
+:root[data-theme="cel"] .ta-anime-figure-no { color:#69768f; font:8px/1.4 var(--ta-font-mono); letter-spacing:1px; }
+:root[data-theme="cel"] .ta-anime-cooling-sketch { display:block; width:100%; max-height:207px; margin:auto; }
+:root[data-theme="cel"] .ta-anime-sketch-sheet figcaption { border-top:1px dashed #b2bdcf; padding-top:7px; text-align:center; font-size:9px; letter-spacing:1px; color:#576179; }
+:root[data-theme="cel"] .ta-anime-selection-title { display:flex; align-items:center; gap:13px; margin:22px 0 10px; }
+:root[data-theme="cel"] .ta-anime-selection-title>span { font:8px/1.5 var(--ta-font-mono); letter-spacing:1px; color:#5b6581; }
+:root[data-theme="cel"] .ta-anime-selection-title strong { font-size:12px; letter-spacing:1px; }
+:root[data-theme="cel"] .ta-anime-selection-title>span:last-child { margin-left:auto; }
+:root[data-theme="cel"] .ta-anime-route-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:13px; }
+:root[data-theme="cel"] .ta-anime-route-grid button { --route:#5746c4; position:relative; min-width:0; text-align:left; display:flex; flex-direction:column; gap:7px; padding:16px 15px 0; color:#222b48; background:linear-gradient(135deg,transparent 8px,#fffdf8 8px); border:1px solid #65708d; border-radius:2px 12px 2px 2px; cursor:pointer; box-shadow:3px 3px 0 #8b98b235; transition:transform .18s,box-shadow .18s; }
+:root[data-theme="cel"] .ta-anime-route-grid button::before { content:''; position:absolute; left:-1px; top:-1px; width:14px; border-top:1px solid #65708d; transform:rotate(-45deg); transform-origin:100% 0; }
+:root[data-theme="cel"] .ta-anime-route-grid button:nth-child(2) { --route:#167b89; }
+:root[data-theme="cel"] .ta-anime-route-grid button:nth-child(3) { --route:#b35220; }
+:root[data-theme="cel"] .ta-anime-route-grid button:hover { transform:translate(-1px,-3px); box-shadow:4px 6px 0 #8b98b240; }
+:root[data-theme="cel"] .ta-anime-route-no { position:absolute; top:9px; right:12px; font:36px/1 var(--ta-font-display); font-weight:800; color:#dbe0eb; }
+:root[data-theme="cel"] .ta-anime-route-icon { width:29px; height:29px; display:grid; place-items:center; color:var(--route); background:#edf0f7; border:1px solid currentColor; font-size:23px; margin-bottom:6px; border-radius:2px 6px 2px 2px; }
+:root[data-theme="cel"] .ta-anime-route-grid small { font:7px/1.5 var(--ta-font-mono); letter-spacing:.8px; color:var(--route); }
+:root[data-theme="cel"] .ta-anime-route-grid strong { font-size:16px; letter-spacing:1px; }
+:root[data-theme="cel"] .ta-anime-route-grid button>span:nth-last-child(2) { font-size:10px; color:#576179; line-height:1.8; }
+:root[data-theme="cel"] .ta-anime-route-grid b { display:block; margin:8px -15px 0; padding:8px 15px; border-top:1px solid #c7ceda; color:var(--route); background:#e9edf663; font:8px/1.5 var(--ta-font-mono); letter-spacing:1px; }
+:root[data-theme="cel"] .ta-anime-method-note { display:flex; gap:10px; align-items:center; color:#5b6581; font-size:9px; margin:13px 0 0; }
+:root[data-theme="cel"] .ta-anime-method-note span { font:8px/1.4 var(--ta-font-mono); color:#167b89; }
+:root[data-theme="cel"] .ta-anime-method-note i { font-style:normal; margin-left:auto; color:#5746c4; }
+:root[data-theme="cel"] .ta-anime-taskbar { position:relative; display:flex; align-items:center; flex-wrap:wrap; gap:10px; padding:10px 13px; border:1px solid #91a1bf; border-left:3px solid #5746c4; background:#e5eaf5; border-radius:2px 9px 0 0; margin-top:4px; }
+:root[data-theme="cel"] .ta-anime-beacon { color:#5746c4; font-size:25px; line-height:1; }
+:root[data-theme="cel"] .ta-anime-taskbar-label { font:8px/1.5 var(--ta-font-mono); letter-spacing:1.2px; color:#5b537e; }
+:root[data-theme="cel"] .ta-anime-taskbar p { margin:2px 0 0; font-size:11px; line-height:1.5; }
+:root[data-theme="cel"] .ta-anime-taskbar>div { flex:1; min-width:0; }
+:root[data-theme="cel"] .ta-anime-taskbar button { background:#fffdf8; color:#5746c4; border:1px solid #a098c5; padding:6px 9px; font-size:10px; cursor:pointer; border-radius:2px; }
+:root[data-theme="cel"] .ta-anime-tool-signal { font-size:9px; background:#222b48; color:#a6e1e5; padding:5px 8px; overflow-wrap:anywhere; max-width:100%; }
+:root[data-theme="cel"] .ta-anime-taskbar[data-active="true"] .ta-anime-beacon { animation:ta-v3-beacon 1.6s ease-in-out infinite; }
+:root[data-theme="cel"] .ta-anime-taskbar[data-active="true"] .ta-anime-tool-signal { border-bottom:2px solid #61c4cc; }
+:root[data-theme="cel"] .ta-composer { padding-top:0; }
+:root[data-theme="cel"] .ta-composer-surface { border-color:#65708d; border-top:0; border-radius:0 0 9px 2px; box-shadow:3px 4px 0 #8899b536; background:#fffdf8; }
+:root[data-theme="cel"] .ta-composer-surface:focus-within { box-shadow:0 0 0 2px #5746c440,3px 4px 0 #8899b536; }
+:root[data-theme="cel"] .ta-send-button { border-color:#312467; box-shadow:2px 2px 0 #312467; border-radius:2px 7px 2px 2px; }
+:root[data-theme="cel"] .ta-anime-transcript-label { display:flex; justify-content:space-between; padding:8px 10px; border:1px solid #6e7a94; background:#222b48; color:#d8e3f7; font:8px/1.4 var(--ta-font-mono); letter-spacing:1.2px; border-radius:2px 10px 0 0; margin-bottom:11px; }
+:root[data-theme="cel"] .ta-message.user .ta-anime-transcript-label { background:#e1e6f0; color:#4d5876; }
+:root[data-theme="cel"] .ta-message-body { border:1px solid #7e88a1; border-radius:2px 9px 2px 2px; box-shadow:3px 3px 0 #8899b526; }
+:root[data-theme="cel"] .ta-message.user .ta-message-body { border-radius:2px 2px 9px 2px; border-color:#9f9bc0; background:#f4f1fc; box-shadow:2px 2px 0 #8899b526; }
+:root[data-theme="cel"] .ta-message-avatar { border-width:1px; box-shadow:2px 2px 0 #b6c1d7; border-radius:2px; }
+:root[data-theme="cel"] .ta-task-empty { position:relative; border-radius:2px 13px 2px 2px; border-top:5px solid #222b48; background:linear-gradient(155deg,#fffdf8 75%,#e1e7f2 75%); }
+:root[data-theme="cel"] .ta-task-empty h3 { border-left:3px solid #5746c4; padding-left:10px; }
+:root[data-theme="cel"] .ta-task-empty .ta-engineer-mark { width:68px; height:72px; }
+@keyframes ta-v3-beacon { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.85); } }
+@media(max-width:1180px) {
+  :root[data-theme="cel"] .ta-anime-briefing { padding:22px; grid-template-columns:minmax(0,1.15fr) minmax(190px,.85fr); gap:12px; }
+  :root[data-theme="cel"] .ta-anime-brief-copy h2 { font-size:28px; }
+  :root[data-theme="cel"] .ta-anime-route-grid { gap:10px; }
+  :root[data-theme="cel"] .ta-anime-selection-title>span:first-child { display:none; }
+}
+@media(max-width:760px) {
+  :root[data-theme="cel"] .ta-brand h1 { font-size:19px; }
+  :root[data-theme="cel"] .ta-brand p { font-size:7px; letter-spacing:1px; }
+  :root[data-theme="cel"] .ta-version { font-size:8px; margin-left:5px; }
+  :root[data-theme="cel"] .ta-workspace-topbar { padding:17px 15px 15px; }
+  :root[data-theme="cel"] .ta-anime-welcome { margin:0 1px 18px; }
+  :root[data-theme="cel"] .ta-chat-column:has(.ta-anime-welcome) .ta-composer { position:static; }
+  :root[data-theme="cel"] .ta-anime-file-heading { font-size:7px; letter-spacing:.9px; padding:8px 10px; }
+  :root[data-theme="cel"] .ta-anime-briefing { padding:20px 16px; grid-template-columns:minmax(0,1fr) 108px; gap:7px; }
+  :root[data-theme="cel"] .ta-anime-brief-copy h2 { font-size:23px; letter-spacing:0; margin:10px 0; }
+  :root[data-theme="cel"] .ta-anime-brief-copy p { font-size:10px; margin-bottom:12px; }
+  :root[data-theme="cel"] .ta-anime-chapter { font-size:7px; letter-spacing:1px; gap:15px; }
+  :root[data-theme="cel"] .ta-anime-note { font-size:8px; padding:4px 6px; }
+  :root[data-theme="cel"] .ta-anime-sketch-sheet { margin:0; padding:6px 4px; }
+  :root[data-theme="cel"] .ta-anime-figure-no { font-size:6px; letter-spacing:0; }
+  :root[data-theme="cel"] .ta-anime-sketch-sheet figcaption { font-size:7px; letter-spacing:0; }
+  :root[data-theme="cel"] .ta-anime-route-grid { grid-template-columns:1fr; gap:11px; }
+  :root[data-theme="cel"] .ta-anime-route-grid button { padding:13px 15px 0 60px; gap:5px; }
+  :root[data-theme="cel"] .ta-anime-route-icon { position:absolute; left:15px; top:28px; }
+  :root[data-theme="cel"] .ta-anime-route-grid strong { font-size:15px; }
+  :root[data-theme="cel"] .ta-anime-route-grid b { margin:5px -15px 0 -60px; padding:7px 15px; text-align:right; }
+  :root[data-theme="cel"] .ta-anime-route-no { font-size:26px; right:12px; }
+  :root[data-theme="cel"] .ta-anime-taskbar { padding:9px; gap:7px; }
+  :root[data-theme="cel"] .ta-anime-taskbar-label { letter-spacing:.6px; font-size:7px; }
+  :root[data-theme="cel"] .ta-anime-taskbar p { font-size:10px; }
+  :root[data-theme="cel"] .ta-anime-transcript-label { font-size:7px; letter-spacing:.7px; }
+}
+@media(max-width:370px) {
+  :root[data-theme="cel"] .ta-anime-briefing { grid-template-columns:1fr; }
+  :root[data-theme="cel"] .ta-anime-sketch-sheet { position:absolute; width:92px; right:12px; bottom:15px; opacity:.6; }
+  :root[data-theme="cel"] .ta-anime-brief-copy p { max-width:190px; }
+  :root[data-theme="cel"] .ta-anime-file-heading>span:last-child { display:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  :root[data-theme="cel"] .ta-anime-beacon { animation:none!important; }
+  :root[data-theme="cel"] .ta-anime-route-grid button { transition:none; }
+}

@@ -1,0 +1,28 @@
+{
+  "request": {
+    "tool_name": "matlab_function_eval",
+    "adapter_name": "mock",
+    "mode": "mock",
+    "inputs": {
+      "function_name": "estimate_temperature",
+      "parameters": {
+        "power_w": 500,
+        "r_k_per_w": 0.08,
+        "t_in_c": 30
+      }
+    }
+  },
+  "expected_subset": {
+    "tool_name": "matlab_function_eval",
+    "adapter_name": "mock",
+    "status": "success",
+    "mocked": true,
+    "result.values.junction_temperature_c.value": 70.0,
+    "result.values.junction_temperature_c.unit": "degC",
+    "metadata.cfd_executed": false,
+    "metadata.solver_executed": false
+  },
+  "required_warnings": [
+    "mock_result_not_real_solver_output"
+  ]
+}
